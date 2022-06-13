@@ -6,9 +6,8 @@ public class PlayerCamSwitch : MonoBehaviour
 {
     public GameObject FirstCam; // First-person camera
     public GameObject ThirdCam; // Third-person camera
-    public int camMode; // Either 1st or 3rd Person
+    public int camMode; // Specifies either 1st or 3rd Person
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.C)) // Switches cam mode on letter press
@@ -23,7 +22,7 @@ public class PlayerCamSwitch : MonoBehaviour
                 camMode += 1;
             }
 
-            StartCoroutine(CamChange());
+            StartCoroutine(CamChange()); // Change Camera
         }
     }
 
@@ -31,7 +30,7 @@ public class PlayerCamSwitch : MonoBehaviour
     {
         yield return new WaitForSeconds(0.01f);
 
-        if(camMode == 0)
+        if(camMode == 0) // First Person
         {
             FirstCam.SetActive(true);
             ThirdCam.SetActive(false);
@@ -39,7 +38,7 @@ public class PlayerCamSwitch : MonoBehaviour
             ThirdCam.GetComponent<AudioListener>().enabled = false;
         }
 
-        if (camMode == 1)
+        if (camMode == 1) // Third Person
         {
             ThirdCam.SetActive(true);
             FirstCam.SetActive(false);
