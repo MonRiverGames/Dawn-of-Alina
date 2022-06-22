@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Defines data regarding game items
 public enum ItemType
 {
     Potion,
@@ -11,8 +12,22 @@ public enum ItemType
 
 public abstract class ItemObject : ScriptableObject
 {
-    public GameObject prefab;
+    public int Id;
+    public Sprite UiDisplay;
     public ItemType type;
     [TextArea(15,20)]
     public string description;
+}
+
+[System.Serializable]
+public class Item
+{
+    public string Name;
+    public int Id;
+
+    public Item(ItemObject item)
+    {
+        Name = item.name;
+        Id = item.Id;
+    }
 }

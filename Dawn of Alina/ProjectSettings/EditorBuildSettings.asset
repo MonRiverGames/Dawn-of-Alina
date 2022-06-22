@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Zach's Test Scenes/Scenes/ZachTestScene.unity
+    guid: 2d66cc391b0a5e542a03ea598ca0cb83
   m_configObjects: {}
