@@ -686,6 +686,7 @@ GameObject:
   - component: {fileID: 669580118}
   - component: {fileID: 669580117}
   - component: {fileID: 669580116}
+  - component: {fileID: 669580119}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -771,6 +772,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669580114}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &669580119
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669580114}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cd6feb354e4bee144a93f6ae10e788fa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &693317290
 GameObject:
   m_ObjectHideFlags: 0
@@ -2036,10 +2057,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1957815889}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92144ece187410746bb8f9656161329b, type: 3}
+  m_Script: {fileID: 11500000, guid: 171937e8833b1224db9f2805448fb528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   promptMessage: Use Keypad
+  door: {fileID: 669580114}
 --- !u!1 &2050714089
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,7 +15,8 @@ public abstract class Interactable : MonoBehaviour
     
     protected virtual void Interact() 
     { 
-        
+        //No code is written in this function
+        //This is a template that the subclasses will overwrite
     }
 
     
