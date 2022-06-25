@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a081dbc3aee868d46b3ad8d79df9fa2f, type: 3}
   m_Name: Player Inventory
   m_EditorClassIdentifier: 
-  savePath: /inventory.Save
+  savePath: /Save.inventory
   database: {fileID: 11400000, guid: 0d7bd9650c949164980250ff175a9fbc, type: 2}
   Container:
     Items:
@@ -20,4 +20,4 @@ MonoBehaviour:
       item:
         Name: HealingPotion
         Id: 2
-      amount: 2
+      amount: 12
