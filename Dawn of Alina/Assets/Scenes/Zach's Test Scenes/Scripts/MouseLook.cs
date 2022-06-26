@@ -9,11 +9,11 @@ public class MouseLook : MonoBehaviour // Handles looking with mouse
     public float xRotation = 0f; 
 
     // Start is called before the first frame update
-    void Start()
+   /* void Start()
     {
         // Locks Cursor during player movement
         Cursor.lockState = CursorLockMode.Locked;
-    }
+    }*/
 
     // Update is called once per frame
     void Update()
