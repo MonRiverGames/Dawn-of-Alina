@@ -502,6 +502,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 392376604, guid: 86abf8d67f9d9a64b97f532b8b9ec9ac, type: 3}
+      propertyPath: backHealthBar
+      value: 
+      objectReference: {fileID: 563035557}
+    - target: {fileID: 392376604, guid: 86abf8d67f9d9a64b97f532b8b9ec9ac, type: 3}
+      propertyPath: frontHealthBar
+      value: 
+      objectReference: {fileID: 825136879}
     - target: {fileID: 1053824997, guid: 86abf8d67f9d9a64b97f532b8b9ec9ac, type: 3}
       propertyPath: _promptText
       value: 
@@ -556,27 +564,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86abf8d67f9d9a64b97f532b8b9ec9ac, type: 3}
---- !u!1 &392376603 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 900443765205844274, guid: 86abf8d67f9d9a64b97f532b8b9ec9ac, type: 3}
-  m_PrefabInstance: {fileID: 392376602}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &392376604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 392376603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d42a2531bf7e715488f315dcc4d33480, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  chipSpeed: 5
-  frontHealthBar: {fileID: 825136879}
-  backHealthBar: {fileID: 563035557}
 --- !u!1 &458545085
 GameObject:
   m_ObjectHideFlags: 0
