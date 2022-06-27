@@ -4,28 +4,47 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
+    #region Singleton
     public static InventoryManager instance;
-    public List<ItemSlot> slots = new List<ItemSlot>();
-    public bool isMoving;
-    public ItemSlot grabbedItem;
 
     private void Awake()
     {
-        if(instance == null)
+        if(instance != null)
         {
-            instance = this;
+            return;
         }
 
-        for(int i = 0; i < transform.childCount; i++)
-        {
-            slots.Add(transform.GetChild(i).GetComponent<ItemSlot>());
-        }
-        foreach (ItemSlot slot in slots)
-            slot.LoadItem();
+        instance = this;
     }
+    #endregion
 
-    private void Update()
+    public List<Item> items = new List<Item>();
+    public int InventorySpace = 29;
+    public delegate void onItemChanged();
+    public onItemChanged onItemChangedCallback;
+
+    public bool AddItem(Item item)
     {
-        Cursor.lockState = CursorLockMode.Confined;
+        if (!item.isDefaultItem)
+        {
+            if (items.Count >= InventorySpace)
+            {
+                Debug.Log("Inventory Full");
+                return false;
+            }
+            items.Add(item);
+            
+            if(onItemChangedCallback != null)
+                onItemChangedCallback.Invoke();
+        }
+        return true;
+    }
+    public void RemoveItem(Item item)
+    {
+        items.Remove(item);
+        
+        if (onItemChangedCallback != null)
+            onItemChangedCallback.Invoke();
+
     }
 }

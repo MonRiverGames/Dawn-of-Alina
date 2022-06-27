@@ -80,6 +80,33 @@ public partial class @ZachPlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TakeDamageTest"",
+                    ""type"": ""Button"",
+                    ""id"": ""f5ab6fc4-587a-4375-a6bf-79b9d55a2897"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HealTest"",
+                    ""type"": ""Button"",
+                    ""id"": ""c092e109-70af-452f-a4ef-2025c26e111e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenInventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""346edb6a-2830-4afa-8f83-13677fe356a2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -344,6 +371,50 @@ public partial class @ZachPlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""144cf472-47ae-4b92-832a-dd4f2495f196"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TakeDamageTest"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""056874b4-6c75-41bf-9641-f1e332b234d5"",
+                    ""path"": ""<Keyboard>/o"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HealTest"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""505440da-87fe-4478-ad5e-2afdc447f56a"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenInventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0fd9b3da-034f-4b08-b484-a8fe09f7571b"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenInventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -867,12 +938,12 @@ public partial class @ZachPlayerInput : IInputActionCollection2, IDisposable
         },
         {
             ""name"": ""CameraControl"",
-            ""id"": ""16e64dd5-c8e5-4159-81fa-e3bdb222624d"",
+            ""id"": ""8b90bee7-d5f0-4731-afae-36e6aa731921"",
             ""actions"": [
                 {
-                    ""name"": ""Switch Camera View"",
+                    ""name"": ""SwitchCameraView"",
                     ""type"": ""Button"",
-                    ""id"": ""b4e806b1-749f-4160-8412-210a69eb3521"",
+                    ""id"": ""006c99f0-9854-4235-9c1a-e78d9215f92c"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -882,23 +953,23 @@ public partial class @ZachPlayerInput : IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""08eb578e-e4f1-467b-aada-c22a231d31dd"",
-                    ""path"": ""<Gamepad>/select"",
+                    ""id"": ""536a77f9-8c2d-4a26-aaa1-29492c075c12"",
+                    ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Switch Camera View"",
+                    ""action"": ""SwitchCameraView"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""144814e8-a720-4512-89b9-c51faa366062"",
-                    ""path"": ""<Keyboard>/c"",
+                    ""id"": ""8822c84f-a78f-4c87-b4dc-a311949bad46"",
+                    ""path"": ""<Gamepad>/select"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Switch Camera View"",
+                    ""action"": ""SwitchCameraView"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -915,6 +986,9 @@ public partial class @ZachPlayerInput : IInputActionCollection2, IDisposable
         m_OnFoot_Sprint = m_OnFoot.FindAction("Sprint", throwIfNotFound: true);
         m_OnFoot_Crouch = m_OnFoot.FindAction("Crouch", throwIfNotFound: true);
         m_OnFoot_Interact = m_OnFoot.FindAction("Interact", throwIfNotFound: true);
+        m_OnFoot_TakeDamageTest = m_OnFoot.FindAction("TakeDamageTest", throwIfNotFound: true);
+        m_OnFoot_HealTest = m_OnFoot.FindAction("HealTest", throwIfNotFound: true);
+        m_OnFoot_OpenInventory = m_OnFoot.FindAction("OpenInventory", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -929,7 +1003,7 @@ public partial class @ZachPlayerInput : IInputActionCollection2, IDisposable
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         // CameraControl
         m_CameraControl = asset.FindActionMap("CameraControl", throwIfNotFound: true);
-        m_CameraControl_SwitchCameraView = m_CameraControl.FindAction("Switch Camera View", throwIfNotFound: true);
+        m_CameraControl_SwitchCameraView = m_CameraControl.FindAction("SwitchCameraView", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -995,6 +1069,9 @@ public partial class @ZachPlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_OnFoot_Sprint;
     private readonly InputAction m_OnFoot_Crouch;
     private readonly InputAction m_OnFoot_Interact;
+    private readonly InputAction m_OnFoot_TakeDamageTest;
+    private readonly InputAction m_OnFoot_HealTest;
+    private readonly InputAction m_OnFoot_OpenInventory;
     public struct OnFootActions
     {
         private @ZachPlayerInput m_Wrapper;
@@ -1005,6 +1082,9 @@ public partial class @ZachPlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Sprint => m_Wrapper.m_OnFoot_Sprint;
         public InputAction @Crouch => m_Wrapper.m_OnFoot_Crouch;
         public InputAction @Interact => m_Wrapper.m_OnFoot_Interact;
+        public InputAction @TakeDamageTest => m_Wrapper.m_OnFoot_TakeDamageTest;
+        public InputAction @HealTest => m_Wrapper.m_OnFoot_HealTest;
+        public InputAction @OpenInventory => m_Wrapper.m_OnFoot_OpenInventory;
         public InputActionMap Get() { return m_Wrapper.m_OnFoot; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1032,6 +1112,15 @@ public partial class @ZachPlayerInput : IInputActionCollection2, IDisposable
                 @Interact.started -= m_Wrapper.m_OnFootActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_OnFootActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_OnFootActionsCallbackInterface.OnInteract;
+                @TakeDamageTest.started -= m_Wrapper.m_OnFootActionsCallbackInterface.OnTakeDamageTest;
+                @TakeDamageTest.performed -= m_Wrapper.m_OnFootActionsCallbackInterface.OnTakeDamageTest;
+                @TakeDamageTest.canceled -= m_Wrapper.m_OnFootActionsCallbackInterface.OnTakeDamageTest;
+                @HealTest.started -= m_Wrapper.m_OnFootActionsCallbackInterface.OnHealTest;
+                @HealTest.performed -= m_Wrapper.m_OnFootActionsCallbackInterface.OnHealTest;
+                @HealTest.canceled -= m_Wrapper.m_OnFootActionsCallbackInterface.OnHealTest;
+                @OpenInventory.started -= m_Wrapper.m_OnFootActionsCallbackInterface.OnOpenInventory;
+                @OpenInventory.performed -= m_Wrapper.m_OnFootActionsCallbackInterface.OnOpenInventory;
+                @OpenInventory.canceled -= m_Wrapper.m_OnFootActionsCallbackInterface.OnOpenInventory;
             }
             m_Wrapper.m_OnFootActionsCallbackInterface = instance;
             if (instance != null)
@@ -1054,6 +1143,15 @@ public partial class @ZachPlayerInput : IInputActionCollection2, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @TakeDamageTest.started += instance.OnTakeDamageTest;
+                @TakeDamageTest.performed += instance.OnTakeDamageTest;
+                @TakeDamageTest.canceled += instance.OnTakeDamageTest;
+                @HealTest.started += instance.OnHealTest;
+                @HealTest.performed += instance.OnHealTest;
+                @HealTest.canceled += instance.OnHealTest;
+                @OpenInventory.started += instance.OnOpenInventory;
+                @OpenInventory.performed += instance.OnOpenInventory;
+                @OpenInventory.canceled += instance.OnOpenInventory;
             }
         }
     }
@@ -1204,6 +1302,9 @@ public partial class @ZachPlayerInput : IInputActionCollection2, IDisposable
         void OnSprint(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnTakeDamageTest(InputAction.CallbackContext context);
+        void OnHealTest(InputAction.CallbackContext context);
+        void OnOpenInventory(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

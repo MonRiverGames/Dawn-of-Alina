@@ -7,14 +7,14 @@ public class PlayerLookZach : MonoBehaviour
     public Camera cam;
     public GameObject FirstCam;
     public GameObject ThirdCam;
+    public GameObject InventoryScreen;
+    bool isInventoryActive = false;
     public float xRot = 0f;
     public float xSensitivity = 30f;
     public float ySensitivity = 30f;
     bool isThirdPerson = false; // Boolean specifies either 1st or 3rd Person
     void Start()
     {
-        // Locks Cursor during player movement
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void ProcessLook(Vector2 input)
@@ -39,5 +39,11 @@ public class PlayerLookZach : MonoBehaviour
         ThirdCam.SetActive(isThirdPerson);
         FirstCam.GetComponent<AudioListener>().enabled = !isThirdPerson;
         ThirdCam.GetComponent<AudioListener>().enabled = isThirdPerson;
+    }
+    public void ActivateUI()
+    {
+        print("Inventory");
+        isInventoryActive = !isInventoryActive;
+        InventoryScreen.SetActive(isInventoryActive);
     }
 }

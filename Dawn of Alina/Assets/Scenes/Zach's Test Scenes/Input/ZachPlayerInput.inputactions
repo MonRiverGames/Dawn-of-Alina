@@ -1,5 +1,5 @@
 {
-    "name": "PlayerInput",
+    "name": "ZachPlayerInput",
     "maps": [
         {
             "name": "OnFoot",
@@ -54,6 +54,33 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "df2966a2-f19f-4eb8-8cca-937adb64fc99",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TakeDamageTest",
+                    "type": "Button",
+                    "id": "f5ab6fc4-587a-4375-a6bf-79b9d55a2897",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "HealTest",
+                    "type": "Button",
+                    "id": "c092e109-70af-452f-a4ef-2025c26e111e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "OpenInventory",
+                    "type": "Button",
+                    "id": "346edb6a-2830-4afa-8f83-13677fe356a2",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -322,6 +349,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "144cf472-47ae-4b92-832a-dd4f2495f196",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TakeDamageTest",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "056874b4-6c75-41bf-9641-f1e332b234d5",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HealTest",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "505440da-87fe-4478-ad5e-2afdc447f56a",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenInventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0fd9b3da-034f-4b08-b484-a8fe09f7571b",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenInventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -845,12 +916,12 @@
         },
         {
             "name": "CameraControl",
-            "id": "16e64dd5-c8e5-4159-81fa-e3bdb222624d",
+            "id": "8b90bee7-d5f0-4731-afae-36e6aa731921",
             "actions": [
                 {
-                    "name": "Switch Camera View",
+                    "name": "SwitchCameraView",
                     "type": "Button",
-                    "id": "b4e806b1-749f-4160-8412-210a69eb3521",
+                    "id": "006c99f0-9854-4235-9c1a-e78d9215f92c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -860,23 +931,23 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "08eb578e-e4f1-467b-aada-c22a231d31dd",
-                    "path": "<Gamepad>/select",
+                    "id": "536a77f9-8c2d-4a26-aaa1-29492c075c12",
+                    "path": "<Keyboard>/c",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Switch Camera View",
+                    "action": "SwitchCameraView",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "144814e8-a720-4512-89b9-c51faa366062",
-                    "path": "<Keyboard>/c",
+                    "id": "8822c84f-a78f-4c87-b4dc-a311949bad46",
+                    "path": "<Gamepad>/select",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Switch Camera View",
+                    "action": "SwitchCameraView",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
