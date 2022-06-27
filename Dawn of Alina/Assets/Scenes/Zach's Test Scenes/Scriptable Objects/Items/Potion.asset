@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Potion
   m_EditorClassIdentifier: 
   Name: Potion
-  sprite: {fileID: 21300000, guid: 720936d3887635548b5eca76a7978798, type: 3}
+  icon: {fileID: 21300000, guid: 720936d3887635548b5eca76a7978798, type: 3}
+  isDefaultItem: 0
   description: 

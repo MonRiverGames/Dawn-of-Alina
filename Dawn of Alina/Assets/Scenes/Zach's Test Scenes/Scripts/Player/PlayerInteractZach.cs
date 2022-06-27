@@ -23,14 +23,16 @@ public class PlayerInteractZach : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Clears the interactable message prompt when not looking at anything.
+        // Clears the interactable message prompt when not looking at a game object.
         playerUI.UpdateText(string.Empty);
         
         //Creates a ray shooting out of the cams pos shooting forward
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
-        RaycastHit hitInfo; 
         
         // Store collision
+        RaycastHit hitInfo; 
+        
+        //Draws the ray so we can see it
         Debug.DrawRay(ray.origin, ray.direction * rayDis, Color.red);
 
         if (Physics.Raycast(ray, out hitInfo, rayDis, mask))
