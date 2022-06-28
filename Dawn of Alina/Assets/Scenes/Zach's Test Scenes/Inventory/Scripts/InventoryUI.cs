@@ -5,16 +5,21 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
-    public Transform itemsParent;
+    public Transform InventoryParent;
+    public Transform HotbarParent;
     InventoryManager inventory;
     InventorySlot[] slots;
+    InventorySlot[] hotbarSlots;
+    int totalLength;
 
     // Start is called before the first frame update
     void Start()
     {
         inventory = InventoryManager.instance;
         inventory.onItemChangedCallback += UpdateUI;
-        slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+        slots = InventoryParent.GetComponentsInChildren<InventorySlot>();
+        hotbarSlots = HotbarParent.GetComponentsInChildren<InventorySlot>();
+        totalLength = slots.Length + hotbarSlots.Length;
     }
 
     // Update is called once per frame
@@ -25,15 +30,16 @@ public class InventoryUI : MonoBehaviour
 
     void UpdateUI()
     {
-        for(int i = 0; i < slots.Length; i++)
+        for(int i = 0; i < totalLength; i++)
         {
-            if(i < inventory.items.Count)
+            if(i < inventory.items.Count && i < inventory.HotbarSpace)
+            {
+                hotbarSlots[i].AddItem(inventory.items[i]);
+            }
+
+            if(i < inventory.items.Count && i >= inventory.HotbarSpace)
             {
                 slots[i].AddItem(inventory.items[i]);
-            }
-            else
-            {
-                slots[i].ClearSlot();
             }
         }
     }

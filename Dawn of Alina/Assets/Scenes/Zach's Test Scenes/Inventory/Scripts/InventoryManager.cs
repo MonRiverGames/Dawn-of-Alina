@@ -20,6 +20,7 @@ public class InventoryManager : MonoBehaviour
 
     public List<Item> items = new List<Item>();
     public int InventorySpace = 29;
+    public int HotbarSpace = 7;
     public delegate void onItemChanged();
     public onItemChanged onItemChangedCallback;
 
@@ -27,6 +28,11 @@ public class InventoryManager : MonoBehaviour
     {
         if (!item.isDefaultItem)
         {
+            if(items.Count >= HotbarSpace)
+            {
+                Debug.Log("Hotbar Full");
+            }
+
             if (items.Count >= InventorySpace)
             {
                 Debug.Log("Inventory Full");
