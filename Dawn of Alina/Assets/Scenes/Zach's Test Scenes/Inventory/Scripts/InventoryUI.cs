@@ -5,41 +5,36 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
-    public Transform InventoryParent;
-    public Transform HotbarParent;
-    InventoryManager inventory;
+    public Transform InventoryParent; // Main Inventory
+    public Transform HotbarParent; // Hotbar
+    InventoryManager inventory; // Inventory instance
     InventorySlot[] slots;
     InventorySlot[] hotbarSlots;
-    int totalLength;
+    int totalSpace; // Sum of hotbar and inventory slots
 
-    // Start is called before the first frame update
     void Start()
     {
         inventory = InventoryManager.instance;
-        inventory.onItemChangedCallback += UpdateUI;
         slots = InventoryParent.GetComponentsInChildren<InventorySlot>();
         hotbarSlots = HotbarParent.GetComponentsInChildren<InventorySlot>();
-        totalLength = slots.Length + hotbarSlots.Length;
+        totalSpace = slots.Length + hotbarSlots.Length;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateUI() // Adds items to inventory screen
     {
-        
-    }
+        int j = 0;
 
-    void UpdateUI()
-    {
-        for(int i = 0; i < totalLength; i++)
+        for (int i = 0; i < totalSpace; i++)
         {
-            if(i < inventory.items.Count && i < inventory.HotbarSpace)
+            if (i < inventory.items.Count && i < inventory.HotbarSpace)
             {
                 hotbarSlots[i].AddItem(inventory.items[i]);
             }
 
-            if(i < inventory.items.Count && i >= inventory.HotbarSpace)
+            if (i < inventory.items.Count && j < inventory.InventorySpace && i > inventory.HotbarSpace)
             {
                 slots[i].AddItem(inventory.items[i]);
+                j++;
             }
         }
     }

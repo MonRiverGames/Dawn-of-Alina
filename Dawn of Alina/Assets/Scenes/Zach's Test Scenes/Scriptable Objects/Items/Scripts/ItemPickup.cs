@@ -11,12 +11,9 @@ public class ItemPickup : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (ItemCollider.transform.CompareTag(pickupTag))
-        {
-            bool wasPickedUp = InventoryManager.instance.AddItem(item);
-            if (wasPickedUp)
-            {
+        { 
+            InventoryManager.instance.AddItem(item);
                 Destroy(ItemCollider.gameObject);
-            }
         }
     }
 }
