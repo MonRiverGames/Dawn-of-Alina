@@ -282,9 +282,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5de1845f9e7cfe24ea708923aa285645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  FirstCam: {fileID: 0}
-  ThirdCam: {fileID: 0}
+  cam: {fileID: 900443765005021940}
+  FirstCam: {fileID: 900443765005021942}
+  ThirdCam: {fileID: 900443765005021942}
   InventoryScreen: {fileID: 0}
   xRot: 0
   xSensitivity: 30
