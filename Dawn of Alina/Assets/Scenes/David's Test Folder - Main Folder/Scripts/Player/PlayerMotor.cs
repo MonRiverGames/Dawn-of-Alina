@@ -5,24 +5,30 @@ using UnityEngine;
 public class PlayerMotor : MonoBehaviour
 {
     private CharacterController controller;
+
+    private Animator anim;
     
     private Vector3 playerVelocity;
     
-    public float speed = 5f;
+    public float speed = 2f;
     public float gravity = -9.8f;
     public float jumpHeight = 3f;
     public float crouchTimer;
+    public float animationFinishTime = 0.9f;
 
     public bool isGrounded;
     public bool lerpCrouch;
     public bool crouching;
     public bool sprinting;
+    public bool isWalking;
+    public bool isAttacking;
     
     
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -51,6 +57,13 @@ public class PlayerMotor : MonoBehaviour
                 crouchTimer = 0f;
             }
         }
+        
+        if(isAttacking && anim.GetCurrentAnimatorStateInfo(1).normalizedTime >= animationFinishTime)
+        {
+            isAttacking = false;
+        }
+
+        
     }
     
     //Recieve input from InputManager.cs and apply to character controller
@@ -69,7 +82,9 @@ public class PlayerMotor : MonoBehaviour
         }
         
         controller.Move(playerVelocity * Time.deltaTime);
-        
+
+        AnimateWalk(moveDir);
+        Debug.Log(moveDir);
     }
 
     public void Jump()
@@ -99,5 +114,37 @@ public class PlayerMotor : MonoBehaviour
             speed = 5f;
         }
     }
+
+    public void AnimateWalk(Vector3 input)
+    {
+        //isWalking = (input.x > 0.1f || input.x < 0.1f) || (input.z > 0.1f || input.z < 0.1f) ? true : false;
+
+        if (input.x > 0.1f || input.z > 0.1f)
+        {
+            anim.SetBool("isWalking", true);
+        }
+        else
+        {
+            anim.SetBool("isWalking", false);
+        }
+        
+    }
+    
+    public void Attack()
+    {
+        if (!isAttacking)
+        {
+            anim.SetTrigger("isAttacking");
+            StartCoroutine(AttackCoolDown());
+        }
+    }
+
+    IEnumerator AttackCoolDown()
+    {
+        yield return new WaitForSeconds(0.1f);
+        isAttacking = true;
+        
+    }
+
 
 }

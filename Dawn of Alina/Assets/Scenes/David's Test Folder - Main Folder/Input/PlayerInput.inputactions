@@ -1,5 +1,5 @@
 {
-    "name": "ZachPlayerInput",
+    "name": "PlayerInput",
     "maps": [
         {
             "name": "OnFoot",
@@ -81,6 +81,15 @@
                     "name": "OpenInventory",
                     "type": "Button",
                     "id": "346edb6a-2830-4afa-8f83-13677fe356a2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Attack",
+                    "type": "Button",
+                    "id": "547c79ca-3063-4c99-ac98-50964e9b563e",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -393,6 +402,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "OpenInventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "af3811aa-0341-455b-89ca-043a35bfac51",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
