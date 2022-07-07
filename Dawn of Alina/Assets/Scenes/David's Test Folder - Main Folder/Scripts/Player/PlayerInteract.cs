@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
 {
-    private Camera cam;
+    public Camera cam;
     [SerializeField]
     private float rayDis = 3f;
     [SerializeField]

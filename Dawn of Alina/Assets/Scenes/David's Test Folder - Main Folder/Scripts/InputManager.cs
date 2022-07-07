@@ -23,7 +23,7 @@ public class InputManager : MonoBehaviour
         onFoot.Crouch.performed += ctx => playerMotor.Crouch();
         onFoot.Sprint.performed += ctx => playerMotor.Sprint();
         onFoot.Attack.performed += ctx => playerMotor.Attack();
-        cameraControl.SwitchCameraView.performed += ctx => playerLook.getCamChange();
+        
         onFoot.OpenInventory.performed += ctx => playerLook.ActivateUI();
     }
 

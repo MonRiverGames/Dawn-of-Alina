@@ -34,36 +34,8 @@ public class PlayerMotor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isGrounded = controller.isGrounded;
-        if (lerpCrouch)
-        {
-            crouchTimer += Time.deltaTime;
-            float p = crouchTimer / 1;
-            p *= p;
-            if (crouching)
-            {
-                controller.height = Mathf.Lerp(controller.height, 1f, p);
-                
-            }
-            else
-            {
-                controller.height = Mathf.Lerp(controller.height, 2f, p);
-                
-            }
-
-            if (p > 1)
-            {
-                lerpCrouch = false;
-                crouchTimer = 0f;
-            }
-        }
-        
-        if(isAttacking && anim.GetCurrentAnimatorStateInfo(1).normalizedTime >= animationFinishTime)
-        {
-            isAttacking = false;
-        }
-
-        
+        ProcessCrouch();
+        ProcessAttack();
     }
     
     //Recieve input from InputManager.cs and apply to character controller
@@ -102,6 +74,33 @@ public class PlayerMotor : MonoBehaviour
         lerpCrouch = true;
     }
     
+    public void ProcessCrouch()
+    {
+        isGrounded = controller.isGrounded;
+        if (lerpCrouch)
+        {
+            crouchTimer += Time.deltaTime;
+            float p = crouchTimer / 1;
+            p *= p;
+            if (crouching)
+            {
+                controller.height = Mathf.Lerp(controller.height, 1f, p);
+
+            }
+            else
+            {
+                controller.height = Mathf.Lerp(controller.height, 2f, p);
+
+            }
+
+            if (p > 1)
+            {
+                lerpCrouch = false;
+                crouchTimer = 0f;
+            }
+        }
+    }
+    
     public void Sprint()
     {
         sprinting = !sprinting;
@@ -111,7 +110,7 @@ public class PlayerMotor : MonoBehaviour
         }
         else
         {
-            speed = 5f;
+            speed = 2f;
         }
     }
 
@@ -136,6 +135,14 @@ public class PlayerMotor : MonoBehaviour
         {
             anim.SetTrigger("isAttacking");
             StartCoroutine(AttackCoolDown());
+        }
+    }
+    
+    public void ProcessAttack()
+    {
+        if (isAttacking && anim.GetCurrentAnimatorStateInfo(1).normalizedTime >= animationFinishTime)
+        {
+            isAttacking = false;
         }
     }
 
