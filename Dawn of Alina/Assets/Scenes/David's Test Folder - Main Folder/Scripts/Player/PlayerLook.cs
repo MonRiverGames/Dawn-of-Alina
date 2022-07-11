@@ -8,8 +8,6 @@ public class PlayerLook : MonoBehaviour
     public GameObject camPos;
     public Vector3 offSet;
     public GameObject head;
-    
-    
     public GameObject InventoryScreen;
     bool isInventoryActive = false;
     public float xRot = 0f;
@@ -20,6 +18,7 @@ public class PlayerLook : MonoBehaviour
     void Start()
     {
         camPos.transform.position = head.transform.position + offSet;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void Update()
@@ -49,5 +48,15 @@ public class PlayerLook : MonoBehaviour
         print("Inventory");
         isInventoryActive = !isInventoryActive;
         InventoryScreen.SetActive(isInventoryActive);
+
+        if (isInventoryActive)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+        }
+
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 }

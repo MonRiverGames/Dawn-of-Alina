@@ -28,13 +28,13 @@ public class InventoryUI : MonoBehaviour
         {
             if (i < inventory.items.Count && i < inventory.HotbarSpace)
             {
-                hotbarSlots[i].AddItem(inventory.items[i]);
+                    hotbarSlots[i].AddItem(inventory.items[i]);
             }
 
             if (i < inventory.items.Count && j < inventory.InventorySpace && i > inventory.HotbarSpace)
             {
-                slots[i].AddItem(inventory.items[i]);
-                j++;
+                    slots[i].AddItem(inventory.items[i]);
+                    j++;
             }
         }
     }

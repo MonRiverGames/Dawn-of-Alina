@@ -718,6 +718,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3657c48a72f74a446b7418ff92ab7f1b, type: 3}
+--- !u!1 &151315869 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4670223075108568425, guid: 04f1d16644707dc42acaab6b598ae8dd, type: 3}
+  m_PrefabInstance: {fileID: 5526184961641144858}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &151315870 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4670223075108568427, guid: 04f1d16644707dc42acaab6b598ae8dd, type: 3}
+  m_PrefabInstance: {fileID: 5526184961641144858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &154861383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1936,7 +1946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemCollider: {fileID: 393990144}
   pickupTag: isPickupable
-  item: {fileID: 11400000, guid: 8ad432ab252eb37489a3b4714266151f, type: 2}
+  item: {fileID: 0}
 --- !u!65 &393990144
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2689,7 +2699,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemCollider: {fileID: 467643176}
   pickupTag: isPickupable
-  item: {fileID: 11400000, guid: 8ad432ab252eb37489a3b4714266151f, type: 2}
+  item: {fileID: 0}
 --- !u!1 &471171939
 GameObject:
   m_ObjectHideFlags: 0
@@ -3030,7 +3040,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemCollider: {fileID: 590010539}
   pickupTag: isPickupable
-  item: {fileID: 11400000, guid: a5913dcb821b56347a71324e89aeac7d, type: 2}
+  item: {fileID: 0}
 --- !u!65 &590010539
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3878,7 +3888,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemCollider: {fileID: 777565900}
   pickupTag: isPickupable
-  item: {fileID: 11400000, guid: a5913dcb821b56347a71324e89aeac7d, type: 2}
+  item: {fileID: 0}
 --- !u!65 &777565900
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5680,7 +5690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemCollider: {fileID: 1551610021}
   pickupTag: isPickupable
-  item: {fileID: 11400000, guid: a5913dcb821b56347a71324e89aeac7d, type: 2}
+  item: {fileID: 0}
 --- !u!65 &1551610021
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7145,7 +7155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemCollider: {fileID: 2028783946}
   pickupTag: isPickupable
-  item: {fileID: 11400000, guid: 8ad432ab252eb37489a3b4714266151f, type: 2}
+  item: {fileID: 0}
 --- !u!65 &2028783946
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8178,6 +8188,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4966657777202703318, guid: 04f1d16644707dc42acaab6b598ae8dd, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 151315870}
+    - target: {fileID: 4966657777202703318, guid: 04f1d16644707dc42acaab6b598ae8dd, type: 3}
+      propertyPath: mask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 5297515560269163947, guid: 04f1d16644707dc42acaab6b598ae8dd, type: 3}
       propertyPath: InventoryScreen
       value: 
@@ -8186,6 +8204,26 @@ PrefabInstance:
       propertyPath: _promptText
       value: 
       objectReference: {fileID: 409290484}
+    - target: {fileID: 6812794031268203944, guid: 04f1d16644707dc42acaab6b598ae8dd, type: 3}
+      propertyPath: head
+      value: 
+      objectReference: {fileID: 151315869}
+    - target: {fileID: 6812794031268203944, guid: 04f1d16644707dc42acaab6b598ae8dd, type: 3}
+      propertyPath: camPos
+      value: 
+      objectReference: {fileID: 151315869}
+    - target: {fileID: 6812794031268203944, guid: 04f1d16644707dc42acaab6b598ae8dd, type: 3}
+      propertyPath: InventoryScreen
+      value: 
+      objectReference: {fileID: 2119321687}
+    - target: {fileID: 8597701611218071035, guid: 04f1d16644707dc42acaab6b598ae8dd, type: 3}
+      propertyPath: backHealthBar
+      value: 
+      objectReference: {fileID: 647578643}
+    - target: {fileID: 8597701611218071035, guid: 04f1d16644707dc42acaab6b598ae8dd, type: 3}
+      propertyPath: frontHealthBar
+      value: 
+      objectReference: {fileID: 1701474742}
     - target: {fileID: 8615290300176352438, guid: 04f1d16644707dc42acaab6b598ae8dd, type: 3}
       propertyPath: backHealthBar
       value: 

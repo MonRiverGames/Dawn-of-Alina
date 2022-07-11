@@ -8,20 +8,31 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
 {
     public Item item; 
     public Sprite icon;
-    InventoryManager inventory;
+    public Button RemoveButton;
+    public InventoryUI UI;
+    public bool isFilled;
 
     public void AddItem(Item newItem) // Adds item to slot
     {
         item = newItem;
-        icon = item.icon;
-        transform.GetChild(0).GetComponent<Image>().sprite = icon;
-        transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = item.amount.ToString();
         
+        if (newItem.amount <= newItem.stackLimit)
+        {
+            icon = item.icon;
+            transform.GetChild(0).GetComponent<Image>().sprite = icon;
+            transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = item.amount.ToString();
+            isFilled = true;
+        }
+        else 
+        {
+            newItem.amount = 1;
+            InventoryManager.instance.AddItem(newItem);
+        }
+
         if (newItem.amount > 1)
         {
             transform.GetChild(1).GetComponent<TextMeshProUGUI>().enabled = true; // Displays the amount
         }
-
     }
 
     public void ClearSlot() // Clears a given slot
@@ -31,5 +42,14 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
         transform.GetChild(0).GetComponent<Image>().sprite = null;
         transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = null;
         transform.GetChild(1).GetComponent<TextMeshProUGUI>().enabled = false;
+        isFilled = false;
+    }
+
+    public void OnRemoveButton()
+    {
+        Debug.Log("HELLO THERE");
+        InventoryManager.instance.Remove(item);
+        ClearSlot();
+        UI.UpdateUI();
     }
 }

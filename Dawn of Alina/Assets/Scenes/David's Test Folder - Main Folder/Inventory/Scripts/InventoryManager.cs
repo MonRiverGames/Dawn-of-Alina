@@ -42,4 +42,10 @@ public class InventoryManager : MonoBehaviour // Manages inventory as a Singleto
 
         UI.UpdateUI(); // Update Inventory Screen
     }
+
+    public void Remove(Item item)
+    {
+        items.Remove(item);
+        UI.UpdateUI();
+    }
 }
