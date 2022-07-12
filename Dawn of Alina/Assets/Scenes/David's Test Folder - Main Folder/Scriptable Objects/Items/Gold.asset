@@ -17,3 +17,4 @@ MonoBehaviour:
   description: 
   amount: 1
   stackLimit: 64
+  itemID: 0
