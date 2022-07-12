@@ -28,13 +28,19 @@ public class InventoryUI : MonoBehaviour
         {
             if (i < inventory.items.Count && i < inventory.HotbarSpace)
             {
+                if (!hotbarSlots[i].isFilled || (hotbarSlots[i].item.amount <= hotbarSlots[i].item.stackLimit))
+                {
                     hotbarSlots[i].AddItem(inventory.items[i]);
+                }
             }
 
             if (i < inventory.items.Count && j < inventory.InventorySpace && i > inventory.HotbarSpace)
             {
+                if (!slots[i].isFilled || (slots[i].item.amount <= slots[i].item.stackLimit))
+                {
                     slots[i].AddItem(inventory.items[i]);
                     j++;
+                }
             }
         }
     }
