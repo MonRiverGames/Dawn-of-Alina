@@ -2115,6 +2115,7 @@ GameObject:
   - component: {fileID: 4244487363987746672}
   - component: {fileID: 4244487363987746634}
   - component: {fileID: 41281369}
+  - component: {fileID: 292587244}
   m_Layer: 0
   m_Name: Alina 1
   m_TagString: Player
@@ -2246,6 +2247,8 @@ MonoBehaviour:
   offSet: {x: 0, y: 0.1, z: 0}
   head: {fileID: 921759016811516294}
   InventoryScreen: {fileID: 0}
+  UI: {fileID: 0}
+  isInventoryActive: 1
   xRot: 0
   yRot: 0
   xSensitivity: 30
@@ -2293,6 +2296,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &292587244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7443481226265112499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01da8b6dd85128d4f806f8abb233db0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items: []
+  InventorySpace: 30
+  HotbarSpace: 5
+  UI: {fileID: 0}
 --- !u!1 &7607359421735653540
 GameObject:
   m_ObjectHideFlags: 0

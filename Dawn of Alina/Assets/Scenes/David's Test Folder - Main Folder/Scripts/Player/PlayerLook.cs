@@ -9,7 +9,8 @@ public class PlayerLook : MonoBehaviour
     public Vector3 offSet;
     public GameObject head;
     public GameObject InventoryScreen;
-    bool isInventoryActive = false;
+    public InventoryUI UI;
+    public bool isInventoryActive = true;
     public float xRot = 0f;
     public float yRot = 0f;
     public float xSensitivity = 30f;
@@ -45,7 +46,6 @@ public class PlayerLook : MonoBehaviour
     // Added Cam Switching for new input system  
     public void ActivateUI()
     {
-        print("Inventory");
         isInventoryActive = !isInventoryActive;
         InventoryScreen.SetActive(isInventoryActive);
 
@@ -58,5 +58,7 @@ public class PlayerLook : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
+
+        UI.UpdateUI();
     }
 }

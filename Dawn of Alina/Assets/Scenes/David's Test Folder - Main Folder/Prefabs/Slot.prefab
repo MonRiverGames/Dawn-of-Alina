@@ -307,6 +307,7 @@ MonoBehaviour:
   icon: {fileID: 0}
   RemoveButton: {fileID: 7246584786378972264}
   UI: {fileID: 0}
+  isFilled: 0
 --- !u!1 &6559184280932892817
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,7 +326,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &122936926007539036
 RectTransform:
   m_ObjectHideFlags: 0

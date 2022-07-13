@@ -22,6 +22,7 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
             transform.GetChild(0).GetComponent<Image>().sprite = icon;
             transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = item.amount.ToString();
             isFilled = true;
+            UI.EnableRemoveButton();
         }
         else 
         {
@@ -43,6 +44,7 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
         transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = null;
         transform.GetChild(1).GetComponent<TextMeshProUGUI>().enabled = false;
         isFilled = false;
+        UI.EnableRemoveButton();
     }
 
     public void OnRemoveButton()

@@ -23,5 +23,4 @@ public class ItemInteract : Interactable
         InventoryManager.instance.AddItem(item);
         Destroy(gameObject);
     }
-
 }
