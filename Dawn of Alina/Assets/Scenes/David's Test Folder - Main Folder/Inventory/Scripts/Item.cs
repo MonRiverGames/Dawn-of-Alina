@@ -12,6 +12,7 @@ public class Item : ScriptableObject // Holds data for Item
     public int amount;
     public int stackLimit;
     public int itemID;
+    public bool inSlot;
 
     private void OnEnable() 
     {

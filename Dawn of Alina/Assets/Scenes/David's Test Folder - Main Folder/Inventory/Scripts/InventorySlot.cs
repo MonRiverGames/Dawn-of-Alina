@@ -11,7 +11,10 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
     public Button RemoveButton;
     public InventoryUI UI;
     public bool isFilled;
-
+    public bool isViewing;
+    public bool isMoving;
+    public Transform ItemInfo;
+   
     public void AddItem(Item newItem) // Adds item to slot
     {
         item = newItem;
@@ -22,11 +25,13 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
             transform.GetChild(0).GetComponent<Image>().sprite = icon;
             transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = item.amount.ToString();
             isFilled = true;
+            item.inSlot = true;
             UI.EnableRemoveButton();
         }
         else 
         {
             newItem.amount = 1;
+            newItem.inSlot = true;
             InventoryManager.instance.AddItem(newItem);
         }
 
@@ -49,9 +54,36 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
 
     public void OnRemoveButton()
     {
-        Debug.Log("HELLO THERE");
         InventoryManager.instance.Remove(item);
         ClearSlot();
-        UI.UpdateUI();
+    }
+
+    // On mouse enter 
+    public void EnterItem() => isViewing = true;
+
+    // On mouse exit
+    public void ExitItem() => isViewing = false;
+
+    public void DisplayInfo()
+    {
+        if (isViewing && isFilled)
+        {
+            ItemInfo.GetChild(0).GetComponent<TextMeshProUGUI>().text = item.name;
+            ItemInfo.GetChild(0).GetComponent<TextMeshProUGUI>().enabled = true;
+            ItemInfo.GetChild(1).GetComponent<Image>().sprite = item.icon;
+            ItemInfo.GetChild(1).GetComponent<Image>().enabled = true;
+            ItemInfo.GetChild(2).GetComponent<TextMeshProUGUI>().text = item.description;
+            ItemInfo.GetChild(2).GetComponent<TextMeshProUGUI>().enabled = true;
+            ItemInfo.gameObject.SetActive(true);
+        }
+
+        else
+        {
+            ItemInfo.GetChild(0).GetComponent<TextMeshProUGUI>().text = null;
+            ItemInfo.GetChild(1).GetComponent<Image>().sprite = null;
+            ItemInfo.GetChild(2).GetComponent<TextMeshProUGUI>().text = null;
+            ItemInfo.gameObject.SetActive(false);
+        }
     }
 }
+

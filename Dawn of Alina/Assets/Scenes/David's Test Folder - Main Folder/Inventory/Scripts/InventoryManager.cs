@@ -19,8 +19,7 @@ public class InventoryManager : MonoBehaviour // Manages inventory as a Singleto
     #endregion // InventoryManager instance
 
     public List<Item> items = new List<Item>(); // Holds items; basically the inventory
-    public int InventorySpace = 30; // # of slots in hotbar
-    public int HotbarSpace = 5; // # of slots in hotbar
+    public int InventorySpace = 25; // # of slots
     public InventoryUI UI;
 
     public void AddItem(Item item)
@@ -46,6 +45,5 @@ public class InventoryManager : MonoBehaviour // Manages inventory as a Singleto
     public void Remove(Item item)
     {
         items.Remove(item);
-        UI.UpdateUI();
     }
 }
