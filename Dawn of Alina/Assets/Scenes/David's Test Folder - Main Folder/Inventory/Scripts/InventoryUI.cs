@@ -10,8 +10,6 @@ public class InventoryUI : MonoBehaviour
     InventorySlot[] slots;
     public GameObject Player;
     PlayerLook playerLook;
-    public bool isMoving;
-    public InventorySlot grabbedSlot;
 
     void Start()
     {
@@ -21,22 +19,22 @@ public class InventoryUI : MonoBehaviour
         playerLook = Player.GetComponent<PlayerLook>();
     }
 
-    public void EnableRemoveButton()
+    public void EnableRemoveButton() // Enables/Disables remove button on inventoy slot
     {
         foreach (InventorySlot slot in slots)
         {
             if (slot.isFilled)
             {
-                slot.transform.GetChild(2).gameObject.SetActive(true);
+                slot.transform.GetChild(2).gameObject.SetActive(true); // Enable Remove Button
             }
             else
             {
-                slot.transform.GetChild(2).gameObject.SetActive(false);
+                slot.transform.GetChild(2).gameObject.SetActive(false); // Disable Remove Button
             }
         }
     }
 
-    public bool inSlot(Item item)
+    public bool inSlot(Item item) // Checks if item is present in inventory slot
     {
         foreach(InventorySlot slot in slots)
         {

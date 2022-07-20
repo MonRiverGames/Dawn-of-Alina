@@ -10,11 +10,11 @@ public class Item : ScriptableObject // Holds data for Item
     [TextArea(15, 20)]
     public string description;
     public int amount;
+    public int itemValue;
     public int stackLimit;
-    public int itemID;
     public bool inSlot;
 
-    private void OnEnable() 
+    private void OnEnable() // Sets amount of item to 1 as default
     {
         amount = 1;
     }

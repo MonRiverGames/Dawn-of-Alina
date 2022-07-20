@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d25dcdd57f5c514b934dc8a2676c7c0, type: 3}
-  m_Name: Potion
+  m_Name: Gem
   m_EditorClassIdentifier: 
   Name: Gem
   icon: {fileID: 21300000, guid: b53e306829822304780124605bdb8087, type: 3}
   description: A Gem.
   amount: 1
+  itemValue: 25
   stackLimit: 16
-  itemID: 0
   inSlot: 1

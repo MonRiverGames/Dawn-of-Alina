@@ -12,8 +12,8 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
     public InventoryUI UI;
     public bool isFilled;
     public bool isViewing;
-    public bool isMoving;
     public Transform ItemInfo;
+    public string ItemValue;
    
     public void AddItem(Item newItem) // Adds item to slot
     {
@@ -74,14 +74,17 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
             ItemInfo.GetChild(1).GetComponent<Image>().enabled = true;
             ItemInfo.GetChild(2).GetComponent<TextMeshProUGUI>().text = item.description;
             ItemInfo.GetChild(2).GetComponent<TextMeshProUGUI>().enabled = true;
+            ItemValue = "Value: " + item.itemValue.ToString();
+            ItemInfo.GetChild(3).GetComponent<TextMeshProUGUI>().text = ItemValue;
+            ItemInfo.GetChild(2).GetComponent<TextMeshProUGUI>().enabled = true;
             ItemInfo.gameObject.SetActive(true);
         }
-
         else
         {
             ItemInfo.GetChild(0).GetComponent<TextMeshProUGUI>().text = null;
             ItemInfo.GetChild(1).GetComponent<Image>().sprite = null;
             ItemInfo.GetChild(2).GetComponent<TextMeshProUGUI>().text = null;
+            ItemInfo.GetChild(3).GetComponent<TextMeshProUGUI>().text = null;
             ItemInfo.gameObject.SetActive(false);
         }
     }

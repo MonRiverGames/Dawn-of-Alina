@@ -18,7 +18,7 @@ public class ItemInteract : Interactable
         
     }
 
-    protected override void Interact()
+    protected override void Interact() // Adds Item to inventory upon interaction/pickup
     {
         InventoryManager.instance.AddItem(item);
         Destroy(gameObject);

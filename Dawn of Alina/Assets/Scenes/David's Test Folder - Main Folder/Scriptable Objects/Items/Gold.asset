@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: Gold
   icon: {fileID: 21300000, guid: 9940ff8ddcdde674cbdfaf02532cad31, type: 3}
   description: A Gold Coin.
-  amount: 4
+  amount: 1
+  itemValue: 1
   stackLimit: 64
-  itemID: 0
   inSlot: 1
