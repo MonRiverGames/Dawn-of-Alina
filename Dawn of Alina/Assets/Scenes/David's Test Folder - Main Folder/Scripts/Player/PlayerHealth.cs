@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    private float health;
+    private Animator anim;
+    private float isDead;
+
+    public float health = 100;
     private float lerpTimer;
     
     public float maxHealth = 100f;
@@ -15,11 +18,14 @@ public class PlayerHealth : MonoBehaviour
     public Image backHealthBar;
 
     
+
+    
     private InputManager inputManager;  //Delete this later (Test)
 
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         health = maxHealth;
         inputManager = GetComponent<InputManager>();  //Delete this later (Test)
     }
@@ -39,6 +45,8 @@ public class PlayerHealth : MonoBehaviour
         {
             RestoreHealth(Random.Range(0, 10));
         }
+        
+        
     }
 
     public void UpdateHealthUI()
@@ -76,11 +84,28 @@ public class PlayerHealth : MonoBehaviour
     {
         health -= damage;
         lerpTimer = 0f;
+        
+        if(health <= 0)
+        {
+            Die();
+        }
     }
     
     public void RestoreHealth(float healAmount)
     {
         health += healAmount;
         lerpTimer = 0f;
+    }
+
+    public void Die()
+    {
+        anim.SetTrigger("Death");
+        StartCoroutine(Death());
+    }
+    
+    IEnumerator Death()
+    {
+        yield return new WaitForSeconds(10f);
+        Destroy(gameObject);
     }
 }

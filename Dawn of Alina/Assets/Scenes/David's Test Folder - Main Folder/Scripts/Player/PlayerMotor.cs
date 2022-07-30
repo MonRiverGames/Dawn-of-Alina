@@ -1,27 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMotor : MonoBehaviour
 {
     private CharacterController controller;
+    private InputManager inputManager;
+    private PlayerInput playerInput;
 
     private Animator anim;
     
     private Vector3 playerVelocity;
+
     
     public float speed = 2f;
     public float gravity = -9.8f;
     public float jumpHeight = 3f;
-    public float crouchTimer;
+    
     public float animationFinishTime = 0.9f;
+    public float velocity = 0f;
+    public float backVelocity = 0f;
+    public float acceleration = 0.5f;
+    public float attackCoolDown = 0.5f;
+
+    public int selectedSpell;
 
     public bool isGrounded;
-    public bool lerpCrouch;
-    public bool crouching;
     public bool sprinting;
     public bool isWalking;
     public bool isAttacking;
+    public bool canAttack;
+    public bool walkingBackwards;
+    public bool runningBackwards;
+
+    
     
     
     // Start is called before the first frame update
@@ -34,8 +47,13 @@ public class PlayerMotor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ProcessCrouch();
-        ProcessAttack();
+        SetSpell();
+        WalkForwards();
+        WalkBackwards();
+        PlayAttack();
+        
+
+        
     }
     
     //Recieve input from InputManager.cs and apply to character controller
@@ -55,8 +73,6 @@ public class PlayerMotor : MonoBehaviour
         
         controller.Move(playerVelocity * Time.deltaTime);
 
-        AnimateWalk(moveDir);
-        Debug.Log(moveDir);
     }
 
     public void Jump()
@@ -64,94 +80,211 @@ public class PlayerMotor : MonoBehaviour
         if (isGrounded)
         {
             playerVelocity.y = Mathf.Sqrt(jumpHeight * 3f * gravity);
+            anim.SetTrigger("Jump");
         }
     }
-    
-    public void Crouch()
+
+    public void WalkForwards()
     {
-        crouching = !crouching;
-        crouchTimer = 0;
-        lerpCrouch = true;
-    }
-    
-    public void ProcessCrouch()
-    {
-        isGrounded = controller.isGrounded;
-        if (lerpCrouch)
+        if(!isWalking && !sprinting)
         {
-            crouchTimer += Time.deltaTime;
-            float p = crouchTimer / 1;
-            p *= p;
-            if (crouching)
-            {
-                controller.height = Mathf.Lerp(controller.height, 1f, p);
-
-            }
-            else
-            {
-                controller.height = Mathf.Lerp(controller.height, 2f, p);
-
-            }
-
-            if (p > 1)
-            {
-                lerpCrouch = false;
-                crouchTimer = 0f;
-            }
+            velocity = 0;
         }
-    }
-    
-    public void Sprint()
-    {
-        sprinting = !sprinting;
-        if (sprinting)
+        
+        if (Keyboard.current.wKey.isPressed)
         {
-            speed = 8f;
+            isWalking = true;
+            velocity += Time.deltaTime * acceleration;
+            if(velocity > 0.3 && !sprinting)
+            {
+                velocity = 0.3f;
+            }
+
+
         }
-        else
+
+        if (Keyboard.current.wKey.wasReleasedThisFrame)
         {
+            isWalking = false;
+            sprinting = false;
+            velocity = 0;
+        }
+        
+
+        if (Keyboard.current.leftShiftKey.wasPressedThisFrame && !walkingBackwards)
+        {
+            sprinting = true;
+
+            velocity += Time.deltaTime * acceleration;
+
+            
+
+
+        }
+
+        if (Keyboard.current.leftShiftKey.wasReleasedThisFrame && !runningBackwards)
+        {
+            
+            sprinting = false;
             speed = 2f;
+
+
+            velocity -= Time.deltaTime * acceleration;
+            if (velocity < 0)
+            {
+                velocity = 0;
+            }
         }
+
+        if(velocity > 1)
+        {
+            velocity = 1;
+        }
+
+        if(sprinting){
+            speed++;
+
+            if (speed > 8)
+            {
+                speed = 8;
+            }
+        }
+        
+
+        anim.SetFloat("Velocity", velocity);
+    }
+    
+    public void WalkBackwards()
+    {
+        if (!walkingBackwards && !runningBackwards)
+        {
+            backVelocity = 0;
+        }
+
+        if (Keyboard.current.sKey.isPressed)
+        {
+            walkingBackwards = true;
+            anim.SetBool("isWalkingBackwards", true);
+            backVelocity += Time.deltaTime * acceleration;
+            if (backVelocity > 0.3 && !sprinting)
+            {
+                backVelocity = 0.3f;
+            }
+
+
+        }
+
+        if (Keyboard.current.sKey.wasReleasedThisFrame)
+        {
+            walkingBackwards = false;
+            runningBackwards = false;
+            anim.SetBool("isWalkingBackwards",false);
+            backVelocity = 0;
+        }
+
+
+        if (Keyboard.current.leftShiftKey.wasPressedThisFrame && walkingBackwards)
+        {
+            runningBackwards = true;
+
+            backVelocity += Time.deltaTime * acceleration;
+
+
+
+
+        }
+
+        if (Keyboard.current.leftShiftKey.wasReleasedThisFrame && walkingBackwards)
+        {
+            runningBackwards = false;
+            speed = 2f;
+
+
+            backVelocity -= Time.deltaTime * acceleration;
+            if (backVelocity < 0)
+            {
+                backVelocity = 0;
+            }
+        }
+
+        if (backVelocity > 1)
+        {
+            backVelocity = 1;
+        }
+
+        if (runningBackwards)
+        {
+            speed++;
+
+            if (speed > 8)
+            {
+                backVelocity = 1;
+                speed = 8;
+            }
+        }
+
+
+        anim.SetFloat("BackVelocity", backVelocity);
     }
 
-    public void AnimateWalk(Vector3 input)
+    public void Attack(int selectedSpell)
     {
-        //isWalking = (input.x > 0.1f || input.x < 0.1f) || (input.z > 0.1f || input.z < 0.1f) ? true : false;
+        
 
-        if (input.x > 0.1f || input.z > 0.1f)
-        {
-            anim.SetBool("isWalking", true);
-        }
-        else
-        {
-            anim.SetBool("isWalking", false);
-        }
+        
+            if(selectedSpell == 1) 
+            {
+                anim.SetTrigger("MagicBeam");
+            }
+            
+            if(selectedSpell == 2)
+            {
+                anim.SetTrigger("MagicClap");
+            }
+
+            if(selectedSpell == 3)
+            {
+                anim.SetTrigger("MagicSpiritFingers");
+            }
+        
+
+        canAttack = false;
+        StartCoroutine(AttackCoolDown());
+        
         
     }
     
-    public void Attack()
+    public void PlayAttack()
     {
-        if (!isAttacking)
+        if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            anim.SetTrigger("isAttacking");
-            StartCoroutine(AttackCoolDown());
+            Attack(selectedSpell);
+        }
+    }
+
+    public IEnumerator AttackCoolDown()
+    {
+        yield return new WaitForSeconds(attackCoolDown);
+        canAttack = true;
+    }
+
+    public void SetSpell()
+    {
+        if (Keyboard.current.digit1Key.wasPressedThisFrame)
+        {
+            selectedSpell = 1;
+        }
+
+        if (Keyboard.current.digit2Key.wasPressedThisFrame)
+        {
+            selectedSpell = 2;
+        }
+
+        if (Keyboard.current.digit3Key.wasPressedThisFrame)
+        {
+            selectedSpell = 3;
         }
     }
     
-    public void ProcessAttack()
-    {
-        if (isAttacking && anim.GetCurrentAnimatorStateInfo(1).normalizedTime >= animationFinishTime)
-        {
-            isAttacking = false;
-        }
-    }
-
-    IEnumerator AttackCoolDown()
-    {
-        yield return new WaitForSeconds(0.1f);
-        isAttacking = true;
-        
-    }
-
 
 }

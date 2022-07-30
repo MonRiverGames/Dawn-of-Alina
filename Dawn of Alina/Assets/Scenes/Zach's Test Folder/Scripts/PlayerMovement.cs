@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 12f; // Speed of player
     public float gravity = -9.81f; // Gravity
     public float jumpHeight = 2f; // Height of Jump
-    Vector3 velocity; // velocity vector
+    Vector3 velocity; // animVelocity vector
     
     public CharacterController controller;
     public Transform groundCheck;
@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundmask); // Checks if ground object is within range of player
 
-        if (isGrounded && velocity.y < 0) // removes velocity if grounded
+        if (isGrounded && velocity.y < 0) // removes animVelocity if grounded
         {
             velocity.y = -2f; 
         }
@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); // Calculates height of jump
         }
 
-        velocity.y += gravity * Time.deltaTime; // Sets velocity in Y direction using gravity (falling)
+        velocity.y += gravity * Time.deltaTime; // Sets animVelocity in Y direction using gravity (falling)
         controller.Move(velocity * Time.deltaTime); 
     }
 }

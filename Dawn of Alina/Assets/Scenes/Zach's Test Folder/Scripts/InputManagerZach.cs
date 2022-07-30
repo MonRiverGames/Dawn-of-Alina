@@ -19,8 +19,6 @@ public class InputManagerZach : MonoBehaviour
         playerMotor = GetComponent<PlayerMotor>();
         playerLook = GetComponent<PlayerLookZach>();
         onFoot.Jump.performed += ctx => playerMotor.Jump();
-        onFoot.Crouch.performed += ctx => playerMotor.Crouch();
-        onFoot.Sprint.performed += ctx => playerMotor.Sprint();
         cameraControl.SwitchCameraView.performed += ctx => playerLook.getCamChange();
         onFoot.OpenInventory.performed += ctx => playerLook.ActivateUI();
     }
