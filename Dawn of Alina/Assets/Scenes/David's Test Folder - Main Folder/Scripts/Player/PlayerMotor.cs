@@ -8,6 +8,7 @@ public class PlayerMotor : MonoBehaviour
     private CharacterController controller;
     private InputManager inputManager;
     private PlayerInput playerInput;
+    public GameObject groundCheck;
 
     private Animator anim;
     
@@ -17,6 +18,7 @@ public class PlayerMotor : MonoBehaviour
     public float speed = 2f;
     public float gravity = -9.8f;
     public float jumpHeight = 3f;
+    public float groundCheckRay = 1;
     
     public float animationFinishTime = 0.9f;
     public float velocity = 0f;
@@ -26,7 +28,7 @@ public class PlayerMotor : MonoBehaviour
 
     public int selectedSpell;
 
-    public bool isGrounded;
+    public bool isGrounded = true;
     public bool sprinting;
     public bool isWalking;
     public bool isAttacking;
@@ -51,7 +53,7 @@ public class PlayerMotor : MonoBehaviour
         WalkForwards();
         WalkBackwards();
         PlayAttack();
-        
+        GroundCheck();
 
         
     }
@@ -283,6 +285,30 @@ public class PlayerMotor : MonoBehaviour
         if (Keyboard.current.digit3Key.wasPressedThisFrame)
         {
             selectedSpell = 3;
+        }
+    }
+    
+    public void GroundCheck()
+    {
+        Ray ray = new Ray(groundCheck.transform.position, Vector3.down);
+        RaycastHit hit;
+
+        Debug.DrawRay(ray.origin, ray.direction, Color.blue);
+
+        if(Physics.Raycast(ray, out hit))
+        {
+            if (hit.distance < 0.5f)
+            {
+                isGrounded = true;
+            }
+            else
+            {
+                isGrounded = false;
+            }
+        }
+        else
+        {
+            isGrounded = false;
         }
     }
     
