@@ -17,6 +17,7 @@ public class Item : ScriptableObject // Holds data for Item
 {
     public string Name = "New Item";
     public Sprite icon = null;
+    public GameObject ItemPrefab;
     public ItemType type;
     [TextArea(15, 20)]
     public string description;
@@ -24,7 +25,6 @@ public class Item : ScriptableObject // Holds data for Item
     public int itemValue;
     public int stackLimit;
     public bool inSlot;
-    public bool canUse;
 
     private void Awake()
     {

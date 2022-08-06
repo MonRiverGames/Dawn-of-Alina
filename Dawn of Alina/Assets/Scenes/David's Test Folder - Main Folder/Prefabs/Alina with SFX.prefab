@@ -307,10 +307,10 @@ GameObject:
   - component: {fileID: 1496242015422176219}
   - component: {fileID: 1496242015422176220}
   - component: {fileID: 1496242015422176221}
-  - component: {fileID: 1496242015422176222}
   - component: {fileID: 1496242015917306952}
   - component: {fileID: 1496242015917306966}
   - component: {fileID: 1496242015917306967}
+  - component: {fileID: 1895793795}
   m_Layer: 0
   m_Name: Alina with SFX
   m_TagString: Player
@@ -495,21 +495,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &1496242015422176222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1496242015422176213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01da8b6dd85128d4f806f8abb233db0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  items: []
-  InventorySpace: 30
-  UI: {fileID: 0}
 --- !u!54 &1496242015917306952
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -641,6 +626,22 @@ MonoBehaviour:
   magicBeam: {fileID: 8300000, guid: 5f9d59ef8685a6749aeeb6d63ed7f0d8, type: 3}
   magicClap: {fileID: 8300000, guid: 8422515d7149bc04b99cb7f2d5813f6c, type: 3}
   magicSpiritFingers: {fileID: 8300000, guid: 13ae75ba4bec9704e89780f785a07865, type: 3}
+--- !u!114 &1895793795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496242015422176213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc61aadcb6d39b4bb8f1a30557d76dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items: []
+  EquippedItems: []
+  InventorySpace: 25
+  UI: {fileID: 0}
 --- !u!1 &1496242016426525440
 GameObject:
   m_ObjectHideFlags: 0

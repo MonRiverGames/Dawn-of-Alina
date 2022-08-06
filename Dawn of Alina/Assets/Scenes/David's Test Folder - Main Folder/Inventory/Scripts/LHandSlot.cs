@@ -4,53 +4,32 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class InventorySlot : MonoBehaviour // Manages the info for each inventory slot
+public class LHandSlot : MonoBehaviour
 {
-    public Item item; 
+    public Item item;
     public Sprite icon;
-    public Button RemoveButton;
     public InventoryUI UI;
+    public Button RemoveButton;
     public bool isFilled;
     public bool isViewing;
     public Transform ItemInfo;
+    public Transform LHand;
+    public GameObject ItemPrefab;
     public string ItemValue;
-
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Comma))
-        {
-            EquipLeft();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Period))
-        {
-            EquipRight();
-        }
-    }
 
     public void AddItem(Item newItem) // Adds item to slot
     {
         item = newItem;
-        
-        if (newItem.amount <= newItem.stackLimit)
+
+        if (newItem.type == ItemType.Equipment)
         {
             icon = item.icon;
             transform.GetChild(0).GetComponent<Image>().sprite = icon;
-            transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = item.amount.ToString();
             isFilled = true;
             item.inSlot = true;
+            ItemPrefab = item.ItemPrefab;
             UI.EnableRemoveButton();
-        }
-        else 
-        {
-            newItem.amount = 1;
-            newItem.inSlot = true;
-            InventoryManager.instance.AddItem(newItem);
-        }
-
-        if (newItem.amount > 1)
-        {
-            transform.GetChild(1).GetComponent<TextMeshProUGUI>().enabled = true; // Displays the amount
+            Instantiate(ItemPrefab, LHand);
         }
     }
 
@@ -59,8 +38,6 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
         item = null;
         icon = null;
         transform.GetChild(0).GetComponent<Image>().sprite = null;
-        transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = null;
-        transform.GetChild(1).GetComponent<TextMeshProUGUI>().enabled = false;
         isFilled = false;
         UI.EnableRemoveButton();
     }
@@ -101,24 +78,4 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
             ItemInfo.gameObject.SetActive(false);
         }
     }
-    public void EquipLeft()
-    {
-        if (isFilled && isViewing)
-        {
-            InventoryManager.instance.EquipLeftItem(item);
-            print("EquipLeft in Inventory Slot");
-            OnRemoveButton();
-        }
-    }
-
-    public void EquipRight()
-    {
-        if (isFilled && isViewing)
-        {
-            InventoryManager.instance.EquipRightItem(item);
-            print("EquipRight in Inventory Slot");
-            OnRemoveButton();
-        }
-    }
 }
-

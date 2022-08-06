@@ -8,6 +8,8 @@ public class InventoryUI : MonoBehaviour
     public Transform InventoryParent; // Main Inventory
     InventoryManager inventory; // Inventory instance
     InventorySlot[] slots;
+    public RHandSlot RHand;
+    public LHandSlot LHand;
     public GameObject Player;
     PlayerLook playerLook;
 
@@ -21,6 +23,25 @@ public class InventoryUI : MonoBehaviour
 
     public void EnableRemoveButton() // Enables/Disables remove button on inventoy slot
     {
+        if (LHand.isFilled)
+        {
+            LHand.transform.GetChild(1).gameObject.SetActive(true); // Enable Remove Button
+        }
+        else
+        {
+            LHand.transform.GetChild(1).gameObject.SetActive(false); // Disable Remove Button
+        }
+
+        if (RHand.isFilled)
+        {
+            RHand.transform.GetChild(1).gameObject.SetActive(true); // Enable Remove Button
+        }
+        else
+        {
+            RHand.transform.GetChild(1).gameObject.SetActive(false); // Disable Remove Button
+        }
+
+
         foreach (InventorySlot slot in slots)
         {
             if (slot.isFilled)
@@ -58,6 +79,19 @@ public class InventoryUI : MonoBehaviour
                     slots[i].item.inSlot = true;
                 }
             }
+        }
+
+        if (inventory.EquippedItems[0].type == ItemType.Equipment)
+        {
+            print("Equip Left");
+            LHand.AddItem(inventory.EquippedItems[0]);
+            LHand.item.inSlot = true;
+        }
+        if (inventory.EquippedItems[1].type == ItemType.Equipment) // RIGHT
+        {
+            print("Equip Right");
+            RHand.AddItem(inventory.EquippedItems[1]);
+            RHand.item.inSlot = true;
         }
     }
 }

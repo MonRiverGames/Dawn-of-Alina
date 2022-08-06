@@ -222,8 +222,8 @@ GameObject:
   - component: {fileID: 5516080032459588207}
   - component: {fileID: 5516080032459588195}
   - component: {fileID: 5516080032459588204}
-  - component: {fileID: 4216963984137119023}
   - component: {fileID: 137156039499610468}
+  - component: {fileID: 3359596819922665213}
   m_Layer: 5
   m_Name: Slot
   m_TagString: Untagged
@@ -292,26 +292,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4216963984137119023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5516080032459588200}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c588d8471140464da56da6682510d74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 0}
-  icon: {fileID: 0}
-  RemoveButton: {fileID: 7246584786378972264}
-  UI: {fileID: 0}
-  isFilled: 0
-  isViewing: 0
-  isMoving: 0
-  ItemInfo: {fileID: 0}
 --- !u!114 &137156039499610468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,7 +309,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4216963984137119023}
+        - m_Target: {fileID: 3359596819922665213}
           m_TargetAssemblyTypeName: InventorySlot, Assembly-CSharp
           m_MethodName: EnterItem
           m_Mode: 1
@@ -341,7 +321,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 4216963984137119023}
+        - m_Target: {fileID: 3359596819922665213}
           m_TargetAssemblyTypeName: InventorySlot, Assembly-CSharp
           m_MethodName: DisplayInfo
           m_Mode: 1
@@ -357,7 +337,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4216963984137119023}
+        - m_Target: {fileID: 3359596819922665213}
           m_TargetAssemblyTypeName: InventorySlot, Assembly-CSharp
           m_MethodName: ExitItem
           m_Mode: 1
@@ -369,7 +349,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 4216963984137119023}
+        - m_Target: {fileID: 3359596819922665213}
           m_TargetAssemblyTypeName: InventorySlot, Assembly-CSharp
           m_MethodName: DisplayInfo
           m_Mode: 1
@@ -381,6 +361,26 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &3359596819922665213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5516080032459588200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f72f51d13fbe91c40b56cbe733f9edaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
+  icon: {fileID: 0}
+  RemoveButton: {fileID: 7246584786378972264}
+  UI: {fileID: 0}
+  isFilled: 0
+  isViewing: 0
+  ItemInfo: {fileID: 0}
+  ItemValue: 
 --- !u!1 &6559184280932892817
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,7 +502,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4216963984137119023}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventorySlot, Assembly-CSharp
         m_MethodName: OnRemoveButton
         m_Mode: 1

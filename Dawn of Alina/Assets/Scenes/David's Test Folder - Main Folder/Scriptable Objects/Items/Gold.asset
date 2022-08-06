@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Gold
   icon: {fileID: 21300000, guid: 9940ff8ddcdde674cbdfaf02532cad31, type: 3}
-  type: 0
+  ItemPrefab: {fileID: 2137054824989005106, guid: 2f5c6a121591a754cb5653d66305bd3c, type: 3}
+  type: 1
   description: A Gold Coin.
   amount: 1
   itemValue: 1
   stackLimit: 64
   inSlot: 1
-  canUse: 0

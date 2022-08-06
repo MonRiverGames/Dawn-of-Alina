@@ -103,7 +103,6 @@ GameObject:
   - component: {fileID: 6812794031268203944}
   - component: {fileID: 8597701611218071035}
   - component: {fileID: 4966657777202703318}
-  - component: {fileID: 5860380589422308197}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -233,14 +232,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56652586204e8cb45bf953895211b3cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundCheck: {fileID: 0}
   speed: 5
   gravity: 9.8
   jumpHeight: 1.5
-  crouchTimer: 0
+  groundCheckRay: 1
+  animationFinishTime: 0.9
+  velocity: 0
+  backVelocity: 0
+  acceleration: 0.5
+  attackCoolDown: 0.5
+  selectedSpell: 0
   isGrounded: 0
-  lerpCrouch: 0
-  crouching: 0
   sprinting: 0
+  isWalking: 0
+  isAttacking: 0
+  canAttack: 0
+  walkingBackwards: 0
+  runningBackwards: 0
 --- !u!114 &5526184962588104826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,9 +276,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 4670223075108568427}
-  FirstCam: {fileID: 4670223075108568425}
-  ThirdCam: {fileID: 6866772711777161619}
   InventoryScreen: {fileID: 0}
+  UI: {fileID: 0}
+  isInventoryActive: 1
   xRot: 0
   xSensitivity: 30
   ySensitivity: 30
@@ -285,6 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42a2531bf7e715488f315dcc4d33480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
   maxHealth: 100
   chipSpeed: 2
   frontHealthBar: {fileID: 0}
@@ -301,26 +311,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62d4356bfe5e5c44f8f1568b9143c132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
   rayDis: 3
   mask:
     serializedVersion: 2
     m_Bits: 0
---- !u!114 &5860380589422308197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4670223075176091309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01da8b6dd85128d4f806f8abb233db0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  items: []
-  InventorySpace: 30
-  HotbarSpace: 5
-  UI: {fileID: 0}
 --- !u!1 &6866772711777161619
 GameObject:
   m_ObjectHideFlags: 0

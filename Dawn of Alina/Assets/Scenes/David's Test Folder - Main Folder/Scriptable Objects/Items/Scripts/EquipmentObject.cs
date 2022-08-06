@@ -7,6 +7,7 @@ public class EquipmentObject : Item
 {
     public float protectionBonus;
     public int durability;
+    public bool equipped;
 
     private void Awake()
     {
