@@ -93,7 +93,7 @@ public class RHandSlot : MonoBehaviour
     {
         if (isFilled && isViewing)
         {
-            InventoryManager.instance.EquipLeftItem(item);
+            InventoryManager.instance.EquipRightItem(item);
             print("Unequip Right");
             OnRemoveButton();
         }
