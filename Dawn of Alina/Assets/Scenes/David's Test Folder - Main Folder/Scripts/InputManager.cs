@@ -20,10 +20,6 @@ public class InputManager : MonoBehaviour
         playerMotor = GetComponent<PlayerMotor>();
         playerLook = GetComponent<PlayerLook>();
         onFoot.Jump.performed += ctx => playerMotor.Jump();
-
-        
-        
-        onFoot.OpenInventory.performed += ctx => playerLook.ActivateUI();
     }
 
     void Update()

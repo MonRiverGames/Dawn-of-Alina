@@ -42,23 +42,4 @@ public class PlayerLook : MonoBehaviour
         //rot player left and right
         transform.Rotate(Vector3.up * (mouseX * Time.deltaTime) * xSensitivity);
     }
-
-    // Added Cam Switching for new input system  
-    public void ActivateUI()
-    {
-        isInventoryActive = !isInventoryActive;
-        InventoryScreen.SetActive(isInventoryActive);
-
-        if (isInventoryActive)
-        {
-            Cursor.lockState = CursorLockMode.Confined;
-        }
-
-        else
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-
-        UI.UpdateUI();
-    }
 }

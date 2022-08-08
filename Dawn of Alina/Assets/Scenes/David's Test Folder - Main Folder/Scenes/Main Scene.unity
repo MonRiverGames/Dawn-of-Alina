@@ -489,8 +489,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3052,8 +3052,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -7688,6 +7688,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1496242015422176213, guid: d04774d4c3f0cf84f8468d778df63b27, type: 3}
   m_PrefabInstance: {fileID: 1192128508}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1895793795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895793780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b1421ebb36062c4ba695d9456453406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventoryScreen: {fileID: 322491388}
+  UI: {fileID: 1203596880}
+  isInventoryActive: 1
+  Crosshair: {fileID: 1293474358}
 --- !u!224 &1935004654 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5516080032459588207, guid: 0a38b7ef5cfd3ac47afdc974bf9d6efd, type: 3}
