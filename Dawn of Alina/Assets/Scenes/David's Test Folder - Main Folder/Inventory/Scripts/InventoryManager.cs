@@ -52,21 +52,54 @@ public class InventoryManager : MonoBehaviour // Manages inventory as a Singleto
 
     public void EquipLeftItem(Item item)
     {
-        print(item.type);
-
-        if (item.type == ItemType.Equipment)
+        if (EquippedItems[0].type != ItemType.Default) // Has Item So Unequip
         {
-            print("WE OUT HERE IN INVENTORY MANAGER");
-            EquippedItems[0] = item;
+            Item Default = ScriptableObject.CreateInstance<Item>();
+            Default.type = ItemType.Default;
+            EquippedItems[0] = Default;
+            AddItem(item);
             UI.UpdateUI();
+        }
+        else
+        {
+            if (item.type == ItemType.Equipment)
+            {
+                print("WE OUT HERE IN INVENTORY MANAGER");
+                EquippedItems[0] = item;
+                UI.UpdateUI();
+            }
         }
     }
 
     public void EquipRightItem(Item item)
-    {
+    {  
         if (item.type == ItemType.Equipment)
         {
             EquippedItems[1] = item;
+            UI.UpdateUI();
+        }
+    }
+
+    public void UnequipLeft()
+    {
+        if (EquippedItems[0].type != ItemType.Default) // Has Item So Unequip
+        {
+            Item Default = ScriptableObject.CreateInstance<Item>();
+            Default.type = ItemType.Default;
+            AddItem(EquippedItems[0]);
+            EquippedItems[0] = Default;
+            UI.UpdateUI();
+        }
+    }
+
+    public void UnequipRight()
+    {
+        if (EquippedItems[1].type != ItemType.Default) // Has Item So Unequip
+        {
+            Item Default = ScriptableObject.CreateInstance<Item>();
+            Default.type = ItemType.Default;
+            AddItem(EquippedItems[1]);
+            EquippedItems[1] = Default;
             UI.UpdateUI();
         }
     }

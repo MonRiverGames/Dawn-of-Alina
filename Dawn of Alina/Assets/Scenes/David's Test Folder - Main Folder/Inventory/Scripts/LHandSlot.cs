@@ -17,6 +17,13 @@ public class LHandSlot : MonoBehaviour
     public GameObject ItemPrefab;
     public string ItemValue;
 
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Comma) && isFilled && isViewing)
+        {
+            UnequipLeft();
+        }
+    }
     public void AddItem(Item newItem) // Adds item to slot
     {
         item = newItem;
@@ -24,6 +31,7 @@ public class LHandSlot : MonoBehaviour
         if (newItem.type == ItemType.Equipment)
         {
             icon = item.icon;
+            transform.GetChild(0).gameObject.SetActive(true);
             transform.GetChild(0).GetComponent<Image>().sprite = icon;
             isFilled = true;
             item.inSlot = true;
@@ -38,13 +46,14 @@ public class LHandSlot : MonoBehaviour
         item = null;
         icon = null;
         transform.GetChild(0).GetComponent<Image>().sprite = null;
+        transform.GetChild(0).gameObject.SetActive(false);
         isFilled = false;
         UI.EnableRemoveButton();
     }
 
     public void OnRemoveButton()
     {
-        InventoryManager.instance.Remove(item);
+        InventoryManager.instance.UnequipLeft();
         ClearSlot();
     }
 
@@ -78,4 +87,15 @@ public class LHandSlot : MonoBehaviour
             ItemInfo.gameObject.SetActive(false);
         }
     }
+
+    public void UnequipLeft()
+    {
+        if (isFilled && isViewing)
+        {
+            InventoryManager.instance.EquipLeftItem(item);
+            print("Unequip Left");
+            OnRemoveButton();
+        }
+    }
+
 }

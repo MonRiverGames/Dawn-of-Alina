@@ -17,12 +17,12 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Comma))
+        if (Input.GetKeyDown(KeyCode.Comma) && isFilled && isViewing)
         {
             EquipLeft();
         }
 
-        if (Input.GetKeyDown(KeyCode.Period))
+        if (Input.GetKeyDown(KeyCode.Period) && isFilled && isViewing)
         {
             EquipRight();
         }
@@ -35,6 +35,7 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
         if (newItem.amount <= newItem.stackLimit)
         {
             icon = item.icon;
+            transform.GetChild(0).gameObject.SetActive(true);
             transform.GetChild(0).GetComponent<Image>().sprite = icon;
             transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = item.amount.ToString();
             isFilled = true;
@@ -59,6 +60,7 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
         item = null;
         icon = null;
         transform.GetChild(0).GetComponent<Image>().sprite = null;
+        transform.GetChild(0).gameObject.SetActive(false);
         transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = null;
         transform.GetChild(1).GetComponent<TextMeshProUGUI>().enabled = false;
         isFilled = false;

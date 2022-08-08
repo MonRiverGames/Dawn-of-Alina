@@ -17,7 +17,7 @@ MonoBehaviour:
   ItemPrefab: {fileID: 2137054824989005106, guid: 2f5c6a121591a754cb5653d66305bd3c, type: 3}
   type: 1
   description: A Gold Coin.
-  amount: 1
+  amount: 7
   itemValue: 1
   stackLimit: 64
   inSlot: 1

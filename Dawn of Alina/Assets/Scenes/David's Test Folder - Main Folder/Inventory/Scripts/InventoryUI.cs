@@ -87,6 +87,7 @@ public class InventoryUI : MonoBehaviour
             LHand.AddItem(inventory.EquippedItems[0]);
             LHand.item.inSlot = true;
         }
+
         if (inventory.EquippedItems[1].type == ItemType.Equipment) // RIGHT
         {
             print("Equip Right");
