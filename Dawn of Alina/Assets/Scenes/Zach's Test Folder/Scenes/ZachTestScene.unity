@@ -3437,6 +3437,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &686372018 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4670223075176091309, guid: 04f1d16644707dc42acaab6b598ae8dd, type: 3}
+  m_PrefabInstance: {fileID: 5526184961641144858}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &686372019
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686372018}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1d72486a8f92db849b696221e791f2f4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!224 &688310060 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5516080032459588207, guid: 3657c48a72f74a446b7418ff92ab7f1b, type: 3}
@@ -8204,6 +8229,10 @@ PrefabInstance:
       propertyPath: _promptText
       value: 
       objectReference: {fileID: 409290484}
+    - target: {fileID: 5526184962588104829, guid: 04f1d16644707dc42acaab6b598ae8dd, type: 3}
+      propertyPath: groundCheck
+      value: 
+      objectReference: {fileID: 1420810821}
     - target: {fileID: 6812794031268203944, guid: 04f1d16644707dc42acaab6b598ae8dd, type: 3}
       propertyPath: head
       value: 
