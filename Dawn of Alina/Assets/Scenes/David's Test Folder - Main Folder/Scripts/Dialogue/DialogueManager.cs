@@ -13,6 +13,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> sentences;
 
     public GameObject DialogueBox;
+    public GameObject Crosshair;
 
     // Start is called before the first frame update
     void Start()
@@ -57,14 +58,28 @@ public class DialogueManager : MonoBehaviour
 
     void UnlockMouse()
     {
+        /* 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        */
+
+        Cursor.lockState = CursorLockMode.Confined;
+        Crosshair.SetActive(false);
+        Cursor.visible = true;
+        Time.timeScale = 0f;
     }
 
     void LockMouse()
     {
+        /*
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        */
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Crosshair.SetActive(true);
+        Cursor.visible = false;
+        Time.timeScale = 1;
     }
 
 }

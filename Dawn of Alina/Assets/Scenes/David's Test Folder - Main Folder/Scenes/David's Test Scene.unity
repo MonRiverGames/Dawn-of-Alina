@@ -1831,6 +1831,7 @@ MonoBehaviour:
     - You were trying to cross the border, right? Walked right into that Imperial
       ambush, same as us, and that thief over there. Damn you Stormcloaks. Skyrim
       was fine until you came along.
+  Crosshair: {fileID: 873087285}
   DialogueBox: {fileID: 1912715119}
 --- !u!65 &321103341
 BoxCollider:
@@ -3577,6 +3578,7 @@ MonoBehaviour:
   nameText: {fileID: 1749758219}
   dialogueText: {fileID: 1757384627}
   DialogueBox: {fileID: 1912715119}
+  Crosshair: {fileID: 873087285}
 --- !u!4 &750275826
 Transform:
   m_ObjectHideFlags: 0
