@@ -2,21 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class PlayerMotor : MonoBehaviour
 {
-    public Image barImage;
-    public float maxMana = 1f;
-    public float currentMana;
-
-
     private CharacterController controller;
     private InputManager inputManager;
     private PlayerInput playerInput;
     public GameObject groundCheck;
+
     private Animator anim;
-    public ParticleSystem magicClapFX;
+    
     private Vector3 playerVelocity;
 
     
@@ -29,8 +24,7 @@ public class PlayerMotor : MonoBehaviour
     public float velocity = 0f;
     public float backVelocity = 0f;
     public float acceleration = 0.5f;
-    public float attackCoolDown = 1f;
-    public float attackRange = 4f;
+    public float attackCoolDown = 0.5f;
 
     public int selectedSpell;
 
@@ -46,8 +40,6 @@ public class PlayerMotor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentMana = maxMana;
-        barImage.fillAmount = currentMana;
         controller = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
 
@@ -61,11 +53,6 @@ public class PlayerMotor : MonoBehaviour
         WalkBackwards();
         PlayAttack();
         GroundCheck();
-
-        if(currentMana >= 1)
-        {
-            currentMana = 1;
-        }
 
         
     }
@@ -245,33 +232,25 @@ public class PlayerMotor : MonoBehaviour
     {
         
 
-        if(currentMana >= .75f)
-        {
-            if (selectedSpell == 1)
+        
+            if(selectedSpell == 1) 
             {
                 anim.SetTrigger("MagicBeam");
-                SpendMana(.5f);
-
             }
-
-            if (selectedSpell == 2)
+            
+            if(selectedSpell == 2)
             {
                 anim.SetTrigger("MagicClap");
-                SpendMana(.75f);
-
             }
 
-            if (selectedSpell == 3)
+            if(selectedSpell == 3)
             {
                 anim.SetTrigger("MagicSpiritFingers");
-                SpendMana(.25f);
-
             }
-        }
-           
+        
+
         canAttack = false;
         StartCoroutine(AttackCoolDown());
-        StartCoroutine(FillMana());
         
         
     }
@@ -286,7 +265,6 @@ public class PlayerMotor : MonoBehaviour
 
     public IEnumerator AttackCoolDown()
     {
-        
         yield return new WaitForSeconds(attackCoolDown);
         canAttack = true;
     }
@@ -332,49 +310,6 @@ public class PlayerMotor : MonoBehaviour
             isGrounded = false;
         }
     }
-
-    public void SpendMana(float manaCost)
-    {
-        currentMana -= manaCost * Time.deltaTime;
-        barImage.fillAmount = currentMana;
-    }
-
-    public void RegenMana(float manaRegen)
-    {
-        currentMana += manaRegen * Time.deltaTime;
-        barImage.fillAmount = currentMana;
-    }
-
-    IEnumerator FillMana()
-    {
-        yield return new WaitForSeconds(3);
-        RegenMana(.5f);
-    }
-
-    public void PlayMagicClapFX(){
-        magicClapFX.Play();
-        CheckForEnemies(100);
-    }
-
-    public void CheckForEnemies(int attackDamage)
-    {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRange);
-
-        foreach (Collider collider in hitColliders)
-        {
-            if (collider.GetComponentInParent<EnemyController>()) 
-            {
-                collider.GetComponentInParent<EnemyController>().TakeDamage(attackDamage);
-            }
-        }
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
         
-    }
-
 
 }
