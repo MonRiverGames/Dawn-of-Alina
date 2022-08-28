@@ -76,7 +76,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 24
+  controlID: 104
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 33
+  controlID: 117
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 128
+  controlID: 20
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1092,22 +1092,24 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes/David's Test Folder - Main Folder/Scenes
+    - Assets/Scenes/David's Test Folder - Main Folder/Scenes/Do not modify anything
+      in this folder
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes/David's Test Folder - Main Folder/Scenes
+  - Assets/Scenes/David's Test Folder - Main Folder/Scenes/Do not modify anything
+    in this folder
   m_LastFoldersGridSize: -1
   m_LastProjectPath: E:\Dawn-of-Alina\Dawn of Alina
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 927c0000
-    m_LastClickedID: 31890
-    m_ExpandedIDs: 00000000d27a0000d47a0000d67a0000667c00007a7c0000
+    m_SelectedIDs: c4830000
+    m_LastClickedID: 33732
+    m_ExpandedIDs: 00000000e27c0000e47c0000e67c0000ea7c0000ec7c0000f27c0000f87c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1135,7 +1137,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 6cd5ffff
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000d27a0000d47a0000d67a0000
+    m_ExpandedIDs: 00000000e27c0000e47c0000e67c0000e87c0000ea7c0000ec7c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1508,9 +1510,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -484.0537, y: -102.015625, z: 222.76135}
+    m_Target: {x: -744.4799, y: 107.734825, z: 171.4783}
     speed: 2
-    m_Value: {x: -484.0537, y: -102.015625, z: 222.76135}
+    m_Value: {x: -744.4799, y: 107.734825, z: 171.4783}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1561,9 +1563,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.07224247, y: 0.8896547, z: -0.41687563, w: -0.17178531}
   m_Size:
-    m_Target: 656.45575
+    m_Target: 488.91867
     speed: 2
-    m_Value: 656.45575
+    m_Value: 488.91867
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1619,23 +1621,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: c27c0000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: f4e6ffffa0e7ffffeeedffff34eeffff72efffff
+      m_ExpandedIDs: 52e8ffff1cf7ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Alina
+        m_OriginalName: Alina
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 27934
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 11}
       m_SearchString: 
