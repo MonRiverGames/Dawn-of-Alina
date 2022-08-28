@@ -1,8 +1,15 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 1d15c47e311640e4ba99b7b6a0a44e23
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0
+=======
+guid: 00e48598aa3108a4d9c5e01b41e79bc2
+timeCreated: 1484497798
+licenseType: Store
+NativeFormatImporter:
+>>>>>>> parent of dea63ab (plz UwU)
   userData: 
   assetBundleName: 
   assetBundleVariant: 

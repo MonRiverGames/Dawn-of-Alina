@@ -1,8 +1,16 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 5d7f3ae3370e03a4893a052448736586
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
+=======
+guid: f643f073f66718a4e9108975cb4a6e22
+folderAsset: yes
+timeCreated: 1484404570
+licenseType: Store
+DefaultImporter:
+>>>>>>> parent of dea63ab (plz UwU)
   userData: 
   assetBundleName: 
   assetBundleVariant: 

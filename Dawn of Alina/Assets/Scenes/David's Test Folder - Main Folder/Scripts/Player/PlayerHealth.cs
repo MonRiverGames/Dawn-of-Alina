@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
+    
+
     private Animator anim;
     private float isDead;
 
@@ -107,5 +109,23 @@ public class PlayerHealth : MonoBehaviour
     {
         yield return new WaitForSeconds(10f);
         Destroy(gameObject);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Weapon_GreenSword")
+        {
+            TakeDamage(Random.Range(1, 10));
+        }
+
+        if(other.tag == "Fist")
+        {
+            TakeDamage(Random.Range(5, 15));
+        }
+
+        if(other.tag == "GreatSword")
+        {
+            TakeDamage(Random.Range(2, 7));
+        }
     }
 }

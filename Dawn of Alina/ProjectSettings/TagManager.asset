@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - isPickupable
+  - Weapon
+  - Weapon_GreenSword
+  - Fist
+  - GreatSword
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -14,7 +19,7 @@ TagManager:
   - UI
   - Interactable
   - Head
-  - 
+  - Player
   - 
   - 
   - 
