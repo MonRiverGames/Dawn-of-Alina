@@ -76,7 +76,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 97
+  controlID: 30
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 20
+  controlID: 24
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 119
+  controlID: 41
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1092,22 +1092,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes/David's Test Folder - Main Folder/Scenes
+    - Assets/Scenes/David's Test Folder - Main Folder/Prefabs/Enemies
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes/David's Test Folder - Main Folder/Scenes
+  - Assets/Scenes/David's Test Folder - Main Folder/Prefabs/Enemies
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: E:\Unity Projects\Dawn-of-Alina\Dawn of Alina
+  m_LastProjectPath: E:\Dawn-of-Alina\Dawn of Alina
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 107}
-    m_SelectedIDs: 3a7b0000
-    m_LastClickedID: 31546
-    m_ExpandedIDs: 00000000787900007a7900007c7900007e79000080790000827900008479000086790000887900008a7900008c7900008e79000090790000927900009479000096790000987900009a7900009c7900009e790000a0790000a2790000a47900003a7b0000
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: be700000
+    m_LastClickedID: 28862
+    m_ExpandedIDs: 000000006a7000006c7000007c7000009a700000b2700000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1135,7 +1135,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 6cd5ffff
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000787900007a7900007c7900007e79000080790000827900008479000086790000887900008a7900008c7900008e79000090790000927900009479000096790000987900009a7900009c7900009e790000a0790000a2790000a4790000
+    m_ExpandedIDs: 000000006a7000006c700000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1162,7 +1162,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1508,9 +1508,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -781.6502, y: 38.90732, z: 524.18134}
+    m_Target: {x: -476.98883, y: -86.34617, z: 311.558}
     speed: 2
-    m_Value: {x: -63536.094, y: 1.0094206, z: 11723.681}
+    m_Value: {x: -781.6502, y: 38.90732, z: 524.18134}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1557,13 +1557,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.060714692, y: -0.8607624, z: 0.120808914, w: 0.49262214}
+    m_Target: {x: 0.07231019, y: -0.8904886, z: 0.4172664, w: 0.17194633}
     speed: 2
-    m_Value: {x: 0.059579868, y: 0.90861076, z: -0.39854452, w: 0.11791227}
+    m_Value: {x: -0.060658015, y: 0.8599589, z: -0.12069614, w: -0.4921623}
   m_Size:
-    m_Target: 549.6814
+    m_Target: 636.6993
     speed: 2
-    m_Value: 1.8778616
+    m_Value: 549.6814
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1619,9 +1619,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 607b0000
+      m_SelectedIDs: ca700000
       m_LastClickedID: 0
-      m_ExpandedIDs: 9ee6ffffe4e6ffff90e7ffffd6e7ffff24eeffff6eeeffff76efffff
+      m_ExpandedIDs: 1efbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 

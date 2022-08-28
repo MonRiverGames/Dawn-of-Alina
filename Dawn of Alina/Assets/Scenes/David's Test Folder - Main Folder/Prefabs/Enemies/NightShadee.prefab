@@ -304,7 +304,7 @@ GameObject:
   - component: {fileID: 5972935097880715166}
   - component: {fileID: 5835241940103714031}
   m_Layer: 0
-  m_Name: NightShade
+  m_Name: NightShadee
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
