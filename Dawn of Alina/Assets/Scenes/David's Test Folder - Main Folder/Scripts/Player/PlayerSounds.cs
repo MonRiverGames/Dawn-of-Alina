@@ -39,7 +39,7 @@ public class PlayerSounds : MonoBehaviour
     void PlayAudioMagicClap()
     {
         source.clip = magicClap;
-        source.Play();
+        source.PlayOneShot(magicClap);
     }
 
     void PlayAudioMagicSpiritFingers()

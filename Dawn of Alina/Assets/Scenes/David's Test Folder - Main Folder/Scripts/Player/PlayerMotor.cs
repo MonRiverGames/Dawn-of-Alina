@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerMotor : MonoBehaviour
 {
-    public Image barImage;
+    //public Image barImage;
     public float maxMana = 1f;
     public float currentMana;
 
@@ -47,7 +47,7 @@ public class PlayerMotor : MonoBehaviour
     void Start()
     {
         currentMana = maxMana;
-        barImage.fillAmount = currentMana;
+        //barImage.fillAmount = currentMana;
         controller = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
 
@@ -337,13 +337,13 @@ public class PlayerMotor : MonoBehaviour
     public void SpendMana(float manaCost)
     {
         currentMana -= manaCost * Time.deltaTime;
-        barImage.fillAmount = currentMana;
+        //barImage.fillAmount = currentMana;
     }
 
     public void RegenMana(float manaRegen)
     {
         currentMana += manaRegen * Time.deltaTime;
-        barImage.fillAmount = currentMana;
+        //barImage.fillAmount = currentMana;
     }
 
     IEnumerator FillMana()

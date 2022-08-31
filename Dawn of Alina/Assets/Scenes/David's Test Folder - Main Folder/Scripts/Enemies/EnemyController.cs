@@ -166,7 +166,7 @@ public class EnemyController : MonoBehaviour
             isDead = true;
             navMeshAgent.enabled = false;
             anim.SetTrigger("Death");
-            //destroy game object
+            Destroy(gameObject, 4f);
         }
     }
 
