@@ -6,6 +6,7 @@ TagManager:
   tags:
   - isPickupable
   - Sword
+  - Fist
   layers:
   - Default
   - TransparentFX
