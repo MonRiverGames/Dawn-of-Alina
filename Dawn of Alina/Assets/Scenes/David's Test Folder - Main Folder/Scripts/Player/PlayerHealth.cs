@@ -5,21 +5,23 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
+
+
     private Animator anim;
     private float isDead;
 
     public float health = 100;
     private float lerpTimer;
-    
+
     public float maxHealth = 100f;
     public float chipSpeed = 2f;
-    
+
     public Image frontHealthBar;
     public Image backHealthBar;
 
-    
 
-    
+
+
     private InputManager inputManager;  //Delete this later (Test)
 
     // Start is called before the first frame update
@@ -45,8 +47,8 @@ public class PlayerHealth : MonoBehaviour
         {
             RestoreHealth(Random.Range(0, 10));
         }
-        
-        
+
+
     }
 
     public void UpdateHealthUI()
@@ -56,7 +58,7 @@ public class PlayerHealth : MonoBehaviour
         float fillB = backHealthBar.fillAmount;
         float hFraction = health / maxHealth;
 
-        if(fillB > hFraction)
+        if (fillB > hFraction)
         {
             frontHealthBar.fillAmount = hFraction;
             backHealthBar.color = Color.red;
@@ -66,12 +68,12 @@ public class PlayerHealth : MonoBehaviour
             backHealthBar.fillAmount = Mathf.Lerp(fillB, hFraction, percentComplete);
         }
 
-        if(fillF < hFraction)
+        if (fillF < hFraction)
         {
             backHealthBar.fillAmount = hFraction;
             backHealthBar.color = Color.green;
             lerpTimer += Time.deltaTime;
-            
+
             float percentComplete = lerpTimer / chipSpeed;
             percentComplete *= percentComplete;
 
@@ -84,13 +86,13 @@ public class PlayerHealth : MonoBehaviour
     {
         health -= damage;
         lerpTimer = 0f;
-        
-        if(health <= 0)
+
+        if (health <= 0)
         {
             Die();
         }
     }
-    
+
     public void RestoreHealth(float healAmount)
     {
         health += healAmount;
@@ -102,10 +104,28 @@ public class PlayerHealth : MonoBehaviour
         anim.SetTrigger("Death");
         StartCoroutine(Death());
     }
-    
+
     IEnumerator Death()
     {
         yield return new WaitForSeconds(10f);
         Destroy(gameObject);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Sword")
+        {
+            TakeDamage(Random.Range(1, 10));
+        }
+
+        if (other.tag == "Fist")
+        {
+            TakeDamage(Random.Range(5, 15));
+        }
+
+        if (other.tag == "GreatSword")
+        {
+            TakeDamage(Random.Range(2, 7));
+        }
     }
 }

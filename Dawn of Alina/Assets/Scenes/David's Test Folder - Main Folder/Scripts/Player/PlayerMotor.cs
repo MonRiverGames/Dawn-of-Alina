@@ -2,29 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerMotor : MonoBehaviour
 {
+    public Image barImage;
+    public float maxMana = 1f;
+    public float currentMana;
+
+
     private CharacterController controller;
     private InputManager inputManager;
     private PlayerInput playerInput;
     public GameObject groundCheck;
-
     private Animator anim;
-    
+    public ParticleSystem magicClapFX;
     private Vector3 playerVelocity;
 
-    
+
     public float speed = 2f;
     public float gravity = -9.8f;
     public float jumpHeight = 3f;
     public float groundCheckRay = 1;
-    
+
     public float animationFinishTime = 0.9f;
     public float velocity = 0f;
     public float backVelocity = 0f;
     public float acceleration = 0.5f;
-    public float attackCoolDown = 0.5f;
+    public float attackCoolDown = 1f;
+    public float attackRange = 4f;
 
     public int selectedSpell;
 
@@ -36,10 +42,12 @@ public class PlayerMotor : MonoBehaviour
     public bool walkingBackwards;
     public bool runningBackwards;
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
+        currentMana = maxMana;
+        barImage.fillAmount = currentMana;
         controller = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
 
@@ -54,9 +62,14 @@ public class PlayerMotor : MonoBehaviour
         PlayAttack();
         GroundCheck();
 
-        
+        if (currentMana >= 1)
+        {
+            currentMana = 1;
+        }
+
+
     }
-    
+
     //Recieve input from InputManager.cs and apply to character controller
     public void ProcessMove(Vector3 input)
     {
@@ -65,13 +78,13 @@ public class PlayerMotor : MonoBehaviour
         moveDir.y = input.y;
         moveDir.z = input.z;
         controller.Move(transform.TransformDirection(moveDir) * speed * Time.deltaTime);
-        
+
         playerVelocity.y -= gravity * Time.deltaTime;
         if (isGrounded && playerVelocity.y < 0)
         {
             playerVelocity.y = -2f;
         }
-        
+
         controller.Move(playerVelocity * Time.deltaTime);
 
     }
@@ -87,16 +100,16 @@ public class PlayerMotor : MonoBehaviour
 
     public void WalkForwards()
     {
-        if(!isWalking && !sprinting)
+        if (!isWalking && !sprinting)
         {
             velocity = 0;
         }
-        
+
         if (Keyboard.current.wKey.isPressed)
         {
             isWalking = true;
             velocity += Time.deltaTime * acceleration;
-            if(velocity > 0.3 && !sprinting)
+            if (velocity > 0.3 && !sprinting)
             {
                 velocity = 0.3f;
             }
@@ -110,7 +123,7 @@ public class PlayerMotor : MonoBehaviour
             sprinting = false;
             velocity = 0;
         }
-        
+
 
         if (Keyboard.current.leftShiftKey.wasPressedThisFrame && !walkingBackwards)
         {
@@ -118,14 +131,14 @@ public class PlayerMotor : MonoBehaviour
 
             velocity += Time.deltaTime * acceleration;
 
-            
+
 
 
         }
 
         if (Keyboard.current.leftShiftKey.wasReleasedThisFrame && !runningBackwards)
         {
-            
+
             sprinting = false;
             speed = 2f;
 
@@ -137,12 +150,13 @@ public class PlayerMotor : MonoBehaviour
             }
         }
 
-        if(velocity > 1)
+        if (velocity > 1)
         {
             velocity = 1;
         }
 
-        if(sprinting){
+        if (sprinting)
+        {
             speed++;
 
             if (speed > 8)
@@ -150,11 +164,11 @@ public class PlayerMotor : MonoBehaviour
                 speed = 8;
             }
         }
-        
+
 
         anim.SetFloat("Velocity", velocity);
     }
-    
+
     public void WalkBackwards()
     {
         if (!walkingBackwards && !runningBackwards)
@@ -179,7 +193,7 @@ public class PlayerMotor : MonoBehaviour
         {
             walkingBackwards = false;
             runningBackwards = false;
-            anim.SetBool("isWalkingBackwards",false);
+            anim.SetBool("isWalkingBackwards", false);
             backVelocity = 0;
         }
 
@@ -230,31 +244,39 @@ public class PlayerMotor : MonoBehaviour
 
     public void Attack(int selectedSpell)
     {
-        
 
-        
-            if(selectedSpell == 1) 
+
+        if (currentMana >= .75f)
+        {
+            if (selectedSpell == 1)
             {
                 anim.SetTrigger("MagicBeam");
-            }
-            
-            if(selectedSpell == 2)
-            {
-                anim.SetTrigger("MagicClap");
+                SpendMana(.5f);
+
             }
 
-            if(selectedSpell == 3)
+            if (selectedSpell == 2)
+            {
+                anim.SetTrigger("MagicClap");
+                SpendMana(.75f);
+
+            }
+
+            if (selectedSpell == 3)
             {
                 anim.SetTrigger("MagicSpiritFingers");
+                SpendMana(.25f);
+
             }
-        
+        }
 
         canAttack = false;
         StartCoroutine(AttackCoolDown());
-        
-        
+        StartCoroutine(FillMana());
+
+
     }
-    
+
     public void PlayAttack()
     {
         if (Mouse.current.leftButton.wasPressedThisFrame)
@@ -265,6 +287,7 @@ public class PlayerMotor : MonoBehaviour
 
     public IEnumerator AttackCoolDown()
     {
+
         yield return new WaitForSeconds(attackCoolDown);
         canAttack = true;
     }
@@ -286,7 +309,7 @@ public class PlayerMotor : MonoBehaviour
             selectedSpell = 3;
         }
     }
-    
+
     public void GroundCheck()
     {
         Ray ray = new Ray(groundCheck.transform.position, Vector3.down);
@@ -294,7 +317,7 @@ public class PlayerMotor : MonoBehaviour
 
         Debug.DrawRay(ray.origin, ray.direction, Color.blue);
 
-        if(Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit))
         {
             if (hit.distance < 0.5f)
             {
@@ -310,6 +333,50 @@ public class PlayerMotor : MonoBehaviour
             isGrounded = false;
         }
     }
-        
+
+    public void SpendMana(float manaCost)
+    {
+        currentMana -= manaCost * Time.deltaTime;
+        barImage.fillAmount = currentMana;
+    }
+
+    public void RegenMana(float manaRegen)
+    {
+        currentMana += manaRegen * Time.deltaTime;
+        barImage.fillAmount = currentMana;
+    }
+
+    IEnumerator FillMana()
+    {
+        yield return new WaitForSeconds(3);
+        RegenMana(.5f);
+    }
+
+    public void PlayMagicClapFX()
+    {
+        magicClapFX.Play();
+        CheckForEnemies(100);
+    }
+
+    public void CheckForEnemies(int attackDamage)
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRange);
+
+        foreach (Collider collider in hitColliders)
+        {
+            if (collider.GetComponentInParent<EnemyController>())
+            {
+                collider.GetComponentInParent<EnemyController>().TakeDamage(attackDamage);
+            }
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+
+    }
+
 
 }
