@@ -25,6 +25,12 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
+    public void startDialogue()
+    {
+        DialogueBox.SetActive(true);
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+    }
+
     
     
 }
