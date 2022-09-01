@@ -64,6 +64,7 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
         transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = null;
         transform.GetChild(1).GetComponent<TextMeshProUGUI>().enabled = false;
         isFilled = false;
+        UI.UpdateUI();
         UI.EnableRemoveButton();
     }
 
