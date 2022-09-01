@@ -28,7 +28,7 @@ public class Item : ScriptableObject // Holds data for Item
 
     private void Awake()
     {
-        type = ItemType.Default;
+        type = ItemType.Equipment;
     }
 
     private void OnEnable() // Sets amount of item to 1 as default
