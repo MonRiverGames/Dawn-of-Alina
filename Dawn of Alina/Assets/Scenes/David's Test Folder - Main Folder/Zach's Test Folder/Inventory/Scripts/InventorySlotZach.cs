@@ -15,9 +15,9 @@ public class InventorySlotZach : MonoBehaviour // Manages the info for each inve
         item = newItem;
         icon = item.icon;
         transform.GetChild(0).GetComponent<Image>().sprite = icon;
-        transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = item.amount.ToString();
-        
-        if (newItem.amount > 1)
+        transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = InventoryManager.instance.ItemData[item].ToString();
+
+        if (InventoryManager.instance.ItemData[item] > 1)
         {
             transform.GetChild(1).GetComponent<TextMeshProUGUI>().enabled = true; // Displays the amount
         }

@@ -69,13 +69,15 @@ public class InventoryUI : MonoBehaviour
 
     public void UpdateUI() // Adds items to inventory screen
     {
+        List<Item> keyList = new List<Item>(inventory.ItemData.Keys);
+
         for (int i = 0; i < slots.Length; i++)
         {
-            if (i < inventory.items.Count)
+            if (i < inventory.ItemData.Count)
             {
-                if (!slots[i].isFilled || (slots[i].item.amount <= slots[i].item.stackLimit) && slots[i].item.inSlot)
+                if (!slots[i].isFilled || (inventory.ItemData[slots[i].item] <= slots[i].item.stackLimit) && slots[i].item.inSlot)
                 {
-                    slots[i].AddItem(inventory.items[i]);
+                    slots[i].AddItem(keyList[i]);
                     slots[i].item.inSlot = true;
                 }
             }

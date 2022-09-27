@@ -35,11 +35,6 @@ public class InventoryManagerZach : MonoBehaviour // Manages inventory as a Sing
             items.Add(item);
         }
 
-        else // Item is already in inventory
-        {
-            item.amount++; // Increase Item amount
-        }
-
         UI.UpdateUI(); // Update Inventory Screen
     }
 }

@@ -21,7 +21,6 @@ public class Item : ScriptableObject // Holds data for Item
     public ItemType type;
     [TextArea(15, 20)]
     public string description;
-    public int amount;
     public int itemValue;
     public int stackLimit;
     public bool inSlot;
@@ -29,11 +28,6 @@ public class Item : ScriptableObject // Holds data for Item
     private void Awake()
     {
         type = ItemType.Equipment;
-    }
-
-    private void OnEnable() // Sets amount of item to 1 as default
-    {
-        amount = 1;
     }
 }
 

@@ -32,24 +32,23 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
     {
         item = newItem;
         
-        if (newItem.amount <= newItem.stackLimit)
+        if (InventoryManager.instance.ItemData[item] <= newItem.stackLimit)
         {
             icon = item.icon;
             transform.GetChild(0).gameObject.SetActive(true);
             transform.GetChild(0).GetComponent<Image>().sprite = icon;
-            transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = item.amount.ToString();
+            transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = InventoryManager.instance.ItemData[item].ToString();
             isFilled = true;
             item.inSlot = true;
             UI.EnableRemoveButton();
         }
         else 
         {
-            newItem.amount = 1;
             newItem.inSlot = true;
             InventoryManager.instance.AddItem(newItem);
         }
 
-        if (newItem.amount > 1)
+        if (InventoryManager.instance.ItemData[item] > 1)
         {
             transform.GetChild(1).GetComponent<TextMeshProUGUI>().enabled = true; // Displays the amount
         }

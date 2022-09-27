@@ -18,8 +18,8 @@ public class InventoryManager : MonoBehaviour // Manages inventory as a Singleto
     }
     #endregion // InventoryManager instance
 
-    public List<Item> items = new List<Item>(); // Holds items; basically the inventory
-    public List<Item> EquippedItems = new List<Item>();
+    public List<Item> EquippedItems = new List<Item>(); // Holds Equipped Items
+    public Dictionary<Item,int> ItemData = new Dictionary<Item,int>(); // Holds Items and their corresponding amount
     public int InventorySpace = 25;
     public InventoryUI UI;
 
@@ -32,19 +32,22 @@ public class InventoryManager : MonoBehaviour // Manages inventory as a Singleto
 
     public void AddItem(Item item)
     {
-        if (!items.Contains(item)) // If Item is not in inventory
+        if (!ItemData.ContainsKey(item)) // If Item is not in inventory
         {
-            if (items.Count >= InventorySpace)
+            Debug.Log("Add Item");
+            Debug.Log(ItemData.Count);
+
+            if (ItemData.Count >= InventorySpace)
             {
                 Debug.Log("Inventory Full");
                 return;
             }
-            items.Add(item);
+            ItemData.Add(item,1);
         }
 
         else // Item is already in inventory
         {
-            item.amount++; // Increase Item amount
+            ItemData.TryAdd(item, ItemData[item]++); // Increase Item amount
         }
 
         UI.UpdateUI(); // Update Inventory Screen
@@ -106,6 +109,6 @@ public class InventoryManager : MonoBehaviour // Manages inventory as a Singleto
 
     public void Remove(Item item) // Removes item from inventory
     {
-        items.Remove(item);
+        ItemData.Remove(item);
     }
 }
