@@ -6,9 +6,9 @@ using TMPro;
 
 public class ShopItem : MonoBehaviour
 {
-    public Item item;
-    public Sprite icon;
-    public bool isViewing;
+    public Item item; // Item in Shop slot
+    public Sprite icon; // Item Icon for Shop
+    public bool isViewing; // If player is clicking on given slot
     public Transform ItemInfo;
     public string ItemValue;
 
@@ -18,6 +18,7 @@ public class ShopItem : MonoBehaviour
     // On mouse exit
     public void ExitItem() => isViewing = false;
 
+    // Displays info and purchase panel
     public void DisplayInfo()
     {
         if (isViewing)
@@ -45,7 +46,7 @@ public class ShopItem : MonoBehaviour
         }
     }
 
-    public void BuyItem()
+    public void BuyItem() // purchases item
     {
         ShopItem slot = this;
         InventoryManager.instance.AddItem(slot.item);

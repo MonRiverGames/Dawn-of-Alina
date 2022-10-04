@@ -22,21 +22,9 @@ public class ShopManager : MonoBehaviour
     public int shopItemCount = 25;
     public ShopUI UI;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void AddItem(Item item)
     {
-        if (!shopItems.Contains(item)) // If Item is not in inventory
+        if (!shopItems.Contains(item)) // If Item is not in Shop
         {
             if (shopItems.Count >= shopItemCount)
             {

@@ -10,10 +10,10 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
     public Sprite icon;
     public Button RemoveButton;
     public InventoryUI UI;
-    public bool isFilled;
-    public bool isViewing;
-    public Transform ItemInfo;
-    public string ItemValue;
+    public bool isFilled; // If there is an item present in slot
+    public bool isViewing; // If player is looking at slot in inventory
+    public Transform ItemInfo; // Item info panel
+    public string ItemValue; 
 
     public void Update()
     {
