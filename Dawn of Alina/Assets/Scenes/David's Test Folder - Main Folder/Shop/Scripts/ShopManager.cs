@@ -25,12 +25,25 @@ public class ShopManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public void AddItem(Item item)
+    {
+        if (!shopItems.Contains(item)) // If Item is not in inventory
+        {
+            if (shopItems.Count >= shopItemCount)
+            {
+                Debug.Log("Inventory Full");
+                return;
+            }
+            shopItems.Add(item);
+        }
     }
 }
