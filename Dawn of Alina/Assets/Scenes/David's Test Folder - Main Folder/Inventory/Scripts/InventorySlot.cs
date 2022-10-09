@@ -135,5 +135,16 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
             OnRemoveButton();
         }
     }
+
+    public void SellItem()
+    {
+        InventorySlot slot = this;
+
+        if (InventoryManager.instance.ItemData.ContainsKey(item) && InventoryManager.instance.ItemData[slot.item] > 0)
+        {
+            InventoryManager.instance.ItemData[slot.item]--;
+            UI.UpdateUI();
+        }
+    }
 }
 

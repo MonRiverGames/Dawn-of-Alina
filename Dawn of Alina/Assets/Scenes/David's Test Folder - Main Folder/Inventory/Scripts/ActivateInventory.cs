@@ -6,7 +6,7 @@ public class ActivateInventory : MonoBehaviour // Activates Inventory UI with bu
 {
     public GameObject InventoryScreen;
     public InventoryUI UI;
-    public bool isInventoryActive = true;
+    public bool isInventoryActive = false;
     public GameObject Crosshair;
 
     public void Update()
