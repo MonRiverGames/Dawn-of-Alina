@@ -13,7 +13,8 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
     public bool isFilled; // If there is an item present in slot
     public bool isViewing; // If player is looking at slot in inventory
     public Transform ItemInfo; // Item info panel
-    public string ItemValue; 
+    public string ItemValue;
+    public ShopInteract shop;
 
     public void Update()
     {
@@ -93,13 +94,25 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
             ItemInfo.GetChild(3).GetComponent<TextMeshProUGUI>().text = ItemValue;
             ItemInfo.GetChild(2).GetComponent<TextMeshProUGUI>().enabled = true;
             ItemInfo.gameObject.SetActive(true);
+
+            if (shop.isShopActive)
+            {
+                ItemInfo.GetChild(4).gameObject.SetActive(true);
+            }
+
+            else
+            {
+                ItemInfo.GetChild(4).gameObject.SetActive(false);
+            }
         }
+
         else
         {
             ItemInfo.GetChild(0).GetComponent<TextMeshProUGUI>().text = null;
             ItemInfo.GetChild(1).GetComponent<Image>().sprite = null;
             ItemInfo.GetChild(2).GetComponent<TextMeshProUGUI>().text = null;
             ItemInfo.GetChild(3).GetComponent<TextMeshProUGUI>().text = null;
+            ItemInfo.GetChild(4).gameObject.SetActive(false);
             ItemInfo.gameObject.SetActive(false);
         }
     }
