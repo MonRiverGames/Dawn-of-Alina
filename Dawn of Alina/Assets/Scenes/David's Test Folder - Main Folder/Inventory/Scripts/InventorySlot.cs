@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class InventorySlot : MonoBehaviour // Manages the info for each inventory slot
 {
@@ -138,13 +139,10 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
 
     public void SellItem()
     {
-        InventorySlot slot = this;
-
-        if (InventoryManager.instance.ItemData.ContainsKey(item) && InventoryManager.instance.ItemData[slot.item] > 0)
+        if (InventoryManager.instance.ItemData[item] > 0)
         {
-            InventoryManager.instance.ItemData[slot.item]--;
+            InventoryManager.instance.ItemData[item]--;
             UI.UpdateUI();
         }
     }
 }
-

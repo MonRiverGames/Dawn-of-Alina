@@ -34,7 +34,6 @@ public class InventoryManager : MonoBehaviour // Manages inventory as a Singleto
     {
         if (!ItemData.ContainsKey(item)) // If Item is not in inventory
         {
-            Debug.Log("Add Item");
             Debug.Log(ItemData.Count);
 
             if (ItemData.Count >= InventorySpace)
@@ -67,7 +66,6 @@ public class InventoryManager : MonoBehaviour // Manages inventory as a Singleto
         {
             if (item.type == ItemType.Equipment)
             {
-                print("WE OUT HERE IN INVENTORY MANAGER");
                 EquippedItems[0] = item;
                 UI.UpdateUI();
             }

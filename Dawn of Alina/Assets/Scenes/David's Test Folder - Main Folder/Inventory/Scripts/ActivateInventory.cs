@@ -19,7 +19,6 @@ public class ActivateInventory : MonoBehaviour // Activates Inventory UI with bu
 
     public void ActivateUI()
     {
-        Debug.Log("Inventory");
         isInventoryActive = !isInventoryActive;
         InventoryScreen.SetActive(isInventoryActive);
 
