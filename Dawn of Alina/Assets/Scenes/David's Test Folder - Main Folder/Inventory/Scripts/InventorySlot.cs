@@ -16,6 +16,7 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
     public Transform ItemInfo; // Item info panel
     public string ItemValue;
     public ShopInteract shop;
+    public Button SellButton;
 
     public void Update()
     {
@@ -41,6 +42,8 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
             transform.GetChild(0).gameObject.SetActive(true);
             transform.GetChild(0).GetComponent<Image>().sprite = icon;
             transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = InventoryManager.instance.ItemData[item].ToString();
+            SellButton.onClick.RemoveAllListeners();
+            SellButton.onClick.AddListener(SellItem);
             isFilled = true;
             item.inSlot = true;
             UI.EnableRemoveButton();
@@ -142,9 +145,8 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
 
     public void SellItem()
     {
-        if(isFilled && isViewing && item != null)
-        {
-            InventoryManager.instance.AddItem(item);
-        }
+        Debug.Log(item);
+        InventoryManager.instance.ItemData[item]--;
+        UI.UpdateUI();
     }
 }
