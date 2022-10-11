@@ -34,8 +34,6 @@ public class InventoryManager : MonoBehaviour // Manages inventory as a Singleto
     {
         if (!ItemData.ContainsKey(item)) // If Item is not in inventory
         {
-            Debug.Log(ItemData.Count);
-
             if (ItemData.Count >= InventorySpace)
             {
                 Debug.Log("Inventory Full");

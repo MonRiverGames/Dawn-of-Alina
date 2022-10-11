@@ -2100,6 +2100,7 @@ GameObject:
   - component: {fileID: 71677489}
   - component: {fileID: 71677488}
   - component: {fileID: 71677500}
+  - component: {fileID: 5409910650482848479}
   m_Layer: 0
   m_Name: Alina
   m_TagString: Player
@@ -2430,6 +2431,21 @@ MonoBehaviour:
   EquippedItems: []
   InventorySpace: 25
   UI: {fileID: 0}
+--- !u!114 &5409910650482848479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6837953841850640812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78bbb5723deea584e98f901f4d12899f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsDatabase:
+  - {fileID: 11400000, guid: 7ee2f970bbcfc9b41a617e6146af779b, type: 2}
+  - {fileID: 11400000, guid: e91985de00555bd4d9fe5c5836a9242d, type: 2}
 --- !u!1 &6837953842728448377
 GameObject:
   m_ObjectHideFlags: 0

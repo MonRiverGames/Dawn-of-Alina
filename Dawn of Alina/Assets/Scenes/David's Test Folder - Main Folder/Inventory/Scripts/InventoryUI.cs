@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class InventoryUI : MonoBehaviour
     public LHandSlot LHand;
     public GameObject Player;
     PlayerLook playerLook;
+    public TextMeshProUGUI GoldText;
 
     void Start()
     {
@@ -19,6 +21,7 @@ public class InventoryUI : MonoBehaviour
         slots = InventoryParent.GetComponentsInChildren<InventorySlot>();
         inventory.InventorySpace = slots.Length;
         playerLook = Player.GetComponent<PlayerLook>();
+        GoldText.text = "Gold: 10000";
     }
 
     public void EnableRemoveButton() // Enables/Disables remove button on inventoy slot

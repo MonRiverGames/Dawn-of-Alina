@@ -33,7 +33,8 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
     public void AddItem(Item newItem) // Adds item to slot
     {
         item = newItem;
-        
+        Debug.Log(item);
+
         if (InventoryManager.instance.ItemData[item] <= newItem.stackLimit)
         {
             icon = item.icon;
@@ -43,11 +44,13 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
             isFilled = true;
             item.inSlot = true;
             UI.EnableRemoveButton();
+            item = newItem;
         }
         else 
         {
             newItem.inSlot = true;
             InventoryManager.instance.AddItem(newItem);
+            item = newItem;
         }
 
         if (InventoryManager.instance.ItemData[item] > 1)
@@ -139,10 +142,9 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
 
     public void SellItem()
     {
-        if (InventoryManager.instance.ItemData[item] > 0)
+        if(isFilled && isViewing && item != null)
         {
-            InventoryManager.instance.ItemData[item]--;
-            UI.UpdateUI();
+            InventoryManager.instance.AddItem(item);
         }
     }
 }
