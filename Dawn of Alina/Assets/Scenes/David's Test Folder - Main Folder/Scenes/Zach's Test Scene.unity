@@ -395,6 +395,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6837953841850640812, guid: 3150510e4c2f45b419ca724b41d70d15, type: 3}
   m_PrefabInstance: {fileID: 6837953842315849758}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &71677488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71677486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6634f1340af499b40a5cf1eced3c70ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &101767109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15776,7 +15788,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alina
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5409910650482848479, guid: 3150510e4c2f45b419ca724b41d70d15, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3150510e4c2f45b419ca724b41d70d15, type: 3}
 --- !u!4 &6888475618790579693
 Transform:

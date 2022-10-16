@@ -82,6 +82,11 @@ public class InventoryUI : MonoBehaviour
                 {
                     slots[i].AddItem(keyList[i]);
                     slots[i].item.inSlot = true;
+
+                    if(InventoryManager.instance.ItemData[slots[i].item] == 1)
+                    {
+                        slots[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = null;
+                    }
                 }
             }
         }

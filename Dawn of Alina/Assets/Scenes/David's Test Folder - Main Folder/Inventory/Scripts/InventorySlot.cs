@@ -34,7 +34,6 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
     public void AddItem(Item newItem) // Adds item to slot
     {
         item = newItem;
-        Debug.Log(item);
 
         if (InventoryManager.instance.ItemData[item] <= newItem.stackLimit)
         {
@@ -145,8 +144,16 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
 
     public void SellItem()
     {
-        Debug.Log(item);
-        InventoryManager.instance.ItemData[item]--;
-        UI.UpdateUI();
+        if (InventoryManager.instance.ItemData[item] > 0)
+        {
+            InventoryManager.instance.ItemData[item]--;
+            UI.UpdateUI();
+        }
+
+        else
+        {
+            ClearSlot();
+            UI.UpdateUI();
+        }
     }
 }

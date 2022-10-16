@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class InventoryManager : MonoBehaviour // Manages inventory as a Singleton
 {
     #region Singleton
