@@ -8,11 +8,12 @@ public class PlayerUI : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _promptText;
 
-    public InventoryObject inventory;
+    InventoryManager inventory;
 
     // Start is called before the first frame update
     void Start()
     {
+        inventory = InventoryManager.instance;
     }
 
     private void Update()
