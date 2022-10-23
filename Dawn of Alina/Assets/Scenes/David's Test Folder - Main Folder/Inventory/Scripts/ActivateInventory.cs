@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PixelCrushers;
 
 public class ActivateInventory : MonoBehaviour // Activates Inventory UI with button press
 {
@@ -8,6 +9,7 @@ public class ActivateInventory : MonoBehaviour // Activates Inventory UI with bu
     public InventoryUI UI;
     public bool isInventoryActive = false;
     public GameObject Crosshair;
+
 
     public void Update()
     {
@@ -27,7 +29,6 @@ public class ActivateInventory : MonoBehaviour // Activates Inventory UI with bu
             Cursor.lockState = CursorLockMode.Confined;
             Crosshair.SetActive(false);
             Time.timeScale = 0f;
-                
         }
 
         else
