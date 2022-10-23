@@ -19748,7 +19748,11 @@ PrefabInstance:
     - target: {fileID: 71677500, guid: 3150510e4c2f45b419ca724b41d70d15, type: 3}
       propertyPath: UI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9103107458511091756}
+    - target: {fileID: 71677500, guid: 3150510e4c2f45b419ca724b41d70d15, type: 3}
+      propertyPath: Database
+      value: 
+      objectReference: {fileID: 11400000, guid: 5dbd193c97111c248abe54a009edf6a7, type: 2}
     - target: {fileID: 6837953841850640803, guid: 3150510e4c2f45b419ca724b41d70d15, type: 3}
       propertyPath: UI
       value: 
