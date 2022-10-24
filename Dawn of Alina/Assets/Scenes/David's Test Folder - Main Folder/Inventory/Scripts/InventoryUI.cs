@@ -70,7 +70,7 @@ public class InventoryUI : MonoBehaviour
         return false;
     }
 
-    public void UpdateUI() // Adds items to inventory screen
+    public void UpdateUI() // actually Adds items to display on inventory screen
     {
         List<Item> keyList = new List<Item>(inventory.ItemData.Keys);
 
@@ -91,7 +91,7 @@ public class InventoryUI : MonoBehaviour
             }
         }
 
-        if (inventory.EquippedItems[0].type == ItemType.Equipment)
+        if (inventory.EquippedItems[0].type == ItemType.Equipment) // LEFT
         {
             print("Equip Left");
             LHand.AddItem(inventory.EquippedItems[0]);

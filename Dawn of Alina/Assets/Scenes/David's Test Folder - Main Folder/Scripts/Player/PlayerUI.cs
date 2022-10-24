@@ -6,9 +6,8 @@ using TMPro;
 public class PlayerUI : MonoBehaviour
 {
     [SerializeField]
-    private TextMeshProUGUI _promptText;
-
-    InventoryManager inventory;
+    private TextMeshProUGUI _promptText; // Text for interactable prompts
+    InventoryManager inventory; // Player inventory
 
     // Start is called before the first frame update
     void Start()
@@ -20,13 +19,18 @@ public class PlayerUI : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftAlt))
         {
-            inventory.Save();
+            inventory.Save(inventory); // Saves inventory data
         }
 
         if (Input.GetKeyDown(KeyCode.RightAlt))
         {
-            inventory.Load();
+            inventory.UpdateInventory(inventory.LoadData()); // Loads inventory data
         }
+    }
+
+    private void OnApplicationQuit()
+    {
+        inventory.Save(inventory);
     }
 
     // Update is called once per frame

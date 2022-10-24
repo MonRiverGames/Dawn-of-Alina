@@ -6,7 +6,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 [System.Serializable]
-public class InventoryManager : MonoBehaviour // Manages inventory as a Singleton
+public class InventoryManager : MonoBehaviour// Manages inventory as a Singleton
 {
     #region Singleton
     public static InventoryManager instance;
@@ -27,7 +27,7 @@ public class InventoryManager : MonoBehaviour // Manages inventory as a Singleto
     public int InventorySpace = 25;
     public InventoryUI UI;
     public ItemDatabaseObject Database;
-    public string ItemSavePath = "/inventoryItems";
+    public string SavePath = "/inventoryItems";
     
     public void Start()
     {
@@ -52,7 +52,6 @@ public class InventoryManager : MonoBehaviour // Manages inventory as a Singleto
         {
             ItemData.TryAdd(item, ItemData[item]++); // Increase Item amount
         }
-
         UI.UpdateUI(); // Update Inventory Screen
     }
 
@@ -114,57 +113,45 @@ public class InventoryManager : MonoBehaviour // Manages inventory as a Singleto
         ItemData.Remove(item);
     }
 
-
     [ContextMenu("Save")]
-    public void Save()
+    public void Save(InventoryManager inventory)
     {
-        string DataString = "";
-
-            foreach (Item item in ItemData.Keys)
-            {
-                foreach (int amount in ItemData.Values)
-                {
-                    Debug.Log(item.name);
-                    DataString = string.Concat(DataString, item.name + "/" );
-                    DataString = string.Concat(DataString, amount + "&");
-                    Debug.Log("Data String" + " is " + DataString);
-                }
-            }
-
-        Debug.Log(DataString);
-        File.WriteAllText(string.Concat(Application.persistentDataPath, ItemSavePath + ".txt"), DataString);
+        BinaryFormatter formatter = new BinaryFormatter();
+        Stream stream = new FileStream(string.Concat(Application.persistentDataPath, SavePath + ".savedata"), FileMode.Create, FileAccess.Write);
+        SaveData data = new SaveData();
+        formatter.Serialize(stream, data);
+        stream.Close();
         Debug.Log("Items and amounts Saved");
     }
 
     [ContextMenu("Load")]
-    public void Load()
+    public SaveData LoadData()
     {
-        string DataString = "";
-
-        if (File.Exists(string.Concat(Application.persistentDataPath, ItemSavePath + ".txt")))
+        if (File.Exists(string.Concat(Application.persistentDataPath, SavePath + ".savedata")))
         {
-            DataString = File.ReadAllText(string.Concat(Application.persistentDataPath, ItemSavePath + ".txt"));
-
-            Debug.Log("Items Loaded");
-            string[] items = DataString.Split('/');
-
-            for(int i = 0; i < items.Length; i++)
-            {
-                DataString = items[i].Trim('&');
-                
-                if(i % 2 == 0) // Then we know is item
-                {
-                    int amountToAdd = int.Parse(items[i + 1].Trim('&'));
-                    print(amountToAdd);
-                    for (int j = 1; j <= amountToAdd; j++)
-                    {
-                        AddItem(Database.FindItem(items[i]));
-                    }
-                    
-                }
-            }
-
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(string.Concat(Application.persistentDataPath, SavePath + ".savedata"), FileMode.Open, FileAccess.Read);
+            SaveData data = formatter.Deserialize(stream) as SaveData;
+            stream.Close();
+            Debug.Log("Loaded SaveData");
+            return data;
         }
+        else
+        {
+            Debug.Log("ERROR CANNOT LOAD SAVEDATA");
+            return null;
+        }
+    }
 
+    public void UpdateInventory(SaveData data)
+    {
+        for (int i = 0; i < data.itemNames.Length; i++)
+        {
+            for (int j = 0; j < data.itemAmounts[i]; j++)
+            {
+                AddItem(Database.FindItem(data.itemNames[i]));
+            }
+        }
+        UI.UpdateUI();
     }
 }

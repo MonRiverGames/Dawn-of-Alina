@@ -7,6 +7,9 @@ using UnityEngine;
 [System.Serializable]
 public static class Serializer
 {
+    [SerializeField]
+    static byte[] data;
+
    public static byte[] Serialize(object obj)
     {
         if(obj == null)
@@ -15,7 +18,8 @@ public static class Serializer
         BinaryFormatter bf = new BinaryFormatter();
         MemoryStream ms = new MemoryStream();
         bf.Serialize(ms, obj);
-        return ms.ToArray();
+        data = ms.ToArray();
+        return data;
     }
 
     public static object Deserialize(byte[] data)
