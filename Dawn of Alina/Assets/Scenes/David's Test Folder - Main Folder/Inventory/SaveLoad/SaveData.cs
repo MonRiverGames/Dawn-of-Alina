@@ -16,9 +16,9 @@ public class SaveData
         PlayerHealth PlayerData = PlayerHealth.instance;
         playerHealth = PlayerData.health;
         playerPos = new float[3];
-        playerPos[0] = PlayerData.transform.position.x;
-        playerPos[1] = PlayerData.transform.position.y;
-        playerPos[2] = PlayerData.transform.position.z;
+        playerPos[0] = PlayerData.Player.transform.position.x;
+        playerPos[1] = PlayerData.Player.transform.position.y;
+        playerPos[2] = PlayerData.Player.transform.position.z;
 
         foreach (KeyValuePair<Item, int> pair in inventory.ItemData)
         {

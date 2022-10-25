@@ -29,6 +29,7 @@ public class InventoryManager : MonoBehaviour// Manages inventory as a Singleton
     private PlayerHealth PlayerData;
     public ItemDatabaseObject Database;
     public string SavePath = "/inventoryItems";
+    public GameObject Player;
     
     public void Start()
     {
@@ -163,7 +164,7 @@ public class InventoryManager : MonoBehaviour// Manages inventory as a Singleton
         position.x = data.playerPos[0];
         position.y = data.playerPos[1];
         position.z = data.playerPos[2];
-        transform.position = position;
+        Player.transform.position = position;
         Debug.Log("X: " + data.playerPos[0]);
         Debug.Log("Y: " + data.playerPos[1]);
         Debug.Log("Z: " + data.playerPos[2]);

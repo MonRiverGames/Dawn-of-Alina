@@ -5,9 +5,6 @@ using UnityEngine;
 public class PlayerLook : MonoBehaviour
 {
     public Camera cam;
-    
-    
-   
     public GameObject InventoryScreen;
     public InventoryUI UI;
     public bool isInventoryActive = true;
@@ -18,13 +15,7 @@ public class PlayerLook : MonoBehaviour
    
     void Start()
     {
-        
         Cursor.lockState = CursorLockMode.Locked;
-    }
-
-    public void Update()
-    {
-        
     }
 
     public void ProcessLook(Vector2 input)
@@ -34,8 +25,6 @@ public class PlayerLook : MonoBehaviour
         //Calculate camera rotation for looking up and down
         xRot -= (mouseY * Time.deltaTime) * ySensitivity;
         xRot = Mathf.Clamp(xRot, -80f, 80f);
-
-        //yRot += (mouseX * Time.deltaTime) * xSensitivity;
         
         //Apply to cam transform
         cam.transform.localRotation = Quaternion.Euler(xRot, 0f, 0f);

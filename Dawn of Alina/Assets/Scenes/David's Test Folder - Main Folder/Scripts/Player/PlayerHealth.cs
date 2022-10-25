@@ -22,17 +22,16 @@ public class PlayerHealth : MonoBehaviour
 
     private Animator anim;
     private float isDead;
-
+    public GameObject Player;
     public float health = 100;
     private float lerpTimer;
     
     public float maxHealth = 100f;
     public float chipSpeed = 2f;
-    
+
     public Image frontHealthBar;
     public Image backHealthBar;
 
-   
     private InputManager inputManager;  //Delete this later (Test)
 
     // Start is called before the first frame update
