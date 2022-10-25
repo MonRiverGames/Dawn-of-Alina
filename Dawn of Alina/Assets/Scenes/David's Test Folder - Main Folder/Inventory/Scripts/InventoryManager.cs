@@ -26,12 +26,14 @@ public class InventoryManager : MonoBehaviour// Manages inventory as a Singleton
     public Dictionary<Item,int> ItemData = new Dictionary<Item,int>(); // Holds Items and their corresponding amount
     public int InventorySpace = 25;
     public InventoryUI UI;
+    private PlayerHealth PlayerData;
     public ItemDatabaseObject Database;
     public string SavePath = "/inventoryItems";
     
     public void Start()
     {
         Item Default = ScriptableObject.CreateInstance<Item>();
+        PlayerData = PlayerHealth.instance;
         Default.type = ItemType.Default;
         EquippedItems = new List<Item>{Default, Default};
     }
@@ -153,5 +155,18 @@ public class InventoryManager : MonoBehaviour// Manages inventory as a Singleton
             }
         }
         UI.UpdateUI();
+
+        Debug.Log(data.playerHealth);
+
+        PlayerData.health = data.playerHealth;
+        Vector3 position;
+        position.x = data.playerPos[0];
+        position.y = data.playerPos[1];
+        position.z = data.playerPos[2];
+        transform.position = position;
+        Debug.Log("X: " + data.playerPos[0]);
+        Debug.Log("Y: " + data.playerPos[1]);
+        Debug.Log("Z: " + data.playerPos[2]);
+        
     }
 }
