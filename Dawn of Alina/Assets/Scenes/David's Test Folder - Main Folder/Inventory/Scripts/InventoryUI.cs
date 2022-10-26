@@ -9,8 +9,6 @@ public class InventoryUI : MonoBehaviour
     public Transform InventoryParent; // Main Inventory
     InventoryManager inventory; // Inventory instance
     InventorySlot[] slots;
-    public RHandSlot RHand;
-    public LHandSlot LHand;
     public GameObject Player;
     PlayerLook playerLook;
     public TextMeshProUGUI GoldText;
@@ -21,30 +19,10 @@ public class InventoryUI : MonoBehaviour
         slots = InventoryParent.GetComponentsInChildren<InventorySlot>();
         inventory.InventorySpace = slots.Length;
         playerLook = Player.GetComponent<PlayerLook>();
-        GoldText.text = "Gold: 10000";
     }
 
     public void EnableRemoveButton() // Enables/Disables remove button on inventoy slot
     {
-        if (LHand.isFilled)
-        {
-            LHand.transform.GetChild(1).gameObject.SetActive(true); // Enable Remove Button
-        }
-        else
-        {
-            LHand.transform.GetChild(1).gameObject.SetActive(false); // Disable Remove Button
-        }
-
-        if (RHand.isFilled)
-        {
-            RHand.transform.GetChild(1).gameObject.SetActive(true); // Enable Remove Button
-        }
-        else
-        {
-            RHand.transform.GetChild(1).gameObject.SetActive(false); // Disable Remove Button
-        }
-
-
         foreach (InventorySlot slot in slots)
         {
             if (slot.isFilled)
@@ -60,9 +38,9 @@ public class InventoryUI : MonoBehaviour
 
     public bool inSlot(Item item) // Checks if item is present in inventory slot
     {
-        foreach(InventorySlot slot in slots)
+        foreach (InventorySlot slot in slots)
         {
-            if(slot.item = item)
+            if (slot.item = item)
             {
                 return true;
             }
@@ -83,7 +61,7 @@ public class InventoryUI : MonoBehaviour
                     slots[i].AddItem(keyList[i]);
                     slots[i].item.inSlot = true;
 
-                    if(InventoryManager.instance.ItemData[slots[i].item] == 1)
+                    if (InventoryManager.instance.ItemData[slots[i].item] == 1)
                     {
                         slots[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = null;
                     }
@@ -91,18 +69,6 @@ public class InventoryUI : MonoBehaviour
             }
         }
 
-        if (inventory.EquippedItems[0].type == ItemType.Equipment) // LEFT
-        {
-            print("Equip Left");
-            LHand.AddItem(inventory.EquippedItems[0]);
-            LHand.item.inSlot = true;
-        }
-
-        if (inventory.EquippedItems[1].type == ItemType.Equipment) // RIGHT
-        {
-            print("Equip Right");
-            RHand.AddItem(inventory.EquippedItems[1]);
-            RHand.item.inSlot = true;
-        }
+       InventoryManager.instance.GoldCount.text = inventory.GoldAmount.ToString();
     }
 }

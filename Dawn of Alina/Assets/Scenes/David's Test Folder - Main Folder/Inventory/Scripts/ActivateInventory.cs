@@ -27,7 +27,6 @@ public class ActivateInventory : MonoBehaviour // Activates Inventory UI with bu
             Cursor.lockState = CursorLockMode.Confined; // Get rid of cursor
             Crosshair.SetActive(false); // disable crosshair
             Time.timeScale = 0f; // pause game
-                
         }
 
         else // if inventory closed

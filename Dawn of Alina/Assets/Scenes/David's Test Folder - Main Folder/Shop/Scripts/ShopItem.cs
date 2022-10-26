@@ -11,6 +11,7 @@ public class ShopItem : MonoBehaviour
     public bool isViewing; // If player is clicking on given slot
     public Transform ItemInfo;
     public string ItemValue;
+    public InventoryUI UI;
 
     // On mouse enter 
     public void EnterItem() => isViewing = true;
@@ -50,5 +51,7 @@ public class ShopItem : MonoBehaviour
     {
         ShopItem slot = this;
         InventoryManager.instance.AddItem(slot.item);
+        InventoryManager.instance.GoldAmount -= slot.item.itemValue;
+        UI.UpdateUI();
     }
 }

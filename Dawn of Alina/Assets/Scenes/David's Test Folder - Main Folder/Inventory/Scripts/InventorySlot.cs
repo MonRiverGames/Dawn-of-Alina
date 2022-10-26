@@ -18,19 +18,6 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
     public ShopInteract shop;
     public Button SellButton;
 
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Comma) && isFilled && isViewing)
-        {
-            EquipLeft();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Period) && isFilled && isViewing)
-        {
-            EquipRight();
-        }
-    }
-
     public void AddItem(Item newItem) // Adds item to slot
     {
         item = newItem;
@@ -122,31 +109,13 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
             ItemInfo.gameObject.SetActive(false);
         }
     }
-    public void EquipLeft()
-    {
-        if (isFilled && isViewing)
-        {
-            InventoryManager.instance.EquipLeftItem(item);
-            print("EquipLeft in Inventory Slot");
-            OnRemoveButton();
-        }
-    }
-
-    public void EquipRight()
-    {
-        if (isFilled && isViewing)
-        {
-            InventoryManager.instance.EquipRightItem(item);
-            print("EquipRight in Inventory Slot");
-            OnRemoveButton();
-        }
-    }
 
     public void SellItem()
     {
         if (InventoryManager.instance.ItemData[item] > 0)
         {
             InventoryManager.instance.ItemData[item]--;
+            InventoryManager.instance.GoldAmount += item.itemValue;
             UI.UpdateUI();
         }
 

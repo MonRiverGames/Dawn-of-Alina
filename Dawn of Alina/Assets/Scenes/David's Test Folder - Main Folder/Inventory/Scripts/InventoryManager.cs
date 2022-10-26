@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using TMPro;
 using UnityEngine;
 
 [System.Serializable]
@@ -22,7 +23,6 @@ public class InventoryManager : MonoBehaviour// Manages inventory as a Singleton
     }
     #endregion // InventoryManager instance
 
-    public List<Item> EquippedItems = new List<Item>(); // Holds Equipped Items
     public Dictionary<Item,int> ItemData = new Dictionary<Item,int>(); // Holds Items and their corresponding amount
     public int InventorySpace = 25;
     public InventoryUI UI;
@@ -30,13 +30,14 @@ public class InventoryManager : MonoBehaviour// Manages inventory as a Singleton
     public ItemDatabaseObject Database;
     public string SavePath = "/inventoryItems";
     public GameObject Player;
+    public TextMeshProUGUI GoldCount;
+    public int GoldAmount = 1000;
     
     public void Start()
     {
         Item Default = ScriptableObject.CreateInstance<Item>();
         PlayerData = PlayerHealth.instance;
         Default.type = ItemType.Default;
-        EquippedItems = new List<Item>{Default, Default};
     }
 
     public void AddItem(Item item)
@@ -56,59 +57,6 @@ public class InventoryManager : MonoBehaviour// Manages inventory as a Singleton
             ItemData.TryAdd(item, ItemData[item]++); // Increase Item amount
         }
         UI.UpdateUI(); // Update Inventory Screen
-    }
-
-    public void EquipLeftItem(Item item)
-    {
-        if (EquippedItems[0].type != ItemType.Default) // Has Item So Unequip
-        {
-            Item Default = ScriptableObject.CreateInstance<Item>();
-            Default.type = ItemType.Default;
-            EquippedItems[0] = Default;
-            AddItem(item);
-            UI.UpdateUI();
-        }
-        else
-        {
-            if (item.type == ItemType.Equipment)
-            {
-                EquippedItems[0] = item;
-                UI.UpdateUI();
-            }
-        }
-    }
-
-    public void EquipRightItem(Item item)
-    {  
-        if (item.type == ItemType.Equipment)
-        {
-            EquippedItems[1] = item;
-            UI.UpdateUI();
-        }
-    }
-
-    public void UnequipLeft()
-    {
-        if (EquippedItems[0].type != ItemType.Default) // Has Item So Unequip
-        {
-            Item Default = ScriptableObject.CreateInstance<Item>();
-            Default.type = ItemType.Default;
-            AddItem(EquippedItems[0]);
-            EquippedItems[0] = Default;
-            UI.UpdateUI();
-        }
-    }
-
-    public void UnequipRight()
-    {
-        if (EquippedItems[1].type != ItemType.Default) // Has Item So Unequip
-        {
-            Item Default = ScriptableObject.CreateInstance<Item>();
-            Default.type = ItemType.Default;
-            AddItem(EquippedItems[1]);
-            EquippedItems[1] = Default;
-            UI.UpdateUI();
-        }
     }
 
     public void Remove(Item item) // Removes item from inventory
@@ -145,7 +93,6 @@ public class InventoryManager : MonoBehaviour// Manages inventory as a Singleton
             return null;
         }
     }
-
     public void UpdateInventory(SaveData data)
     {
         for (int i = 0; i < data.itemNames.Length; i++)
@@ -155,10 +102,9 @@ public class InventoryManager : MonoBehaviour// Manages inventory as a Singleton
                 AddItem(Database.FindItem(data.itemNames[i]));
             }
         }
+
         UI.UpdateUI();
-
         Debug.Log(data.playerHealth);
-
         PlayerData.health = data.playerHealth;
         Vector3 position;
         position.x = data.playerPos[0];
@@ -167,7 +113,6 @@ public class InventoryManager : MonoBehaviour// Manages inventory as a Singleton
         Player.transform.position = position;
         Debug.Log("X: " + data.playerPos[0]);
         Debug.Log("Y: " + data.playerPos[1]);
-        Debug.Log("Z: " + data.playerPos[2]);
-        
+        Debug.Log("Z: " + data.playerPos[2]);   
     }
 }
