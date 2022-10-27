@@ -8,6 +8,7 @@ TagManager:
   - Sword
   - Fist
   - GreatSword
+  - Teeth
   layers:
   - Default
   - TransparentFX
