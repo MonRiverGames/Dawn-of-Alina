@@ -7,7 +7,7 @@ public class MoneyObject : Item
 {
     private void Awake()
     {
-        type = ItemType.Money;
+        type = ItemType.Equipment;
         stackLimit = 100000;
     }
 

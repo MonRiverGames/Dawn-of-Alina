@@ -3,13 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
 public class PlayerHealth : MonoBehaviour
 {
+    #region Singleton
+    public static PlayerHealth instance;
 
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            return;
+        }
+
+        instance = this;
+    }
+    #endregion // PlayerHealth instance
 
     private Animator anim;
     private float isDead;
-
+    public GameObject Player;
     public float health = 100;
     private float lerpTimer;
 
@@ -18,9 +31,6 @@ public class PlayerHealth : MonoBehaviour
 
     public Image frontHealthBar;
     public Image backHealthBar;
-
-
-
 
     private InputManager inputManager;  //Delete this later (Test)
 

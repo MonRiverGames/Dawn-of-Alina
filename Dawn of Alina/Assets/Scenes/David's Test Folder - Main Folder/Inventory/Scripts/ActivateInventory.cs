@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class ActivateInventory : MonoBehaviour // Activates Inventory UI with button press
 {
-    public GameObject InventoryScreen;
-    public InventoryUI UI;
-    public bool isInventoryActive = true;
-    public GameObject Crosshair;
+    public GameObject InventoryScreen; // reference to the Inventory Screen
+    public InventoryUI UI; // Reference to actual inventory UI and accompanying scripts
+    public bool isInventoryActive = false; // Boolean checks wether or not inventory is open
+    public GameObject Crosshair; // Reference to crosshair in center of screen
 
-    public void Update()
+    public void Update() 
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I)) // If user presses I Key, then inventory will open
         {
             ActivateUI();
         }
@@ -19,21 +19,19 @@ public class ActivateInventory : MonoBehaviour // Activates Inventory UI with bu
 
     public void ActivateUI()
     {
-        Debug.Log("Inventory");
         isInventoryActive = !isInventoryActive;
         InventoryScreen.SetActive(isInventoryActive);
 
-        if (isInventoryActive)
+        if (isInventoryActive) // If inventory is open
         {
-            Cursor.lockState = CursorLockMode.Confined;
-            Crosshair.SetActive(false);
-            Time.timeScale = 0f;
-                
+            Cursor.lockState = CursorLockMode.Confined; // Get rid of cursor
+            Crosshair.SetActive(false); // disable crosshair
+            Time.timeScale = 0f; // pause game
         }
 
-        else
+        else // if inventory closed
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.Locked; // show cursor on screen 
             Crosshair.SetActive(true);
             Time.timeScale = 1;
         }

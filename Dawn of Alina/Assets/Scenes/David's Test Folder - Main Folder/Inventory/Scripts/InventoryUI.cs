@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InventoryUI : MonoBehaviour
 {
     public Transform InventoryParent; // Main Inventory
     InventoryManager inventory; // Inventory instance
     InventorySlot[] slots;
-    public RHandSlot RHand;
-    public LHandSlot LHand;
     public GameObject Player;
     PlayerLook playerLook;
+    public TextMeshProUGUI GoldText;
 
     void Start()
     {
@@ -23,25 +23,6 @@ public class InventoryUI : MonoBehaviour
 
     public void EnableRemoveButton() // Enables/Disables remove button on inventoy slot
     {
-        if (LHand.isFilled)
-        {
-            LHand.transform.GetChild(1).gameObject.SetActive(true); // Enable Remove Button
-        }
-        else
-        {
-            LHand.transform.GetChild(1).gameObject.SetActive(false); // Disable Remove Button
-        }
-
-        if (RHand.isFilled)
-        {
-            RHand.transform.GetChild(1).gameObject.SetActive(true); // Enable Remove Button
-        }
-        else
-        {
-            RHand.transform.GetChild(1).gameObject.SetActive(false); // Disable Remove Button
-        }
-
-
         foreach (InventorySlot slot in slots)
         {
             if (slot.isFilled)
@@ -57,9 +38,9 @@ public class InventoryUI : MonoBehaviour
 
     public bool inSlot(Item item) // Checks if item is present in inventory slot
     {
-        foreach(InventorySlot slot in slots)
+        foreach (InventorySlot slot in slots)
         {
-            if(slot.item = item)
+            if (slot.item = item)
             {
                 return true;
             }
@@ -67,32 +48,27 @@ public class InventoryUI : MonoBehaviour
         return false;
     }
 
-    public void UpdateUI() // Adds items to inventory screen
+    public void UpdateUI() // actually Adds items to display on inventory screen
     {
+        List<Item> keyList = new List<Item>(inventory.ItemData.Keys);
+
         for (int i = 0; i < slots.Length; i++)
         {
-            if (i < inventory.items.Count)
+            if (i < inventory.ItemData.Count)
             {
-                if (!slots[i].isFilled || (slots[i].item.amount <= slots[i].item.stackLimit) && slots[i].item.inSlot)
+                if (!slots[i].isFilled || (inventory.ItemData[slots[i].item] <= slots[i].item.stackLimit) && slots[i].item.inSlot)
                 {
-                    slots[i].AddItem(inventory.items[i]);
+                    slots[i].AddItem(keyList[i]);
                     slots[i].item.inSlot = true;
+
+                    if (InventoryManager.instance.ItemData[slots[i].item] == 1)
+                    {
+                        slots[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = null;
+                    }
                 }
             }
         }
 
-        if (inventory.EquippedItems[0].type == ItemType.Equipment)
-        {
-            print("Equip Left");
-            LHand.AddItem(inventory.EquippedItems[0]);
-            LHand.item.inSlot = true;
-        }
-
-        if (inventory.EquippedItems[1].type == ItemType.Equipment) // RIGHT
-        {
-            print("Equip Right");
-            RHand.AddItem(inventory.EquippedItems[1]);
-            RHand.item.inSlot = true;
-        }
+       InventoryManager.instance.GoldCount.text = inventory.GoldAmount.ToString();
     }
 }

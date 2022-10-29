@@ -24,7 +24,6 @@ public class PlayerMotor : MonoBehaviour
     public float gravity = -9.8f;
     public float jumpHeight = 3f;
     public float groundCheckRay = 1;
-
     public float animationFinishTime = 0.9f;
     public float velocity = 0f;
     public float backVelocity = 0f;
@@ -50,7 +49,6 @@ public class PlayerMotor : MonoBehaviour
         //barImage.fillAmount = currentMana;
         controller = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
-
     }
 
     // Update is called once per frame
@@ -84,9 +82,7 @@ public class PlayerMotor : MonoBehaviour
         {
             playerVelocity.y = -2f;
         }
-
         controller.Move(playerVelocity * Time.deltaTime);
-
     }
 
     public void Jump()
@@ -113,8 +109,6 @@ public class PlayerMotor : MonoBehaviour
             {
                 velocity = 0.3f;
             }
-
-
         }
 
         if (Keyboard.current.wKey.wasReleasedThisFrame)
@@ -130,20 +124,14 @@ public class PlayerMotor : MonoBehaviour
             sprinting = true;
 
             velocity += Time.deltaTime * acceleration;
-
-
-
-
         }
 
         if (Keyboard.current.leftShiftKey.wasReleasedThisFrame && !runningBackwards)
         {
-
             sprinting = false;
             speed = 2f;
-
-
             velocity -= Time.deltaTime * acceleration;
+
             if (velocity < 0)
             {
                 velocity = 0;
@@ -164,8 +152,6 @@ public class PlayerMotor : MonoBehaviour
                 speed = 8;
             }
         }
-
-
         anim.SetFloat("Velocity", velocity);
     }
 
@@ -197,16 +183,11 @@ public class PlayerMotor : MonoBehaviour
             backVelocity = 0;
         }
 
-
         if (Keyboard.current.leftShiftKey.wasPressedThisFrame && walkingBackwards)
         {
             runningBackwards = true;
 
             backVelocity += Time.deltaTime * acceleration;
-
-
-
-
         }
 
         if (Keyboard.current.leftShiftKey.wasReleasedThisFrame && walkingBackwards)
@@ -237,8 +218,6 @@ public class PlayerMotor : MonoBehaviour
                 speed = 8;
             }
         }
-
-
         anim.SetFloat("BackVelocity", backVelocity);
     }
 
