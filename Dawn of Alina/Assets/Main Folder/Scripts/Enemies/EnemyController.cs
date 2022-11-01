@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
+
 
 public class EnemyController : MonoBehaviour
 {
@@ -178,7 +181,10 @@ public class EnemyController : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, sightRange);
     }
 
-
+    public Boolean IsItDead()
+    {
+        return isDead;
+    }
 
 
 }
