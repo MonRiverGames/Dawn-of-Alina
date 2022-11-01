@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class SaveManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    #region Singleton
+    public static SaveManager instance;
+
+    private void Awake()
     {
-        
+        if (instance != null)
+        {
+            return;
+        }
+
+        instance = this;
+    }
+    #endregion // SaveManager instance
+
+    public List<string> SaveFiles = new List<string>();
+
+    public void AddSaveFile()
+    {
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RemoveSaveFile()
     {
-        
+
     }
+
 }
