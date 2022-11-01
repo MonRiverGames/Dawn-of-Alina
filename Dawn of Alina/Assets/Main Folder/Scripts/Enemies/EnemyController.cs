@@ -82,7 +82,7 @@ public class EnemyController : MonoBehaviour
 
         if (walkPointSet && !isDead)
         {
-            navMeshAgent.SetDestination(walkPoint);
+            navMeshAgent.SetDestination(walkPoint); 
 
             //Add walk animation code
             anim.SetBool("isWalking", true);

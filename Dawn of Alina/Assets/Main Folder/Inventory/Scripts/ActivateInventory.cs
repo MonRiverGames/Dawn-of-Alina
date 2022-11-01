@@ -9,6 +9,8 @@ public class ActivateInventory : MonoBehaviour // Activates Inventory UI with bu
     public bool isInventoryActive = false; // Boolean checks wether or not inventory is open
     public GameObject Crosshair; // Reference to crosshair in center of screen
 
+
+
     public void Update() 
     {
         if (Input.GetKeyDown(KeyCode.I)) // If user presses I Key, then inventory will open
