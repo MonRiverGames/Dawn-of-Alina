@@ -62,6 +62,7 @@ public class InventoryManager : MonoBehaviour// Manages inventory as a Singleton
     public void Remove(Item item) // Removes item from inventory
     {
         ItemData.Remove(item);
+        UI.UpdateUI();
     }
 
     [ContextMenu("Save")]
