@@ -30,7 +30,7 @@ public class PlayerUI : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        inventory.Save(inventory);
+        // inventory.Save(inventory);
     }
 
     // Update is called once per frame
