@@ -331,110 +331,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad1eb068b0d39f8479005523082caaa5, type: 3}
---- !u!1 &695284445
+--- !u!1 &695284445 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8474600299375859030, guid: f50d5eb190a77264db776be20ccd45a8, type: 3}
+  m_PrefabInstance: {fileID: 8474600298688980875}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 695284447}
-  - component: {fileID: 695284446}
-  m_Layer: 0
-  m_Name: DisembodiedVoice
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &695284446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 695284445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c593457cd8105e148906690e1707c592, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trigger: 512
-  condition:
-    luaConditions: []
-    questConditions: []
-    acceptedTags: []
-    acceptedGameObjects: []
-    luaWizardIndex: -1
-    lastEvaluationValue: 0
-  setQuestState: 1
-  questName: 
-  questState: 0
-  setQuestEntryState: 0
-  questEntryNumber: 1
-  questEntryState: 0
-  setAnotherQuestEntryState: 0
-  anotherQuestEntryNumber: 1
-  anotherQuestEntryState: 0
-  luaCode: 
-  sequence: 
-  sequenceSpeaker: {fileID: 0}
-  sequenceListener: {fileID: 0}
-  waitOneFrameOnStartOrEnable: 1
-  alertMessage: 
-  textTable: {fileID: 0}
-  alertDuration: 0
-  sendMessages: []
-  barkSource: 0
-  barkConversation: 
-  barkText: 
-  barkTextSequence: 
-  barker: {fileID: 0}
-  barkTarget: {fileID: 0}
-  barkOrder: 0
-  allowBarksDuringConversations: 0
-  skipBarkIfNoValidEntries: 0
-  cacheBarkLines: 0
-  conversation: Spawn Conversation
-  conversationConversant: {fileID: 695284447}
-  conversationActor: {fileID: 8388644100742065083}
-  startConversationEntryID: -1
-  exclusive: 0
-  replace: 0
-  skipIfNoValidEntries: 0
-  preventRestartOnSameFrameEnded: 0
-  stopConversationOnTriggerExit: 0
-  stopConversationIfTooFar: 0
-  maxConversationDistance: 5
-  monitorConversationDistanceFrequency: 1
-  showCursorDuringConversation: 0
-  pauseGameDuringConversation: 0
-  setActiveActions: []
-  setEnabledActions: []
-  setAnimatorStateActions: []
-  onExecute:
-    m_PersistentCalls:
-      m_Calls: []
-  useConversationTitlePicker: 1
-  useBarkTitlePicker: 1
-  useQuestNamePicker: 1
-  selectedDatabase: {fileID: 11400000, guid: 711343fc701239d4d897fa46cad75a03, type: 2}
---- !u!4 &695284447
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 695284445}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 440.2, y: 195, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1101306579
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,51 +512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1452423048
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1452423050}
-  - component: {fileID: 1452423049}
-  m_Layer: 0
-  m_Name: VoiceTimer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1452423049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1452423048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c8f0f27b115b924da668e7a3969d7cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disembodiedVoice: {fileID: 695284445}
---- !u!4 &1452423050
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1452423048}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 287, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1602764031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -993,6 +849,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2021cb14dce534a43ad2a2a406cc7ac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &4237704378737161610
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4237704379499332096, guid: 61523af398306e24482b7f5f8387e5f0, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237704379499332096, guid: 61523af398306e24482b7f5f8387e5f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237704379499332096, guid: 61523af398306e24482b7f5f8387e5f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 287
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237704379499332096, guid: 61523af398306e24482b7f5f8387e5f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237704379499332096, guid: 61523af398306e24482b7f5f8387e5f0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237704379499332096, guid: 61523af398306e24482b7f5f8387e5f0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237704379499332096, guid: 61523af398306e24482b7f5f8387e5f0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237704379499332096, guid: 61523af398306e24482b7f5f8387e5f0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237704379499332096, guid: 61523af398306e24482b7f5f8387e5f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237704379499332096, guid: 61523af398306e24482b7f5f8387e5f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237704379499332096, guid: 61523af398306e24482b7f5f8387e5f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237704379499332098, guid: 61523af398306e24482b7f5f8387e5f0, type: 3}
+      propertyPath: m_Name
+      value: VoiceTimer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237704379499332099, guid: 61523af398306e24482b7f5f8387e5f0, type: 3}
+      propertyPath: disembodiedVoice
+      value: 
+      objectReference: {fileID: 695284445}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 61523af398306e24482b7f5f8387e5f0, type: 3}
 --- !u!1001 &5898827940978010328
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1218,3 +1135,64 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3066733192502897005, guid: d8e5cbea13b93444788ad6d0a38dae34, type: 3}
   m_PrefabInstance: {fileID: 8388644100742065068}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8474600298688980875
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8474600299375859028, guid: f50d5eb190a77264db776be20ccd45a8, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474600299375859028, guid: f50d5eb190a77264db776be20ccd45a8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 440.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474600299375859028, guid: f50d5eb190a77264db776be20ccd45a8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 195
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474600299375859028, guid: f50d5eb190a77264db776be20ccd45a8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474600299375859028, guid: f50d5eb190a77264db776be20ccd45a8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474600299375859028, guid: f50d5eb190a77264db776be20ccd45a8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474600299375859028, guid: f50d5eb190a77264db776be20ccd45a8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474600299375859028, guid: f50d5eb190a77264db776be20ccd45a8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474600299375859028, guid: f50d5eb190a77264db776be20ccd45a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474600299375859028, guid: f50d5eb190a77264db776be20ccd45a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474600299375859028, guid: f50d5eb190a77264db776be20ccd45a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474600299375859029, guid: f50d5eb190a77264db776be20ccd45a8, type: 3}
+      propertyPath: conversationActor
+      value: 
+      objectReference: {fileID: 8388644100742065083}
+    - target: {fileID: 8474600299375859030, guid: f50d5eb190a77264db776be20ccd45a8, type: 3}
+      propertyPath: m_Name
+      value: DisembodiedVoice
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f50d5eb190a77264db776be20ccd45a8, type: 3}
