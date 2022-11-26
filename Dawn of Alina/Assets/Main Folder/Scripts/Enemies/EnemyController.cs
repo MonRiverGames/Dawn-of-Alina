@@ -29,6 +29,9 @@ public class EnemyController : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange, walkPointSet;
 
+    public GameObject drop;
+    private Transform enPos; //Enemy position
+
 
     // Start is called before the first frame update
     void Start()
@@ -169,7 +172,11 @@ public class EnemyController : MonoBehaviour
             isDead = true;
             navMeshAgent.enabled = false;
             anim.SetTrigger("Death");
+
+            // Instantiate(drop, enPos.position, Quaternion.identity);
+            // Instantiate(drop, transform.position, Quaternion.identity);     // Drop an item upon destruction of enemy
             Destroy(gameObject, 4f);
+
         }
     }
 
