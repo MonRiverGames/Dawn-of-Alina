@@ -708,7 +708,7 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
-    Standalone: USE_ARTICY
+    Standalone: USE_ARTICY;TMP_PRESENT
     iPhone: USE_ARTICY
   additionalCompilerArguments: {}
   platformArchitecture: {}

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyTest : MonoBehaviour
+public class DialogueQueues : MonoBehaviour
 {
     [SerializeField]
     GameObject goodbyeObject;
@@ -20,4 +20,10 @@ public class DestroyTest : MonoBehaviour
         Destroy(goodbyeObject);
         helloObject.SetActive(true);
     }
+
+    public bool FirstCoin()
+    {
+        return this.GetComponent<InventorySlot>().FirstItem();
+    }
+
 }
