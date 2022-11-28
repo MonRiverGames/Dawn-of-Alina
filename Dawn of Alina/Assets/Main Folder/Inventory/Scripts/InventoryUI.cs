@@ -65,6 +65,11 @@ public class InventoryUI : MonoBehaviour
                     {
                         slots[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = null;
                     }
+
+                    if (InventoryManager.instance.ItemData[slots[i].item] <= 0 )
+                    {
+                        InventoryManager.instance.Remove(slots[i].item);
+                    }
                 }
             }
         }
