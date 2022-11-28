@@ -20,10 +20,4 @@ public class DialogueQueues : MonoBehaviour
         Destroy(goodbyeObject);
         helloObject.SetActive(true);
     }
-
-    public bool FirstCoin()
-    {
-        return this.GetComponent<InventorySlot>().FirstItem();
-    }
-
 }

@@ -125,9 +125,4 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
             UI.UpdateUI();
         }
     }
-
-    public bool FirstItem()
-    {
-        return firstItem;
-    }
 }
