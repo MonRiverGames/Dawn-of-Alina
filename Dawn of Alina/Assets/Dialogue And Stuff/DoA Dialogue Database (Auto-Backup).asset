@@ -435,7 +435,7 @@ MonoBehaviour:
       - title: Dialogue Text
         value: "Pick up that coin before it disappears. You\u2019ll need it in the
           future. You can pick up items for your inventory by pressing E. Then, show
-          the rest the way of light. Keep walking down this path to clear the enemies."
+          the rest the way of light. "
         type: 0
         typeString: 
       - title: Sequence
@@ -602,7 +602,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: ...
+        value: ...?
         type: 0
         typeString: 
       - title: Sequence
