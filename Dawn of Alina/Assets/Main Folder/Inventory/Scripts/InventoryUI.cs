@@ -56,7 +56,7 @@ public class InventoryUI : MonoBehaviour
         {
             if (i < inventory.ItemData.Count)
             {
-                if (!slots[i].isFilled || (inventory.ItemData[slots[i].item] <= slots[i].item.stackLimit) && slots[i].item.inSlot)
+                if (!slots[i].isFilled || (inventory.ItemData[slots[i].item] <= slots[i].item.stackLimit && slots[i].item.inSlot))
                 {
                     slots[i].AddItem(keyList[i]);
                     slots[i].item.inSlot = true;

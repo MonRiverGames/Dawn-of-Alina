@@ -10,11 +10,11 @@ public class CauldronInteract : Interactable
 
     protected override void Interact() // Adds Item to inventory upon interaction/pickup
     {
-        if(InventoryManager.instance.ItemData.ContainsKey(itemNeeded) && (InventoryManager.instance.ItemData[itemNeeded] >= 2))
+        if(InventoryManager.instance.ItemData.ContainsKey(itemNeeded) && (InventoryManager.instance.ItemData[itemNeeded] >= 3))
         {
             InventoryManager.instance.AddItem(itemGiven);
 
-            InventoryManager.instance.DecrementItem(itemNeeded, 2);
+            InventoryManager.instance.DecrementItem(itemNeeded, 3);
             InventoryManager.instance.UI.UpdateUI();
         }
 

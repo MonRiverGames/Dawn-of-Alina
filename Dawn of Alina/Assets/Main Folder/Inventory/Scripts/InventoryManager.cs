@@ -76,16 +76,18 @@ public class InventoryManager : MonoBehaviour// Manages inventory as a Singleton
                 if(ItemData[item] == 1)
                 {
                     ItemData.Remove(item);
+                    UI.UpdateUI(); // Update Inventory Screen
                     break;
                 }
                 else
                 {
                     ItemData[item]--;
+                    UI.UpdateUI(); // Update Inventory Screen
                 }
             }
             
         }
-        UI.UpdateUI(); // Update Inventory Screen
+
     }
 
     public void Remove(Item item) // Removes item from inventory
