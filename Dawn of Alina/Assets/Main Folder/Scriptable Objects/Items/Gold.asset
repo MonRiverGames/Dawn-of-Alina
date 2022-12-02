@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d25dcdd57f5c514b934dc8a2676c7c0, type: 3}
+  m_Name: Gold
+  m_EditorClassIdentifier: 
+  Name: Gold
+  icon: {fileID: 21300000, guid: 9940ff8ddcdde674cbdfaf02532cad31, type: 3}
+  ItemPrefab: {fileID: 2137054824989005106, guid: 2f5c6a121591a754cb5653d66305bd3c, type: 3}
+  type: 1
+  description: A Gold Coin.
+  amount: 3
+  itemValue: 1
+  stackLimit: 64
+  inSlot: 1

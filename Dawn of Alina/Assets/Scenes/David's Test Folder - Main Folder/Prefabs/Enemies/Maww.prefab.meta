@@ -1,6 +1,11 @@
 fileFormatVersion: 2
-guid: e10440b60e9de9545b74df01d2cfffec
+<<<<<<<< HEAD:Dawn of Alina/Assets/Scenes/David's Test Folder - Main Folder/Prefabs/Enemies/Maww.prefab.meta
+guid: ab05c9335c563b94aac6219a84d47216
 PrefabImporter:
+========
+guid: d5701a82ded63584bb9cbaea7f679d67
+DefaultImporter:
+>>>>>>>> new-kayla-branch:Dawn of Alina/Assets/Sword_of_Water_artdt/Scenes/DemoScene.unity.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
