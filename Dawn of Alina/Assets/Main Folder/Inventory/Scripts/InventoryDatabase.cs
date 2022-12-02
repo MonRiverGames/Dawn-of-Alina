@@ -22,7 +22,7 @@ public class InventoryDatabase : MonoBehaviour
 
     public Item GetItem(string itemName)
     {
-        foreach(var item in items)
+        foreach(Item item in items)
         {
             if (item.Name == itemName)
             {

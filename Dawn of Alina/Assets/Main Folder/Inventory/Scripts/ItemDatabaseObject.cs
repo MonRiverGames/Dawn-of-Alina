@@ -19,5 +19,4 @@ public class ItemDatabaseObject : ScriptableObject // Stores all of the in-game 
         }
         return null;
     }
-
 }

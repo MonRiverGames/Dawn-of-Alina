@@ -28,8 +28,5 @@ public class SaveData
                 itemNames[i] = pair.Key.Name;
             }
         }
-
-
-
     }
 }

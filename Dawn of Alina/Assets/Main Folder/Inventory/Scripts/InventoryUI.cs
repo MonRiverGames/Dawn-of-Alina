@@ -56,7 +56,7 @@ public class InventoryUI : MonoBehaviour
         {
             if (i < inventory.ItemData.Count)
             {
-                if (!slots[i].isFilled || (inventory.ItemData[slots[i].item] <= slots[i].item.stackLimit) && slots[i].item.inSlot)
+                if (!slots[i].isFilled || (inventory.ItemData[slots[i].item] <= slots[i].item.stackLimit && slots[i].item.inSlot))
                 {
                     slots[i].AddItem(keyList[i]);
                     slots[i].item.inSlot = true;
@@ -64,6 +64,11 @@ public class InventoryUI : MonoBehaviour
                     if (InventoryManager.instance.ItemData[slots[i].item] == 1)
                     {
                         slots[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = null;
+                    }
+
+                    if (InventoryManager.instance.ItemData[slots[i].item] <= 0 )
+                    {
+                        InventoryManager.instance.Remove(slots[i].item);
                     }
                 }
             }

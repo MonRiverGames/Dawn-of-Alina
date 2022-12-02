@@ -14,12 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Children:
   - {fileID: 3}
+<<<<<<< HEAD
   - {fileID: 14}
+=======
+  - {fileID: 12}
+>>>>>>> origin/New-Zach-Branch
   m_Position:
     serializedVersion: 2
     x: 0
     y: 30
     width: 1920
+<<<<<<< HEAD
 <<<<<<< HEAD
     height: 987
   m_MinSize: {x: 400, y: 300}
@@ -33,6 +38,13 @@ MonoBehaviour:
   vertical: 0
   controlID: -1
 >>>>>>> new-kayla-branch
+=======
+    height: 987
+  m_MinSize: {x: 300, y: 200}
+  m_MaxSize: {x: 24288, y: 16192}
+  vertical: 0
+  controlID: 133
+>>>>>>> origin/New-Zach-Branch
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -54,6 +66,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 769
     y: 73
     width: 747
@@ -64,6 +77,12 @@ MonoBehaviour:
     width: 1091
     height: 571
 >>>>>>> new-kayla-branch
+=======
+    x: 369
+    y: 73
+    width: 1116
+    height: 563
+>>>>>>> origin/New-Zach-Branch
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -75,10 +94,14 @@ MonoBehaviour:
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_TargetSize: {x: 1920, y: 1080}
 =======
   m_TargetSize: {x: 1091, y: 550}
 >>>>>>> new-kayla-branch
+=======
+  m_TargetSize: {x: 1920, y: 1080}
+>>>>>>> origin/New-Zach-Branch
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -94,16 +117,22 @@ MonoBehaviour:
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/New-Zach-Branch
     m_HBaseRangeMin: -960
     m_HBaseRangeMax: 960
     m_VBaseRangeMin: -540
     m_VBaseRangeMax: 540
+<<<<<<< HEAD
 =======
     m_HBaseRangeMin: -545.5
     m_HBaseRangeMax: 545.5
     m_VBaseRangeMin: -275
     m_VBaseRangeMax: 275
 >>>>>>> new-kayla-branch
+=======
+>>>>>>> origin/New-Zach-Branch
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -122,6 +151,7 @@ MonoBehaviour:
       x: 0
       y: 21
 <<<<<<< HEAD
+<<<<<<< HEAD
       width: 747
       height: 538
     m_Scale: {x: 0.3890625, y: 0.3890625}
@@ -132,12 +162,19 @@ MonoBehaviour:
     m_Scale: {x: 1, y: 1}
     m_Translation: {x: 545.5, y: 275}
 >>>>>>> new-kayla-branch
+=======
+      width: 1116
+      height: 542
+    m_Scale: {x: 0.50185186, y: 0.50185186}
+    m_Translation: {x: 558, y: 271}
+>>>>>>> origin/New-Zach-Branch
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD
       x: -960
       y: -691.40564
@@ -155,6 +192,15 @@ MonoBehaviour:
   m_defaultScale: 1
   m_LastWindowPixelSize: {x: 1091, y: 571}
 >>>>>>> new-kayla-branch
+=======
+      x: -1111.882
+      y: -540
+      width: 2223.764
+      height: 1080
+    m_MinimalGUI: 1
+  m_defaultScale: 0.50185186
+  m_LastWindowPixelSize: {x: 1116, y: 563}
+>>>>>>> origin/New-Zach-Branch
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -175,15 +221,20 @@ MonoBehaviour:
   m_Children:
   - {fileID: 4}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 10}
   - {fileID: 12}
 =======
   - {fileID: 9}
 >>>>>>> new-kayla-branch
+=======
+  - {fileID: 9}
+>>>>>>> origin/New-Zach-Branch
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
     width: 1518
     height: 987
@@ -199,6 +250,14 @@ MonoBehaviour:
   vertical: 1
   controlID: -1
 >>>>>>> new-kayla-branch
+=======
+    width: 1487
+    height: 987
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 16192, y: 16192}
+  vertical: 1
+  controlID: 134
+>>>>>>> origin/New-Zach-Branch
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -215,13 +274,17 @@ MonoBehaviour:
   - {fileID: 5}
   - {fileID: 7}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 9}
 =======
 >>>>>>> new-kayla-branch
+=======
+>>>>>>> origin/New-Zach-Branch
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
     width: 1518
     height: 580
@@ -237,6 +300,14 @@ MonoBehaviour:
   vertical: 0
   controlID: -1
 >>>>>>> new-kayla-branch
+=======
+    width: 1487
+    height: 584
+  m_MinSize: {x: 200, y: 100}
+  m_MaxSize: {x: 16192, y: 8096}
+  vertical: 0
+  controlID: 135
+>>>>>>> origin/New-Zach-Branch
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -255,6 +326,7 @@ MonoBehaviour:
     x: 0
     y: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 346
     height: 580
   m_MinSize: {x: 200, y: 200}
@@ -265,6 +337,12 @@ MonoBehaviour:
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
 >>>>>>> new-kayla-branch
+=======
+    width: 369
+    height: 584
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
+>>>>>>> origin/New-Zach-Branch
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -291,6 +369,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 0
     y: 73
     width: 345
@@ -301,6 +380,12 @@ MonoBehaviour:
     width: 328
     height: 571
 >>>>>>> new-kayla-branch
+=======
+    x: 0
+    y: 73
+    width: 368
+    height: 563
+>>>>>>> origin/New-Zach-Branch
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -308,14 +393,22 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
 <<<<<<< HEAD
+<<<<<<< HEAD
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
       m_ExpandedIDs: e4f1ffff20f6ffff1efbffff306b0000
+=======
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 1efbffff
+>>>>>>> origin/New-Zach-Branch
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
         m_OriginalName: 
+<<<<<<< HEAD
 =======
       scrollPos: {x: 0, y: 762}
       m_SelectedIDs: 90800000
@@ -326,6 +419,8 @@ MonoBehaviour:
         m_Name: DialogueBox
         m_OriginalName: DialogueBox
 >>>>>>> new-kayla-branch
+=======
+>>>>>>> origin/New-Zach-Branch
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
@@ -333,10 +428,14 @@ MonoBehaviour:
           width: 0
           height: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/New-Zach-Branch
         m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 11
+<<<<<<< HEAD
 =======
         m_UserData: -12864
         m_IsWaitingForDelay: 0
@@ -345,6 +444,10 @@ MonoBehaviour:
 >>>>>>> new-kayla-branch
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 5}
+=======
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 0}
+>>>>>>> origin/New-Zach-Branch
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -361,6 +464,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: SceneView
@@ -369,10 +473,16 @@ MonoBehaviour:
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: GameView
 >>>>>>> new-kayla-branch
+=======
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: GameView
+>>>>>>> origin/New-Zach-Branch
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD
     x: 346
     y: 0
@@ -389,6 +499,12 @@ MonoBehaviour:
     y: 0
     width: 1093
     height: 592
+=======
+    x: 369
+    y: 0
+    width: 1118
+    height: 584
+>>>>>>> origin/New-Zach-Branch
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 2}
@@ -396,7 +512,10 @@ MonoBehaviour:
   - {fileID: 8}
   - {fileID: 2}
   m_Selected: 1
+<<<<<<< HEAD
 >>>>>>> new-kayla-branch
+=======
+>>>>>>> origin/New-Zach-Branch
   m_LastSelected: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -419,6 +538,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 346
     y: 73
     width: 421
@@ -429,6 +549,12 @@ MonoBehaviour:
     width: 1091
     height: 571
 >>>>>>> new-kayla-branch
+=======
+    x: 368
+    y: 81
+    width: 1092
+    height: 540
+>>>>>>> origin/New-Zach-Branch
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -482,7 +608,11 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
+<<<<<<< HEAD
       snapOffset: {x: 0, y: 25.599998}
+=======
+      snapOffset: {x: 0, y: 0}
+>>>>>>> origin/New-Zach-Branch
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-transform-toolbar
@@ -631,6 +761,7 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_Position:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: {x: 392.44858, y: 436.25885, z: 24.106781}
     speed: 2
     m_Value: {x: 392.44858, y: 436.25885, z: 24.106781}
@@ -639,6 +770,11 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 542.6589, y: 214.19948, z: 0}
 >>>>>>> new-kayla-branch
+=======
+    m_Target: {x: 0, y: 0, z: 0}
+    speed: 2
+    m_Value: {x: 0, y: 0, z: 0}
+>>>>>>> origin/New-Zach-Branch
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -686,6 +822,7 @@ MonoBehaviour:
     m_gridOpacity: 0.5
   m_Rotation:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: {x: 0.1244638, y: 0.018165864, z: -0.0022841524, w: 0.992048}
     speed: 2
     m_Value: {x: 0.12446468, y: 0.018165994, z: -0.0022841687, w: 0.9920551}
@@ -702,6 +839,15 @@ MonoBehaviour:
     speed: 2
     m_Value: 190.89359
 >>>>>>> new-kayla-branch
+=======
+    m_Target: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
+    speed: 2
+    m_Value: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
+  m_Size:
+    m_Target: 10
+    speed: 2
+    m_Value: 10
+>>>>>>> origin/New-Zach-Branch
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -719,7 +865,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: 0, y: 0, z: 0, w: 0}
+  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -737,14 +883,19 @@ MonoBehaviour:
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Name: GameView
 =======
   m_Name: DialogueEditorWindow
 >>>>>>> new-kayla-branch
+=======
+  m_Name: ConsoleWindow
+>>>>>>> origin/New-Zach-Branch
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD
     x: 769
     y: 0
@@ -801,6 +952,21 @@ MonoBehaviour:
   m_LastSelected: 0
 --- !u!114 &10
 >>>>>>> new-kayla-branch
+=======
+    x: 0
+    y: 584
+    width: 1487
+    height: 403
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 11}
+  m_Panes:
+  - {fileID: 10}
+  - {fileID: 11}
+  m_Selected: 1
+  m_LastSelected: 0
+--- !u!114 &10
+>>>>>>> origin/New-Zach-Branch
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -821,6 +987,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 0
     y: 653
     width: 1517
@@ -831,6 +998,12 @@ MonoBehaviour:
     width: 1421
     height: 334
 >>>>>>> new-kayla-branch
+=======
+    x: 8
+    y: 642
+    width: 1475
+    height: 365
+>>>>>>> origin/New-Zach-Branch
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -849,25 +1022,34 @@ MonoBehaviour:
     m_SearchArea: 1
     m_Folders:
 <<<<<<< HEAD
+<<<<<<< HEAD
     - Assets
 =======
     - Assets/Dialogue And Stuff
 >>>>>>> new-kayla-branch
+=======
+    - Assets/Main Folder/Scripts/Interactables
+>>>>>>> origin/New-Zach-Branch
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - Assets
 =======
   - Assets/Dialogue And Stuff
 >>>>>>> new-kayla-branch
+=======
+  - Assets/Main Folder/Scripts/Interactables
+>>>>>>> origin/New-Zach-Branch
   m_LastFoldersGridSize: -1
   m_LastProjectPath: E:\Documents\GitHub\Dawn-of-Alina\Dawn of Alina
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< HEAD
 <<<<<<< HEAD
     scrollPos: {x: 0, y: 19}
     m_SelectedIDs: bc790000
@@ -879,6 +1061,12 @@ MonoBehaviour:
     m_LastClickedID: 40456
     m_ExpandedIDs: 00000000d89d0000da9d0000dc9d0000de9d0000e09d0000e29d0000e49d0000e69d0000e89d0000ea9d0000ec9d0000ee9d0000f09d0000f29d0000f49d0000f69d0000f89d0000fa9d0000fc9d0000fe9d0000009e0000029e0000309e000000ca9a3b
 >>>>>>> new-kayla-branch
+=======
+    scrollPos: {x: 0, y: 263}
+    m_SelectedIDs: aeca0000
+    m_LastClickedID: 51886
+    m_ExpandedIDs: 000000005e860000
+>>>>>>> origin/New-Zach-Branch
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -895,10 +1083,14 @@ MonoBehaviour:
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
       m_ClientGUIView: {fileID: 0}
 =======
       m_ClientGUIView: {fileID: 9}
 >>>>>>> new-kayla-branch
+=======
+      m_ClientGUIView: {fileID: 0}
+>>>>>>> origin/New-Zach-Branch
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -911,10 +1103,14 @@ MonoBehaviour:
     m_SelectedIDs: 
     m_LastClickedID: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000bc790000be790000c0790000c2790000c4790000c6790000c8790000ca79000000ca9a3b
 =======
     m_ExpandedIDs: 00000000d89d0000da9d0000dc9d0000de9d0000e09d0000e29d0000e49d0000e69d0000e89d0000ea9d0000ec9d0000ee9d0000f09d0000f29d0000f49d0000f69d0000f89d0000fa9d0000fc9d0000fe9d0000009e0000029e0000
 >>>>>>> new-kayla-branch
+=======
+    m_ExpandedIDs: 000000005e860000
+>>>>>>> origin/New-Zach-Branch
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -940,6 +1136,7 @@ MonoBehaviour:
       m_ResourceFile: 
   m_ListAreaState:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_SelectedInstanceIDs: cef5ffff
     m_LastClickedInstanceID: -2610
     m_HadKeyboardFocusLastEvent: 0
@@ -947,6 +1144,10 @@ MonoBehaviour:
 =======
     m_SelectedInstanceIDs: b0770000
     m_LastClickedInstanceID: 30640
+=======
+    m_SelectedInstanceIDs: 0e810000
+    m_LastClickedInstanceID: 33038
+>>>>>>> origin/New-Zach-Branch
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
 >>>>>>> new-kayla-branch
@@ -966,10 +1167,14 @@ MonoBehaviour:
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
       m_ClientGUIView: {fileID: 10}
 =======
       m_ClientGUIView: {fileID: 9}
 >>>>>>> new-kayla-branch
+=======
+      m_ClientGUIView: {fileID: 0}
+>>>>>>> origin/New-Zach-Branch
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -982,10 +1187,14 @@ MonoBehaviour:
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!114 &12
 =======
 --- !u!114 &11
 >>>>>>> new-kayla-branch
+=======
+--- !u!114 &11
+>>>>>>> origin/New-Zach-Branch
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -993,6 +1202,7 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
@@ -1022,6 +1232,8 @@ MonoBehaviour:
   m_Enabled: 1
 =======
 >>>>>>> new-kayla-branch
+=======
+>>>>>>> origin/New-Zach-Branch
   m_EditorHideFlags: 1
   m_Script: {fileID: 12003, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
@@ -1035,6 +1247,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 0
     y: 926
     width: 1517
@@ -1045,10 +1258,17 @@ MonoBehaviour:
     width: 1421
     height: 334
 >>>>>>> new-kayla-branch
+=======
+    x: 0
+    y: 657
+    width: 1486
+    height: 382
+>>>>>>> origin/New-Zach-Branch
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 --- !u!114 &12
@@ -1245,6 +1465,9 @@ MonoBehaviour:
   nextConversationStack: []
 >>>>>>> new-kayla-branch
 --- !u!114 &14
+=======
+--- !u!114 &12
+>>>>>>> origin/New-Zach-Branch
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1259,6 +1482,7 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD
     x: 1518
     y: 0
@@ -1284,6 +1508,20 @@ MonoBehaviour:
   m_LastSelected: 1
 >>>>>>> new-kayla-branch
 --- !u!114 &15
+=======
+    x: 1487
+    y: 0
+    width: 433
+    height: 987
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 13}
+  m_Panes:
+  - {fileID: 13}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &13
+>>>>>>> origin/New-Zach-Branch
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1304,6 +1542,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 1518
     y: 73
     width: 401
@@ -1314,6 +1553,12 @@ MonoBehaviour:
     width: 497
     height: 926
 >>>>>>> new-kayla-branch
+=======
+    x: 1487
+    y: 73
+    width: 432
+    height: 966
+>>>>>>> origin/New-Zach-Branch
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -1322,10 +1567,17 @@ MonoBehaviour:
   m_InstanceIDsLockedBeforeSerialization: 
   m_PreviewResizer:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -2610
+=======
+    m_CachedPref: 160
+    m_ControlHash: -371814159
+    m_PrefName: Preview_InspectorPreview
+  m_LastInspectedObjectInstanceID: -1
+>>>>>>> origin/New-Zach-Branch
   m_LastVerticalScrollValue: 0
 =======
     m_CachedPref: -160
@@ -1339,6 +1591,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 --- !u!114 &16
@@ -1370,3 +1623,5 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
 >>>>>>> new-kayla-branch
+=======
+>>>>>>> origin/New-Zach-Branch

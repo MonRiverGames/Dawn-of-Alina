@@ -24,6 +24,7 @@ public class InventoryManager : MonoBehaviour// Manages inventory as a Singleton
     #endregion // InventoryManager instance
 
     public Dictionary<Item,int> ItemData = new Dictionary<Item,int>(); // Holds Items and their corresponding amount
+    public List<Item> ItemList = new List<Item>();
     public int InventorySpace = 25;
     public InventoryUI UI;
     private PlayerHealth PlayerData;
@@ -50,6 +51,7 @@ public class InventoryManager : MonoBehaviour// Manages inventory as a Singleton
                 return;
             }
             ItemData.Add(item,1);
+            ItemList.Add(item);
         }
 
         else // Item is already in inventory
@@ -59,9 +61,39 @@ public class InventoryManager : MonoBehaviour// Manages inventory as a Singleton
         UI.UpdateUI(); // Update Inventory Screen
     }
 
+    public void DecrementItem(Item item, int amount) // Decrases item amount by amount specific
+    {
+        if (!ItemData.ContainsKey(item)) // If Item is not in inventory
+        {
+            Debug.Log("NOT IN INVENTORY");
+            return;
+        }
+
+        else // Item is already in inventory
+        {
+          for(int i = 0; i < amount; i++)
+            {
+                if(ItemData[item] == 1)
+                {
+                    ItemData.Remove(item);
+                    UI.UpdateUI(); // Update Inventory Screen
+                    break;
+                }
+                else
+                {
+                    ItemData[item]--;
+                    UI.UpdateUI(); // Update Inventory Screen
+                }
+            }
+            
+        }
+
+    }
+
     public void Remove(Item item) // Removes item from inventory
     {
         ItemData.Remove(item);
+        UI.UpdateUI();
     }
 
     [ContextMenu("Save")]
