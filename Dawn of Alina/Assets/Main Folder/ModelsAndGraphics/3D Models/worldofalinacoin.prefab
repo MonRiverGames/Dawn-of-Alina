@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3b20a68345e55148a1dd2b84abdd45a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptMessage: Press E to Pickup Item
+  promptMessage: Press E to Pickup Gold
   useEvents: 0
   item: {fileID: 11400000, guid: e91985de00555bd4d9fe5c5836a9242d, type: 2}
 --- !u!1 &7711712903637541031

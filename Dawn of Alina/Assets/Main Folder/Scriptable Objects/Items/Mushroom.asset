@@ -17,6 +17,6 @@ MonoBehaviour:
   ItemPrefab: {fileID: 919132149155446097, guid: a399c328858a85d48bbfdff3328db19d, type: 3}
   type: 5
   description: 
-  itemValue: 0
+  itemValue: 10
   stackLimit: 64
   inSlot: 1

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryDatabase : MonoBehaviour
+public class InventoryDatabase : MonoBehaviour // Stores all items 
 {
     #region Singleton
     public static InventoryDatabase database;

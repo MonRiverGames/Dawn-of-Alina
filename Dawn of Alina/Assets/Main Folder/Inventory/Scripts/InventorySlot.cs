@@ -7,20 +7,21 @@ using Unity.VisualScripting;
 
 public class InventorySlot : MonoBehaviour // Manages the info for each inventory slot
 {
-    public Item item; 
-    public Sprite icon;
-    public Button RemoveButton;
+    public Item item;
     public InventoryUI UI;
-    public bool isFilled; // If there is an item present in slot
-    public bool isViewing; // If player is looking at slot in inventory
     public Transform ItemInfo; // Item info panel
     public string ItemValue;
     public ShopInteract shop;
-    public Button SellButton;
+    public bool isFilled; // If there is an item present in slot
+
+    [SerializeField] Button SellButton;
+    [SerializeField] Sprite icon;
+    [SerializeField] Button RemoveButton;
+    [SerializeField] bool isViewing; // If player is looking at slot in inventory
 
     public void AddItem(Item newItem) // Adds item to slot
     {
-        item = newItem;
+        this.item = newItem;
 
         if (InventoryManager.instance.ItemData[item] <= newItem.stackLimit)
         {
@@ -33,19 +34,21 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
             isFilled = true;
             item.inSlot = true;
             UI.EnableRemoveButton();
-            item = newItem;
+            this.item = newItem;
         }
         else 
         {
             newItem.inSlot = true;
             InventoryManager.instance.AddItem(newItem);
-            item = newItem;
+            this.item = newItem;
         }
 
         if (InventoryManager.instance.ItemData[item] > 1)
         {
             transform.GetChild(1).GetComponent<TextMeshProUGUI>().enabled = true; // Displays the amount
         }
+
+        item = newItem;
     }
 
     public void ClearSlot() // Clears a given slot
@@ -58,13 +61,15 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
         transform.GetChild(1).GetComponent<TextMeshProUGUI>().enabled = false;
         isFilled = false;
         UI.UpdateUI();
-        UI.EnableRemoveButton();
     }
 
     public void OnRemoveButton()
     {
-        InventoryManager.instance.Remove(item);
-        ClearSlot();
+        if (this.item != null)
+        {
+            InventoryManager.instance.DecrementItem(this.item,1);
+            UI.UpdateUI();
+        }
     }
 
     // On mouse enter 
@@ -114,13 +119,14 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
     {
         if (InventoryManager.instance.ItemData[item] > 0)
         {
-            InventoryManager.instance.ItemData[item]--;
+            InventoryManager.instance.DecrementItem(item,1);
             InventoryManager.instance.GoldAmount += item.itemValue;
             UI.UpdateUI();
         }
 
         else
         {
+            OnRemoveButton();
             ClearSlot();
             UI.UpdateUI();
         }

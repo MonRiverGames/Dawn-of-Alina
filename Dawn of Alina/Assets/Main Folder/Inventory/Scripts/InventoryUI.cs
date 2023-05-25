@@ -6,19 +6,16 @@ using TMPro;
 
 public class InventoryUI : MonoBehaviour
 {
-    public Transform InventoryParent; // Main Inventory
+    [SerializeField] private Transform InventoryParent; // Main Inventory
     InventoryManager inventory; // Inventory instance
     InventorySlot[] slots;
-    public GameObject Player;
-    PlayerLook playerLook;
-    public TextMeshProUGUI GoldText;
 
     void Start()
     {
+        InventoryParent = GameObject.Find("ItemsParent").transform;
         inventory = InventoryManager.instance;
         slots = InventoryParent.GetComponentsInChildren<InventorySlot>();
         inventory.InventorySpace = slots.Length;
-        playerLook = Player.GetComponent<PlayerLook>();
     }
 
     public void EnableRemoveButton() // Enables/Disables remove button on inventoy slot
@@ -61,14 +58,18 @@ public class InventoryUI : MonoBehaviour
                     slots[i].AddItem(keyList[i]);
                     slots[i].item.inSlot = true;
 
+                    if (!InventoryManager.instance.ItemData.ContainsKey(slots[i].item) || InventoryManager.instance.ItemData[slots[i].item] <= 0)
+                    {
+                        print("TEST");
+                        slots[i].transform.GetChild(0).GetComponent<Image>().sprite = null;
+                        slots[i].ClearSlot();
+
+                        InventoryManager.instance.Remove(slots[i].item);
+                    }
+
                     if (InventoryManager.instance.ItemData[slots[i].item] == 1)
                     {
                         slots[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = null;
-                    }
-
-                    if (InventoryManager.instance.ItemData[slots[i].item] <= 0 )
-                    {
-                        InventoryManager.instance.Remove(slots[i].item);
                     }
                 }
             }

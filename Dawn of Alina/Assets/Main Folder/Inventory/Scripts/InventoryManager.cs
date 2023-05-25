@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -7,7 +8,7 @@ using TMPro;
 using UnityEngine;
 
 [System.Serializable]
-public class InventoryManager : MonoBehaviour// Manages inventory as a Singleton
+public class InventoryManager : MonoBehaviour // Manages inventory as a Singleton
 {
     #region Singleton
     public static InventoryManager instance;
@@ -24,21 +25,22 @@ public class InventoryManager : MonoBehaviour// Manages inventory as a Singleton
     #endregion // InventoryManager instance
 
     public Dictionary<Item,int> ItemData = new Dictionary<Item,int>(); // Holds Items and their corresponding amount
-    public List<Item> ItemList = new List<Item>();
     public int InventorySpace = 25;
-    public InventoryUI UI;
-    private PlayerHealth PlayerData;
     public ItemDatabaseObject Database;
-    public string SavePath = "/inventoryItems";
-    public GameObject Player;
     public TextMeshProUGUI GoldCount;
-    public int GoldAmount = 1000;
-    
+    public int GoldAmount;
+
+    private PlayerHealth PlayerData;
+    private string SavePath = "/inventoryItems";
+    [SerializeField] private GameObject Player;
+    [SerializeField] private InventoryUI UI;
+
+
     public void Start()
     {
-        Item Default = ScriptableObject.CreateInstance<Item>();
         PlayerData = PlayerHealth.instance;
-        Default.type = ItemType.Default;
+        Player = GameObject.Find("Alina");
+        UI = GameObject.Find("PlayerUI").GetComponent<InventoryUI>();
     }
 
     public void AddItem(Item item)
@@ -50,8 +52,7 @@ public class InventoryManager : MonoBehaviour// Manages inventory as a Singleton
                 Debug.Log("Inventory Full");
                 return;
             }
-            ItemData.Add(item,1);
-            ItemList.Add(item);
+            ItemData.Add(item, 1);
         }
 
         else // Item is already in inventory
@@ -84,10 +85,8 @@ public class InventoryManager : MonoBehaviour// Manages inventory as a Singleton
                     ItemData[item]--;
                     UI.UpdateUI(); // Update Inventory Screen
                 }
-            }
-            
+            }   
         }
-
     }
 
     public void Remove(Item item) // Removes item from inventory
@@ -97,18 +96,18 @@ public class InventoryManager : MonoBehaviour// Manages inventory as a Singleton
     }
 
     [ContextMenu("Save")]
-    public void Save(InventoryManager inventory)
+    public void Save(InventoryManager inventory) // Saves Inventory/Player Data as .savedata file
     {
         BinaryFormatter formatter = new BinaryFormatter();
         Stream stream = new FileStream(string.Concat(Application.persistentDataPath, SavePath + ".savedata"), FileMode.Create, FileAccess.Write);
         SaveData data = new SaveData();
         formatter.Serialize(stream, data);
         stream.Close();
-        Debug.Log("Items and amounts Saved");
+        Debug.Log("Items and Amounts Saved");
     }
 
     [ContextMenu("Load")]
-    public SaveData LoadData()
+    public SaveData LoadData() // Loads Inventory/Player Data
     {
         if (File.Exists(string.Concat(Application.persistentDataPath, SavePath + ".savedata")))
         {
@@ -121,11 +120,11 @@ public class InventoryManager : MonoBehaviour// Manages inventory as a Singleton
         }
         else
         {
-            Debug.Log("ERROR CANNOT LOAD SAVEDATA");
+            Debug.Log("ERROR: CANNOT LOAD SAVEDATA");
             return null;
         }
     }
-    public void UpdateInventory(SaveData data)
+    public void UpdateInventory(SaveData data) // Updates inventory with data from loaded .savedata file
     {
         for (int i = 0; i < data.itemNames.Length; i++)
         {
@@ -134,7 +133,6 @@ public class InventoryManager : MonoBehaviour// Manages inventory as a Singleton
                 AddItem(Database.FindItem(data.itemNames[i]));
             }
         }
-
         UI.UpdateUI();
         Debug.Log(data.playerHealth);
         PlayerData.health = data.playerHealth;
@@ -143,8 +141,5 @@ public class InventoryManager : MonoBehaviour// Manages inventory as a Singleton
         position.y = data.playerPos[1];
         position.z = data.playerPos[2];
         Player.transform.position = position;
-        Debug.Log("X: " + data.playerPos[0]);
-        Debug.Log("Y: " + data.playerPos[1]);
-        Debug.Log("Z: " + data.playerPos[2]);   
     }
 }

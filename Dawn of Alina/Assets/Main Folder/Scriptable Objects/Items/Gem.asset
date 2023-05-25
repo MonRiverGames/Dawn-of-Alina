@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Gem
   m_EditorClassIdentifier: 
   Name: Gem
-  icon: {fileID: 21300000, guid: 9e891b57a8c067a4fa78e19cf1f3ee82, type: 3}
+  icon: {fileID: 21300000, guid: e64a2bfcc6f5bfa46adda5847e4cb14b, type: 3}
   ItemPrefab: {fileID: 919132149155446097, guid: 43ebbe0fd287bd142b9da7a3ca4c0cc0, type: 3}
-  type: 5
+  type: 1
   description: A Gem.
   itemValue: 25
   stackLimit: 16
