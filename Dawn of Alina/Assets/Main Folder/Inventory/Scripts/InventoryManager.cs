@@ -24,17 +24,17 @@ public class InventoryManager : MonoBehaviour // Manages inventory as a Singleto
     }
     #endregion // InventoryManager instance
 
-    public Dictionary<Item,int> ItemData = new Dictionary<Item,int>(); // Holds Items and their corresponding amount
+    [SerializeField] public Dictionary<Item,int> ItemData = new Dictionary<Item,int>(); // Holds Items and their corresponding amount
+
     public int InventorySpace = 25;
     public ItemDatabaseObject Database;
     public TextMeshProUGUI GoldCount;
     public int GoldAmount;
 
-    private PlayerHealth PlayerData;
-    private string SavePath = "/inventoryItems";
+    [SerializeField] private PlayerHealth PlayerData;
+    [SerializeField] private string SavePath = "/inventoryItems";
     [SerializeField] private GameObject Player;
-    [SerializeField] private InventoryUI UI;
-
+    [SerializeField] public InventoryUI UI;
 
     public void Start()
     {
@@ -52,17 +52,20 @@ public class InventoryManager : MonoBehaviour // Manages inventory as a Singleto
                 Debug.Log("Inventory Full");
                 return;
             }
+
+            Debug.Log("Adding Item");
             ItemData.Add(item, 1);
+            Debug.Log("Done");
         }
 
         else // Item is already in inventory
         {
-            ItemData.TryAdd(item, ItemData[item]++); // Increase Item amount
+            ItemData.TryAdd(item, ItemData[item]++);
         }
-        UI.UpdateUI(); // Update Inventory Screen
+        UI.UpdateUI();
     }
 
-    public void DecrementItem(Item item, int amount) // Decrases item amount by amount specific
+    public void DecrementItem(Item item, int amount) // Decreases item amount by amount specific
     {
         if (!ItemData.ContainsKey(item)) // If Item is not in inventory
         {
@@ -74,11 +77,9 @@ public class InventoryManager : MonoBehaviour // Manages inventory as a Singleto
         {
           for(int i = 0; i < amount; i++)
             {
-                if(ItemData[item] == 1)
+                if(ItemData[item] <= 1)
                 {
                     ItemData.Remove(item);
-                    UI.UpdateUI(); // Update Inventory Screen
-                    break;
                 }
                 else
                 {

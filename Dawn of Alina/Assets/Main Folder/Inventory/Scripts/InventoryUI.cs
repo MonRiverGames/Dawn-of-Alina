@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private Transform InventoryParent; // Main Inventory
     InventoryManager inventory; // Inventory instance
-    InventorySlot[] slots;
+    [SerializeField] InventorySlot[] slots;
 
-    void Start()
+    private void Start() 
     {
-        InventoryParent = GameObject.Find("ItemsParent").transform;
-        inventory = InventoryManager.instance;
+        InventoryParent = this.transform.GetChild(5).GetChild(1);
         slots = InventoryParent.GetComponentsInChildren<InventorySlot>();
-        inventory.InventorySpace = slots.Length;
+        InventoryManager.instance.InventorySpace = slots.Length;
     }
 
     public void EnableRemoveButton() // Enables/Disables remove button on inventoy slot
@@ -47,34 +47,16 @@ public class InventoryUI : MonoBehaviour
 
     public void UpdateUI() // actually Adds items to display on inventory screen
     {
-        List<Item> keyList = new List<Item>(inventory.ItemData.Keys);
-
-        for (int i = 0; i < slots.Length; i++)
+        if (InventoryManager.instance.ItemData.Count > 0)
         {
-            if (i < inventory.ItemData.Count)
+            List<Item> keyList = new List<Item>(InventoryManager.instance.ItemData.Keys); // List of the Items
+            List<int> valueList = new List<int>(InventoryManager.instance.ItemData.Values); // List of Associated Values
+
+            for (int i = 0; (i < slots.Length) && i < keyList.Count; i++)
             {
-                if (!slots[i].isFilled || (inventory.ItemData[slots[i].item] <= slots[i].item.stackLimit && slots[i].item.inSlot))
-                {
-                    slots[i].AddItem(keyList[i]);
-                    slots[i].item.inSlot = true;
-
-                    if (!InventoryManager.instance.ItemData.ContainsKey(slots[i].item) || InventoryManager.instance.ItemData[slots[i].item] <= 0)
-                    {
-                        print("TEST");
-                        slots[i].transform.GetChild(0).GetComponent<Image>().sprite = null;
-                        slots[i].ClearSlot();
-
-                        InventoryManager.instance.Remove(slots[i].item);
-                    }
-
-                    if (InventoryManager.instance.ItemData[slots[i].item] == 1)
-                    {
-                        slots[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = null;
-                    }
-                }
+                slots[i].AddItem(keyList[i], valueList[i]);
             }
         }
-
-       InventoryManager.instance.GoldCount.text = inventory.GoldAmount.ToString();
+        InventoryManager.instance.GoldCount.text = InventoryManager.instance.GoldAmount.ToString();
     }
 }
