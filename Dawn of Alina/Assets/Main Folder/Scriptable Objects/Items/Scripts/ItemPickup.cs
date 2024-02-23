@@ -12,7 +12,7 @@ public class ItemPickup : MonoBehaviour
     {
         if (ItemCollider.transform.CompareTag(pickupTag))
         { 
-            InventoryManager.instance.AddItem(item);
+            InventoryManager.instance.AddItem(item, 1);
                 Destroy(ItemCollider.gameObject);
         }
     }

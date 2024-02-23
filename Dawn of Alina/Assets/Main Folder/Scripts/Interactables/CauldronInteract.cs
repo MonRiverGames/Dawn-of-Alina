@@ -18,7 +18,7 @@ public class CauldronInteract : Interactable
     {
         if(InventoryManager.instance.ItemData.ContainsKey(itemNeeded) && (InventoryManager.instance.ItemData[itemNeeded] >= 2))
         {
-            InventoryManager.instance.AddItem(itemGiven);
+            InventoryManager.instance.AddItem(itemGiven, 1);
             InventoryManager.instance.DecrementItem(itemNeeded, 2);
             UI.UpdateUI();
         }

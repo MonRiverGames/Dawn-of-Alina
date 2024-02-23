@@ -4,18 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEngine.VFX;
 
 public class InventoryUI : MonoBehaviour
 {
-    [SerializeField] private Transform InventoryParent; // Main Inventory
-    InventoryManager inventory; // Inventory instance
-    [SerializeField] InventorySlot[] slots;
+    [SerializeField] private Transform InventoryParent; // Parent gameobject of all inventory slots
+    [SerializeField] InventorySlot[] slots; // Array of all the inventory slots in inventory 
 
     private void Start() 
     {
         InventoryParent = this.transform.GetChild(5).GetChild(1);
         slots = InventoryParent.GetComponentsInChildren<InventorySlot>();
-        InventoryManager.instance.InventorySpace = slots.Length;
+        InventoryManager.instance.setInventorySpace(slots.Length);
     }
 
     public void EnableRemoveButton() // Enables/Disables remove button on inventoy slot
@@ -37,7 +37,7 @@ public class InventoryUI : MonoBehaviour
     {
         foreach (InventorySlot slot in slots)
         {
-            if (slot.item = item)
+            if (slot.item == item) // if the slot has an item in it
             {
                 return true;
             }
@@ -47,16 +47,26 @@ public class InventoryUI : MonoBehaviour
 
     public void UpdateUI() // actually Adds items to display on inventory screen
     {
-        if (InventoryManager.instance.ItemData.Count > 0)
+        if (InventoryManager.instance.ItemData.Count > 0) // If there are items in the inventory to begin with
         {
             List<Item> keyList = new List<Item>(InventoryManager.instance.ItemData.Keys); // List of the Items
             List<int> valueList = new List<int>(InventoryManager.instance.ItemData.Values); // List of Associated Values
 
-            for (int i = 0; (i < slots.Length) && i < keyList.Count; i++)
+            for (int i = 0; (i < slots.Length) && i < keyList.Count; i++) // Loop through every inventory slot
             {
-                slots[i].AddItem(keyList[i], valueList[i]);
+                if (!slots[i].isFilled && valueList[i] < keyList[i].stackLimit) // if the slot is not filled and does not exceed the stack limit
+                {
+                    slots[i].AddItem(keyList[i]); // add the item to the slot
+                }
+                else if (slots[i].isFilled && (valueList[i] < slots[i].item.stackLimit)) // if the slot is filled and does not exceed the stack limit
+                {
+                    slots[i].AddItem(keyList[i]); // add the item to the slot
+                }
+                else 
+                {
+                    slots[i].ClearSlot(); // make sure the slot remains empty
+                }
             }
         }
-        InventoryManager.instance.GoldCount.text = InventoryManager.instance.GoldAmount.ToString();
     }
 }

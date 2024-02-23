@@ -16287,6 +16287,14 @@ PrefabInstance:
       propertyPath: GoldCount
       value: 
       objectReference: {fileID: 639109114}
+    - target: {fileID: 71677500, guid: 3150510e4c2f45b419ca724b41d70d15, type: 3}
+      propertyPath: <Database>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 5dbd193c97111c248abe54a009edf6a7, type: 2}
+    - target: {fileID: 71677500, guid: 3150510e4c2f45b419ca724b41d70d15, type: 3}
+      propertyPath: <GoldCount>k__BackingField
+      value: 
+      objectReference: {fileID: 639109114}
     - target: {fileID: 6837953841850640803, guid: 3150510e4c2f45b419ca724b41d70d15, type: 3}
       propertyPath: UI
       value: 
@@ -16364,6 +16372,7 @@ PrefabInstance:
       value: Alina
       objectReference: {fileID: 0}
     m_RemovedComponents:
+    - {fileID: 0}
     - {fileID: 5409910650482848479, guid: 3150510e4c2f45b419ca724b41d70d15, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3150510e4c2f45b419ca724b41d70d15, type: 3}
 --- !u!4 &6888475618790579693
@@ -18789,7 +18798,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 639109114, guid: 5de0c6efbc2365a4b917c7faf3ed5af4, type: 3}
       propertyPath: m_text
-      value: 
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1247924817, guid: 5de0c6efbc2365a4b917c7faf3ed5af4, type: 3}
       propertyPath: m_AnchoredPosition.x

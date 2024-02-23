@@ -7,85 +7,79 @@ using Unity.VisualScripting;
 
 public class InventorySlot : MonoBehaviour // Manages the info for each inventory slot
 {
-    public Item item;
-    public InventoryUI UI;
-    public Transform ItemInfo; // Item info panel
-    public string ItemValue;
-    public bool isFilled; // If there is an item present in slot
-    public int AmountInSlot;
+    [SerializeField] public Item item { get; private set; }
+    [SerializeField] private InventoryUI UI;
+    [SerializeField] private Transform ItemInfo; // Item info panel
+    [SerializeField] private string ItemValue;
+    [SerializeField] public bool isFilled {get; private set; } // If there is an item present in slot
+    [SerializeField] public bool isViewing { get; private set; } // If player is looking at slot in inventory
 
     [SerializeField] private ShopInteract shop;
-    [SerializeField] Button SellButton;
-    [SerializeField] Sprite icon;
-    [SerializeField] Button RemoveButton;
-    [SerializeField] bool isViewing; // If player is looking at slot in inventory
+    [SerializeField] Button SellButton; // Sell button for selling items for gold
+    [SerializeField] Sprite icon; // the icon for the item in the slot
+    [SerializeField] Button RemoveButton; // button for removing 1 of an item from a slot
 
-    public void AddItem(Item newItem, int amount) // Adds item to slot
+    public void AddItem(Item newItem) // Adds item to slot
     {
-        AmountInSlot = amount;
         this.item = newItem;
-        icon = item.icon;
-        transform.GetChild(0).gameObject.SetActive(true);
+        this.icon = item.icon;
+        int slotAmount = InventoryManager.instance.ItemData[newItem]; // number of the item in the slot
+        transform.GetChild(0).gameObject.SetActive(true); // enables item icon for slot
         transform.GetChild(0).GetComponent<Image>().sprite = icon;
-        transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = AmountInSlot.ToString();
-        SellButton.onClick.RemoveAllListeners();
-        SellButton.onClick.AddListener(SellItem);
-        isFilled = true;
-        item.inSlot = true;
-        UI.EnableRemoveButton();
-        this.item = newItem;
+        transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = slotAmount.ToString();
+        SellButton.onClick.RemoveAllListeners(); 
+        SellButton.onClick.AddListener(SellItem); // Adds sell button listener
+        item.inSlot = true; // there is item in slot
+        isFilled = true; // slot is filled
+        UI.EnableRemoveButton(); // now displays remove button for slot
 
-        if(AmountInSlot == 1)
+        if(slotAmount == 1)
         {
             transform.GetChild(1).GetComponent<TextMeshProUGUI>().enabled = false; // doesnt Display the amount
         }
 
-        if (AmountInSlot > 1)
+        if (slotAmount > 1)
         {
             transform.GetChild(1).GetComponent<TextMeshProUGUI>().enabled = true; // Displays the amount
         }
-        item = newItem;
     }
 
     public void ClearSlot() // Clears a given slot
     {
+        // Set all inventory slot features to null or disable them
+        item.inSlot = false;
         item = null;
         icon = null;
+        isFilled = false;
         transform.GetChild(0).GetComponent<Image>().sprite = null;
         transform.GetChild(0).gameObject.SetActive(false);
         transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = null;
         transform.GetChild(1).GetComponent<TextMeshProUGUI>().enabled = false;
-        isFilled = false;
+        CloseInfo();
         UI.EnableRemoveButton();
     }
 
-    public void OnRemoveButton()
+    public void OnRemoveButton() // when the remove button of a slot is pressed
     {
-        if (this.item != null)
+        if (this.item != null && InventoryManager.instance.ItemData[this.item] >= 1)
         {
-            this.AmountInSlot--;
-            InventoryManager.instance.DecrementItem(this.item,1);
+            InventoryManager.instance.DecrementItem(this.item, 1);
 
-            if (AmountInSlot == 0)
-            {
-                string prevName = this.item.name;
+            if(!InventoryManager.instance.ItemData.ContainsKey(this.item)) {
                 ClearSlot();
-                Debug.Log("Item: " + prevName + " Amount: 0");
-                UI.UpdateUI();
-                return;
             }
-            UI.UpdateUI();
-            Debug.Log("Item: " + this.item.name + " Amount: " + InventoryManager.instance.ItemData[this.item]);
         }
+
+        UI.UpdateUI(); // update inventory UI
     }
 
     // On mouse enter 
-    public void EnterItem() => isViewing = true;
+    public void EnterItem() => isViewing = true; // is the mouse pointer in the inventory slot?
 
     // On mouse exit
-    public void ExitItem() => isViewing = false;
+    public void ExitItem() => isViewing = false; // did the mouse pointer exit the inventory slot?
 
-    public void DisplayInfo()
+    public void DisplayInfo() // Displays info on the item info panel such as the icon, description, the value of the item, and the sell button 
     {
         if (isViewing && isFilled)
         {
@@ -100,14 +94,16 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
             ItemInfo.GetChild(2).GetComponent<TextMeshProUGUI>().enabled = true;
             ItemInfo.gameObject.SetActive(true);
 
-            if (shop.isShopActive)
+            
+           /*  Unfinished Shop
+             if (shop.isShopActive)
             {
                 ItemInfo.GetChild(4).gameObject.SetActive(true);
             }
             else
             {
                 ItemInfo.GetChild(4).gameObject.SetActive(false);
-            }
+            }*/
         }
 
         else
@@ -121,16 +117,20 @@ public class InventorySlot : MonoBehaviour // Manages the info for each inventor
         }
     }
 
-    public void SellItem()
+    public void CloseInfo() => ItemInfo.gameObject.SetActive(false);
+
+
+    public void SellItem() // When the player presses the sell button for an item
     {
-        if (InventoryManager.instance.ItemData[item] > 0)
+        if (InventoryManager.instance.ItemData[item] > 0) // if the amount of the item > 0
         {
-            InventoryManager.instance.DecrementItem(item,1);
-            InventoryManager.instance.GoldAmount += item.itemValue;
-            UI.UpdateUI();
+            InventoryManager.instance.setGoldAmount(InventoryManager.instance.GoldAmount + item.itemValue); // Add the value of the item to the player's gold
+            OnRemoveButton(); // Remove 1 item from that slot
+            UI.UpdateUI(); // Update Inventory UI
         }
-        else
+        else // No items left
         {
+            InventoryManager.instance.setGoldAmount(InventoryManager.instance.GoldAmount + item.itemValue); // Add the value of the item to the player's gold
             OnRemoveButton();
             ClearSlot();
             UI.UpdateUI();

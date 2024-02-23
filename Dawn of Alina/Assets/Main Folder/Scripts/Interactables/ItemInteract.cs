@@ -4,23 +4,11 @@ using UnityEngine;
 
 public class ItemInteract : Interactable
 {
-    public Item item;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private Item item;
 
     protected override void Interact() // Adds Item to inventory upon interaction/pickup
     {
-        InventoryManager.instance.AddItem(item);
+        InventoryManager.instance.AddItem(item,1);
         Destroy(gameObject);
     }
 }

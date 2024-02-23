@@ -50,8 +50,8 @@ public class ShopItem : MonoBehaviour
     public void BuyItem() // purchases item
     {
         ShopItem slot = this;
-        InventoryManager.instance.AddItem(slot.item);
-        InventoryManager.instance.GoldAmount -= slot.item.itemValue;
+        InventoryManager.instance.AddItem(slot.item, 1);
+        InventoryManager.instance.setGoldAmount(InventoryManager.instance.GoldAmount - slot.item.itemValue);
         UI.UpdateUI();
     }
 }

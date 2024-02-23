@@ -1,32 +1,30 @@
+using Language.Lua;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
-public class SaveData
+public class SaveData // Manages the player's Save Data as a class
 {
-    public string[] itemNames = new string[InventoryManager.instance.ItemData.Count];
-    public int[] itemAmounts = new int[InventoryManager.instance.ItemData.Count];
-    public float playerHealth;
-    public float[] playerPos;
+    public string[] itemNames; // Names of the items in the player inventory
+    public int[] itemAmounts; // Amounts of items in player inventory
+    public float playerHealth; // int for the health of the player at save
+    public float[] playerPos; // xyz position of player at save
    
-    public SaveData ()
+    public SaveData(string[] itemNames, int[] itemAmounts)
     {
-        InventoryManager inventory = InventoryManager.instance;
-        PlayerHealth PlayerData = PlayerHealth.instance;
+        Debug.Log(InventoryManager.instance.ItemData.Count);
+        this.itemNames = itemNames;
+        this.itemAmounts = itemAmounts;
+        PlayerHealth PlayerData = PlayerHealth.instance; // Get Playerhealth singleton
         playerHealth = PlayerData.health;
-        playerPos = new float[3];
+        playerPos = new float[3]; // store the player position as array
         playerPos[0] = PlayerData.Player.transform.position.x;
         playerPos[1] = PlayerData.Player.transform.position.y;
         playerPos[2] = PlayerData.Player.transform.position.z;
 
-        foreach (KeyValuePair<Item, int> pair in inventory.ItemData)
-        {
-            for(int i = 0; i < inventory.ItemData.Count; i++)
-            {
-                itemAmounts[i] = pair.Value;
-                itemNames[i] = pair.Key.Name;
-            }
-        }
+      
+        
     }
 }
